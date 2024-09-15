@@ -84,7 +84,7 @@ func hide_categories() -> void:
 #-------------------------------------------------------------------------------
 
 
-func on_mouse_sensitivity_value_changed(value: float) -> void:
+func on_mouse_sensitivity_value_changed(_value: float) -> void:
 	pass
 
 
@@ -129,7 +129,7 @@ func on_vsync_value_changed(value: bool) -> void:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 
-func on_brightness_value_changed(value: float) -> void:
+func on_brightness_value_changed(_value: float) -> void:
 	pass
 
 

@@ -139,6 +139,9 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 text = "Mouse Sensitivity"
+min_value = 0.5
+max_value = 2.5
+step = 0.01
 
 [node name="Video" type="MarginContainer" parent="SettingsContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
@@ -173,6 +176,9 @@ text = "VSync"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Brightness"
+min_value = 0.5
+max_value = 2.0
+step = 0.01
 
 [node name="MSAA" parent="SettingsContainer/VBoxContainer/HBoxContainer2/Video/VBoxContainer" instance=ExtResource("2_agsgd")]
 unique_name_in_owner = true

@@ -1,4 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8b44mm8i7vnk"]
+[gd_scene load_steps=7 format=3 uid="uid://b8b44mm8i7vnk"]
+
+[ext_resource type="PackedScene" uid="uid://d1lf6yoxj60fr" path="res://features/pause_menu/pause_menu.tscn" id="1_g5xu3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jx0ng"]
+
+[sub_resource type="Sky" id="Sky_qaj1g"]
+sky_material = SubResource("ProceduralSkyMaterial_jx0ng")
+
+[sub_resource type="Environment" id="Environment_r7bqp"]
+background_mode = 2
+sky = SubResource("Sky_qaj1g")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4h361"]
 size = Vector2(20, 20)
@@ -7,6 +23,13 @@ size = Vector2(20, 20)
 
 [node name="Main" type="Node"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r7bqp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.25, -0.433013, 0.5, 0.433013, 0.75, 0, -0.866025, 0.5, 0, 10, 0)
+shadow_enabled = true
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
@@ -14,3 +37,8 @@ mesh = SubResource("PlaneMesh_4h361")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_eybi7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.796773, -0.303946, 0.522274, 0, 0.864292, 0.50299, -0.604279, -0.400768, 0.688644, 4.70003, 6.36784, 6.56666)
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_g5xu3")]
