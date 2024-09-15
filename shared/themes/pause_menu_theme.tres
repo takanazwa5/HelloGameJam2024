@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://yej3k4kftdt2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khvd3"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+skew = Vector2(0.1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4fid"]
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+skew = Vector2(0.1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvqts"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+skew = Vector2(0.1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydc2a"]
+bg_color = Color(0.215902, 0.215902, 0.215902, 1)
+skew = Vector2(0.1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5pna"]
+draw_center = false
+skew = Vector2(0.1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw6ql"]
+bg_color = Color(0.136826, 0.136826, 0.136826, 1)
+skew = Vector2(0.1, 0)
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_khvd3")
+Button/styles/hover = SubResource("StyleBoxFlat_d4fid")
+Button/styles/normal = SubResource("StyleBoxFlat_dvqts")
+Button/styles/pressed = SubResource("StyleBoxFlat_ydc2a")
+Panel/styles/panel = SubResource("StyleBoxFlat_g5pna")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_nw6ql")

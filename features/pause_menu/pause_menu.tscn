@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1lf6yoxj60fr"]
+
+[ext_resource type="Script" path="res://features/pause_menu/pause_menu.gd" id="1_vp24n"]
+[ext_resource type="Theme" uid="uid://yej3k4kftdt2" path="res://shared/themes/pause_menu_theme.tres" id="1_xemk2"]
+[ext_resource type="Shader" path="res://features/pause_menu/blur.gdshader" id="2_y20xq"]
+[ext_resource type="PackedScene" uid="uid://chb8t2a27ragh" path="res://shared/settings_menu/settings_menu.tscn" id="3_y65as"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0th2"]
+shader = ExtResource("2_y20xq")
+shader_parameter/amount = 1.5
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xemk2")
+script = ExtResource("1_vp24n")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_d0th2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPauseContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -50.5
+offset_right = 127.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPauseContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="MainPauseContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="MainPauseContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Settings"
+
+[node name="DebugPanelButton" type="Button" parent="MainPauseContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "DebugPanel: ON"
+
+[node name="QuitButton" type="Button" parent="MainPauseContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Quit"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_y65as")]
+unique_name_in_owner = true
+layout_mode = 1

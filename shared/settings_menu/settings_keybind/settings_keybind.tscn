@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://extdqw1hd74l"]
+
+[ext_resource type="Script" path="res://shared/settings_menu/settings_keybind/settings_keybind.gd" id="1_tr80u"]
+
+[node name="SettingsKeybind" type="PanelContainer"]
+script = ExtResource("1_tr80u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+
+[node name="Action" type="Label" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Label"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Event" type="Button" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action"
+
+[node name="SecondaryEvent" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SecondaryAction"
