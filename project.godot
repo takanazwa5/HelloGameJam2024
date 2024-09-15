@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="HelloGameJam2024"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true
