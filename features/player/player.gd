@@ -20,7 +20,7 @@ func update_gravity(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 
-func update_input(delta: float) -> void:
+func update_input(_delta: float) -> void:
 	var input_dir : Vector2 = Input.get_vector("walk_up", "walk_down", "walk_right", "walk_left")
 
 	if input_dir:
