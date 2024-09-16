@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dvaywv81063xd"]
+
+[ext_resource type="Texture2D" uid="uid://dpiq1dnrkccw1" path="res://scenes/house/textures/Kitchen/Radio/Radio1_Base_Color.PNG" id="1_8jxht"]
+[ext_resource type="Texture2D" uid="uid://dmaf5wxlb0jj6" path="res://scenes/house/textures/Kitchen/Radio/Radio1_AmbientOcclusion.PNG" id="2_kemxq"]
+[ext_resource type="Texture2D" uid="uid://c67ysbf73224w" path="res://scenes/house/textures/Kitchen/Radio/Radio1_Metallic.PNG" id="3_rlmx7"]
+[ext_resource type="Texture2D" uid="uid://b1w237jh6kddi" path="res://scenes/house/textures/Kitchen/Radio/Radio1_Normal.PNG" id="4_7ughp"]
+[ext_resource type="Texture2D" uid="uid://dr7kkjsu2wycp" path="res://scenes/house/textures/Kitchen/Radio/Radio1_Roughness.PNG" id="5_qry7o"]
+
+[resource]
+albedo_texture = ExtResource("1_8jxht")
+metallic = 1.0
+metallic_texture = ExtResource("3_rlmx7")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_qry7o")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_7ughp")
+ao_enabled = true
+ao_texture = ExtResource("2_kemxq")
+ao_texture_channel = 4

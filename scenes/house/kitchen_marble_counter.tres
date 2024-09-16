@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cdjlytt8faipo"]
+
+[ext_resource type="Texture2D" uid="uid://chf8g7s33g6dk" path="res://scenes/house/textures/Kitchen/MarbleCounter/Wall_Paint_Base_color.png" id="1_04eno"]
+[ext_resource type="Texture2D" uid="uid://clpgxisv10xv4" path="res://scenes/house/textures/Kitchen/MarbleCounter/Wall_Paint_Roughness.png" id="2_lfrgk"]
+
+[resource]
+albedo_texture = ExtResource("1_04eno")
+roughness_texture = ExtResource("2_lfrgk")
+roughness_texture_channel = 4

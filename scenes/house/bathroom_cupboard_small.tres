@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://pn7jvvqle4ie"]
+
+[ext_resource type="Texture2D" uid="uid://qidna88om6jt" path="res://scenes/house/textures/Bathroom/Cupboard_Small/Cupboard_Small_Base_Color.PNG" id="1_qdfn0"]
+[ext_resource type="Texture2D" uid="uid://d3impnp1y1mos" path="res://scenes/house/textures/Bathroom/Cupboard_Small/Cupboard_Small_AmbientOcclusion.PNG" id="2_ndwcq"]
+[ext_resource type="Texture2D" uid="uid://th80u13orbfg" path="res://scenes/house/textures/Bathroom/Cupboard_Small/Cupboard_Small_Metallic.PNG" id="3_vphnl"]
+[ext_resource type="Texture2D" uid="uid://djuwlu3wk2oxd" path="res://scenes/house/textures/Bathroom/Cupboard_Small/Cupboard_Small_Normal.PNG" id="4_ek52f"]
+[ext_resource type="Texture2D" uid="uid://uriaebd2n3gl" path="res://scenes/house/textures/Bathroom/Cupboard_Small/Cupboard_Small_Roughness.PNG" id="5_3t6qp"]
+
+[resource]
+albedo_texture = ExtResource("1_qdfn0")
+metallic = 1.0
+metallic_texture = ExtResource("3_vphnl")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_3t6qp")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_ek52f")
+ao_enabled = true
+ao_texture = ExtResource("2_ndwcq")
+ao_texture_channel = 4

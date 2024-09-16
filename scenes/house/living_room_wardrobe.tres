@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dhh6pp3shf3fu"]
+
+[ext_resource type="Texture2D" uid="uid://b2nxjt0gntp3q" path="res://scenes/house/textures/Living Room/Wardrobe/Wardrobe_Dining_Base_Color.PNG" id="1_bwyqb"]
+[ext_resource type="Texture2D" uid="uid://d1hnbfhxjfk07" path="res://scenes/house/textures/Living Room/Wardrobe/Wardrobe_Dining_AmbientOcclusion.PNG" id="2_3haj2"]
+[ext_resource type="Texture2D" uid="uid://c8ntfqbdac7h2" path="res://scenes/house/textures/Living Room/Wardrobe/Wardrobe_Dining_Metallic.PNG" id="3_wpfu8"]
+[ext_resource type="Texture2D" uid="uid://3ad37omb1x11" path="res://scenes/house/textures/Living Room/Wardrobe/Wardrobe_Dining_Normal_DirectX.PNG" id="4_u0sk1"]
+[ext_resource type="Texture2D" uid="uid://d3q64bsirnirj" path="res://scenes/house/textures/Living Room/Wardrobe/Wardrobe_Dining_Roughness.PNG" id="5_dici5"]
+
+[resource]
+albedo_texture = ExtResource("1_bwyqb")
+metallic = 1.0
+metallic_texture = ExtResource("3_wpfu8")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_dici5")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_u0sk1")
+ao_enabled = true
+ao_texture = ExtResource("2_3haj2")
+ao_texture_channel = 4
