@@ -6,7 +6,13 @@ const ACCELERATION : float = 1.0
 const DECELERATION : float = 0.25
 
 
+var input_dir : Vector2 = Vector2.ZERO
 var speed : float = SPEED
+var click_pos : Vector2 = Vector2.ZERO
+
+
+func _ready() -> void:
+	SignalBus.ground_click.connect(goto)
 
 
 func _physics_process(delta: float) -> void:
@@ -21,12 +27,21 @@ func update_gravity(delta: float) -> void:
 
 
 func update_input(_delta: float) -> void:
-	var input_dir : Vector2 = Input.get_vector("walk_up", "walk_down", "walk_right", "walk_left")
+	#input_dir = Input.get_vector("walk_up", "walk_down", "walk_right", "walk_left").normalized()
 
 	if input_dir:
 		velocity.x = lerpf(velocity.x, input_dir.x * speed, ACCELERATION)
 		velocity.z = lerpf(velocity.z, input_dir.y * speed, ACCELERATION)
+		if Vector2(global_position.x, global_position.z) == click_pos:
+			input_dir = Vector2.ZERO
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
+
+
+func goto(pos: Vector3) -> void:
+	click_pos = Vector2(pos.x, pos.z)
+	var direction : Vector2 = Vector2(pos.x, pos.z) - Vector2(global_position.x, global_position.z)
+	direction = direction.normalized()
+	input_dir = direction
