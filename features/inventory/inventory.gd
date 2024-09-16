@@ -1,7 +1,7 @@
 class_name Inventory extends Control
 
 
-const INVENTORY_SLOT : PackedScene = preload("res://features/inventory/inventory_slot.tscn")
+const INVENTORY_SLOT : PackedScene = preload("res://features/inventory/inventory_slot/inventory_slot.tscn")
 
 
 func _ready() -> void:

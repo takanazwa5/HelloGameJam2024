@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhe5qvafnmc7s"]
 
 [ext_resource type="Script" path="res://shared/classes/item.gd" id="1_830wk"]
-[ext_resource type="Resource" uid="uid://ckcw7eo0gn7c" path="res://features/items/test_item.tres" id="2_ehb51"]
+[ext_resource type="Resource" uid="uid://ckcw7eo0gn7c" path="res://features/items/test_item/test_item.tres" id="2_ehb51"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de2kx"]
 albedo_color = Color(1, 0.41, 0.41, 1)
