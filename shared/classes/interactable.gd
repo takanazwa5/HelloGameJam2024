@@ -14,22 +14,28 @@ func _ready() -> void:
 
 
 func _mouse_enter() -> void:
+	if not Global.item_in_hand == null:
+		return
+
 	if not cam.is_current():
 		Input.set_custom_mouse_cursor(CURSOR_MAGNIFYING_GLASS, Input.CURSOR_ARROW, Vector2(16, 16))
 
 
 func _mouse_exit() -> void:
+	if not Global.item_in_hand == null:
+		return
+
 	Input.set_custom_mouse_cursor(null)
 
 
 func _input_event(camera: Node, event: InputEvent, \
 _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 
-	if camera == cam:
-		return
-
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
+
+		if camera == cam:
+			return
 
 		SignalBus.activate_camera.emit(cam)
