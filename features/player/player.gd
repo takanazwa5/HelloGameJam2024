@@ -12,7 +12,7 @@ var click_pos : Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	SignalBus.ground_click.connect(goto)
+	SignalBus.ground_click.connect(on_ground_click)
 
 
 func _physics_process(delta: float) -> void:
@@ -32,16 +32,18 @@ func update_input(_delta: float) -> void:
 	if input_dir:
 		velocity.x = lerpf(velocity.x, input_dir.x * speed, ACCELERATION)
 		velocity.z = lerpf(velocity.z, input_dir.y * speed, ACCELERATION)
-		if Vector2(global_position.x, global_position.z) == click_pos:
+		var pos : Vector2 = Vector2(global_position.x, global_position.z)
+		var distance_to_click : float = pos.distance_to(click_pos)
+		if distance_to_click < 0.01:
 			input_dir = Vector2.ZERO
+
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
 
 
-func goto(pos: Vector3) -> void:
+func on_ground_click(pos: Vector3) -> void:
 	click_pos = Vector2(pos.x, pos.z)
-	var direction : Vector2 = Vector2(pos.x, pos.z) - Vector2(global_position.x, global_position.z)
-	direction = direction.normalized()
-	input_dir = direction
+	var direction : Vector3 = pos - global_position
+	input_dir = Vector2(direction.x, direction.z).normalized()
