@@ -5,6 +5,7 @@ class_name Item extends Interactable
 
 
 func _ready() -> void:
+	super()
 	assert(item_res is ItemRes, "Item Resource not assigned for %s" % get_path())
 
 
