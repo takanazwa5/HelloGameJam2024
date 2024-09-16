@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyopbd2rh2lgr"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f854h"]
+size = Vector2(64, 64)
+
+[node name="InventorySlot" type="PanelContainer"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_f854h")
