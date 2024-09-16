@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8b44mm8i7vnk"]
+[gd_scene load_steps=9 format=3 uid="uid://b8b44mm8i7vnk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_8g3y5"]
 [ext_resource type="PackedScene" uid="uid://d1lf6yoxj60fr" path="res://features/pause_menu/pause_menu.tscn" id="2_g3ph6"]
 [ext_resource type="PackedScene" uid="uid://wuaq2nrc6uhr" path="res://scenes/environment.tscn" id="3_uwybm"]
 [ext_resource type="PackedScene" uid="uid://dinlvdvxepfsj" path="res://features/player/player.tscn" id="4_e8gcv"]
+[ext_resource type="PackedScene" uid="uid://cf42hl00jn6v1" path="res://features/inventory/inventory.tscn" id="5_bjakt"]
 
 [sub_resource type="Animation" id="Animation_6b3go"]
 resource_name = "BlackFadeIn"
@@ -93,3 +94,15 @@ offset_bottom = -100.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 22
 text = "BACK"
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Inventory" parent="UI" instance=ExtResource("5_bjakt")]
+unique_name_in_owner = true

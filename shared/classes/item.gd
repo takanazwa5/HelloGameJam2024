@@ -1,11 +1,15 @@
-class_name Item extends Interactable
+class_name Item extends CollisionObject3D
+
+
+const CURSOR_HAND : Texture2D = preload("res://shared/icons/hand_icon.png")
 
 
 @export var item_res : ItemRes
+@export var cam : Camera3D
 
 
 func _ready() -> void:
-	super()
+	assert(cam is Camera3D, "Camera not assigned for %s" % get_path())
 	assert(item_res is ItemRes, "Item Resource not assigned for %s" % get_path())
 
 
@@ -33,4 +37,4 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 		if not camera == cam:
 			return
 
-		SignalBus.item_picked_up.emit(self)
+		Global.inventory.add_item(self)

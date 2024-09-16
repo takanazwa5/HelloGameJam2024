@@ -5,7 +5,7 @@ const INVENTORY_SLOT : PackedScene = preload("res://features/inventory/inventory
 
 
 func _ready() -> void:
-	SignalBus.item_picked_up.connect(add_item)
+	Global.inventory = self
 
 
 func add_item(item: Item) -> void:

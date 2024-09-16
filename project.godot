@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://autoloads/global.gd"
-SignalBus="*res://autoloads/signal_bus.gd"
 DebugConsole="*res://autoloads/debug_console/debug_console.tscn"
 DebugPanel="*res://autoloads/debug_panel/debug_panel.tscn"
 

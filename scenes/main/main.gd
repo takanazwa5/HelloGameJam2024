@@ -2,8 +2,10 @@ class_name Main extends Node
 
 
 func _ready() -> void:
-	SignalBus.activate_camera.connect(change_camera)
-	%BackButton.pressed.connect(change_camera.bind(%MainCamera))
+	Global.main = self
+	Global.main_camera = %MainCamera
+
+	%BackButton.pressed.connect(on_back_button_pressed)
 
 
 func change_camera(camera: Camera3D) -> void:
@@ -15,11 +17,16 @@ func change_camera(camera: Camera3D) -> void:
 
 	if camera == %MainCamera:
 		%BackButton.hide()
-		SignalBus.enable_player_movement.emit()
+		Global.player.show()
 	else:
 		%BackButton.show()
-		SignalBus.disable_player_movement.emit()
+		Global.player.hide()
 
 	%Animations.play_backwards("BlackFadeIn")
 	await %Animations.animation_finished
 	%Black.hide()
+
+
+func on_back_button_pressed() -> void:
+	change_camera(%MainCamera)
+	Global.player.inspecting = false

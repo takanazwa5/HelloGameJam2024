@@ -12,4 +12,9 @@ event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
 
-		SignalBus.ground_click.emit(event_position)
+		if Global.player.inspecting:
+			return
+
+		Global.player.move_to_position(event_position)
+		Global.player.moving_to_inspectable = false
+		Global.player.freeroaming = true

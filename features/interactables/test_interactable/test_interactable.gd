@@ -1,4 +1,4 @@
-class_name TestInteractable extends InteractableWithItem
+class_name TestInteractable extends Interactable
 
 
 func correct_item_used() -> void:

@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dinlvdvxepfsj"]
+[gd_scene load_steps=4 format=3 uid="uid://dinlvdvxepfsj"]
 
 [ext_resource type="Script" path="res://features/player/player.gd" id="1_t26w5"]
-[ext_resource type="PackedScene" uid="uid://cf42hl00jn6v1" path="res://features/inventory/inventory.tscn" id="2_tb4ik"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtgrg"]
 radius = 0.3
@@ -22,14 +21,3 @@ mesh = SubResource("CapsuleMesh_mtgrg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gwh3g")
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="Inventory" parent="UI" instance=ExtResource("2_tb4ik")]
