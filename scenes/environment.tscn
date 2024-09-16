@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wuaq2nrc6uhr"]
+[gd_scene load_steps=11 format=3 uid="uid://wuaq2nrc6uhr"]
 
 [ext_resource type="Script" path="res://scenes/environment.gd" id="1_cw8vh"]
+[ext_resource type="Script" path="res://shared/classes/interactable.gd" id="2_ucsxk"]
+[ext_resource type="PackedScene" uid="uid://bhe5qvafnmc7s" path="res://features/items/test_item.tscn" id="2_y2o2n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jx0ng"]
 
@@ -20,6 +22,11 @@ glow_enabled = true
 size = Vector2(20, 20)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_eybi7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_32hpv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dhvp1"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [node name="Environment" type="Node3D"]
 script = ExtResource("1_cw8vh")
@@ -61,3 +68,26 @@ size = Vector3(0.1, 2.5, 6)
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0, 1.25, 5)
 use_collision = true
 size = Vector3(0.1, 2.5, 6)
+
+[node name="TestBox" type="StaticBody3D" parent="." node_paths=PackedStringArray("cam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61984, 0.5, -4.44266)
+script = ExtResource("2_ucsxk")
+cam = NodePath("../Cameras/TestCamera")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestBox"]
+mesh = SubResource("BoxMesh_32hpv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBox"]
+shape = SubResource("ConvexPolygonShape3D_dhvp1")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="TestItem" parent="Items" node_paths=PackedStringArray("cam") instance=ExtResource("2_y2o2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562271, 1.05, -4.40467)
+cam = NodePath("../../Cameras/TestCamera")
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="TestCamera" type="Camera3D" parent="Cameras"]
+unique_name_in_owner = true
+transform = Transform3D(0.987136, -0.0775119, 0.139835, 0, 0.87462, 0.48481, -0.159881, -0.478573, 0.863369, -0.293, 1.465, -3.33)

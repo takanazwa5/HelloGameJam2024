@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf42hl00jn6v1"]
+
+[ext_resource type="Script" path="res://features/inventory/inventory.gd" id="1_jymlu"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jymlu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 356.0
+offset_bottom = 84.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Slots" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://ckcw7eo0gn7c"]
+
+[ext_resource type="Script" path="res://shared/classes/item_res.gd" id="1_how5w"]
+[ext_resource type="Texture2D" uid="uid://2lvvjdmf75qe" path="res://features/items/test_item_thumbnail.png" id="2_dq1b5"]
+
+[resource]
+script = ExtResource("1_how5w")
+display_name = "TestItem"
+thumbnail = ExtResource("2_dq1b5")

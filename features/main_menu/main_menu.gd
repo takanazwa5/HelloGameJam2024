@@ -1,7 +1,7 @@
 class_name MainMenu extends Control
 
 
-const MAIN : PackedScene = preload("res://scenes/main.tscn")
+const MAIN : PackedScene = preload("res://scenes/main/main.tscn")
 
 
 func _ready() -> void:

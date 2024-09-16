@@ -9,10 +9,13 @@ const DECELERATION : float = 0.25
 var input_dir : Vector2 = Vector2.ZERO
 var speed : float = SPEED
 var click_pos : Vector2 = Vector2.ZERO
+var movement_disabled : bool = false
 
 
 func _ready() -> void:
 	SignalBus.ground_click.connect(on_ground_click)
+	SignalBus.disable_player_movement.connect(set.bind("movement_disabled", true))
+	SignalBus.enable_player_movement.connect(set.bind("movement_disabled", false))
 
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +47,9 @@ func update_input(_delta: float) -> void:
 
 
 func on_ground_click(pos: Vector3) -> void:
+	if movement_disabled:
+		return
+
 	click_pos = Vector2(pos.x, pos.z)
 	var direction : Vector3 = pos - global_position
 	input_dir = Vector2(direction.x, direction.z).normalized()

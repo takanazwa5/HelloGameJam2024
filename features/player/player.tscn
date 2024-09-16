@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dinlvdvxepfsj"]
 
 [ext_resource type="Script" path="res://features/player/player.gd" id="1_t26w5"]
-[ext_resource type="PackedScene" uid="uid://dyopbd2rh2lgr" path="res://features/player/inventory_slot.tscn" id="2_4pjsy"]
+[ext_resource type="PackedScene" uid="uid://cf42hl00jn6v1" path="res://features/inventory/inventory.tscn" id="2_tb4ik"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtgrg"]
 radius = 0.3
@@ -32,29 +32,4 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-layout_mode = 1
-offset_right = 200.0
-offset_bottom = 64.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
-layout_mode = 2
-
-[node name="InventorySlot" parent="UI/MarginContainer/HBoxContainer" instance=ExtResource("2_4pjsy")]
-layout_mode = 2
-
-[node name="InventorySlot2" parent="UI/MarginContainer/HBoxContainer" instance=ExtResource("2_4pjsy")]
-layout_mode = 2
-
-[node name="InventorySlot3" parent="UI/MarginContainer/HBoxContainer" instance=ExtResource("2_4pjsy")]
-layout_mode = 2
-
-[node name="InventorySlot4" parent="UI/MarginContainer/HBoxContainer" instance=ExtResource("2_4pjsy")]
-layout_mode = 2
-
-[node name="InventorySlot5" parent="UI/MarginContainer/HBoxContainer" instance=ExtResource("2_4pjsy")]
-layout_mode = 2
+[node name="Inventory" parent="UI" instance=ExtResource("2_tb4ik")]
