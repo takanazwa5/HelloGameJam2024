@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ujth7nmf0hdv" path="res://scenes/house/textures/Bathroom/Bathtub/Bathtub_Base_Color.PNG" id="1_ghlya"]
 [ext_resource type="Texture2D" uid="uid://by1s55tjuai6v" path="res://scenes/house/textures/Bathroom/Bathtub/Bathtub_AmbientOcclusion.PNG" id="2_d0jm6"]
-[ext_resource type="Texture2D" uid="uid://d20ix47h1t35d" path="res://scenes/house/textures/Bathroom/Bathtub/Bathtub_Metallic.PNG" id="3_wqehh"]
+[ext_resource type="Texture2D" uid="uid://kel16v0j5pso" path="res://scenes/house/textures/Bathroom/Bathtub/Bathtub_Metallic.PNG" id="3_wqehh"]
 [ext_resource type="Texture2D" uid="uid://wd2hetugvjw3" path="res://scenes/house/textures/Bathroom/Bathtub/Bathtub_Normal.PNG" id="4_oed11"]
 [ext_resource type="Texture2D" uid="uid://7xw6ogurhi6k" path="res://scenes/house/textures/Bathroom/Bathtub/Bathtub_Roughness.PNG" id="5_j7fcr"]
 
