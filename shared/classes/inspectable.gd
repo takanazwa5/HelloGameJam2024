@@ -24,6 +24,8 @@ func _ready() -> void:
 	interaction_area.mouse_entered.connect(on_interaction_area_mouse_entered)
 	interaction_area.mouse_exited.connect(on_interaction_area_mouse_exited)
 
+	Global.cupboard_shelves_camera = cam
+
 
 func on_interaction_area_mouse_entered() -> void:
 	if not Global.item_in_hand == null or Global.player.inspecting:
@@ -50,10 +52,7 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 			return
 
 		if Global.player in detection_area.get_overlapping_bodies():
-			Global.player.inspecting = true
-			Global.player.input_dir = Vector2.ZERO
-			Global.main.change_camera(cam)
-			Global.player.freeroaming = false
+			inspect()
 			return
 
 		Global.player.move_to_position(marker.global_position)
@@ -63,7 +62,14 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 
 func on_detection_area_body_entered(body: Node3D) -> void:
 	if body is Player and Global.player.moving_to_inspectable:
-		Global.player.moving_to_inspectable = false
-		Global.player.inspecting = true
-		Global.player.input_dir = Vector2.ZERO
-		Global.main.change_camera(cam)
+		inspect()
+
+
+func inspect() -> void:
+	Global.player.inspecting = true
+	Global.player.freeroaming = false
+	Global.player.moving_to_inspectable = false
+	Global.player.input_dir = Vector2.ZERO
+	Global.main.change_camera(cam)
+	interaction_area.input_ray_pickable = false
+	Global.current_interaction_area = interaction_area

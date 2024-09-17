@@ -21,11 +21,20 @@ func change_camera(camera: Camera3D) -> void:
 	elif %BathroomCamera.is_current() and camera == %MainCamera:
 		Global.player.global_position = %LivingRoomSpawnPoint.global_position
 
+	elif Global.fridge_camera.is_current():
+		Global.fridge.reset_doors()
+
+	elif Global.cupboard_shelves_camera.is_current():
+		for shelf : CupboardShelves in Global.cupboard_shelves:
+			shelf.position = shelf.original_position
+			shelf.open = false
+
 	camera.make_current()
 
 	if camera == %MainCamera:
 		%BackButton.hide()
 		Global.player.show()
+		Global.current_interaction_area.input_ray_pickable = true
 	elif not camera == %BathroomCamera:
 		%BackButton.show()
 		Global.player.hide()
