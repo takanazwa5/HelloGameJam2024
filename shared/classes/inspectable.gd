@@ -5,31 +5,41 @@ const CURSOR_MAGNIFYING_GLASS : Texture2D = preload("res://shared/icons/magnifyi
 
 
 @export var cam : Camera3D
-@export var area : Area3D
+@export var detection_area : Area3D
+@export var interaction_area : Area3D
+@export var marker : Marker3D
 
 
 func _ready() -> void:
 	assert(cam is Camera3D, "Camera not assigned for %s" % get_path())
-	assert(area is Area3D, "Area not assigned for %s" % get_path())
+	assert(detection_area is Area3D, "Detection Area not assigned for %s" % get_path())
+	assert(interaction_area is Area3D, "Interaction Area not assigned for %s" % get_path())
+	assert(marker is Marker3D, "Marker not assigned for %s" % get_path())
 
-	area.body_entered.connect(on_area_body_entered)
+	input_ray_pickable = false
+	detection_area.input_ray_pickable = false
+	interaction_area.input_ray_pickable = true
+	detection_area.body_entered.connect(on_detection_area_body_entered)
+	interaction_area.input_event.connect(on_interaction_area_input_event)
+	interaction_area.mouse_entered.connect(on_interaction_area_mouse_entered)
+	interaction_area.mouse_exited.connect(on_interaction_area_mouse_exited)
 
 
-func _mouse_enter() -> void:
+func on_interaction_area_mouse_entered() -> void:
 	if not Global.item_in_hand == null or Global.player.inspecting:
 		return
 
 	Input.set_custom_mouse_cursor(CURSOR_MAGNIFYING_GLASS, Input.CURSOR_ARROW, Vector2(16, 16))
 
 
-func _mouse_exit() -> void:
+func on_interaction_area_mouse_exited() -> void:
 	if not Global.item_in_hand == null:
 		return
 
 	Input.set_custom_mouse_cursor(null)
 
 
-func _input_event(_camera: Node, event: InputEvent, \
+func on_interaction_area_input_event(_camera: Node, event: InputEvent, \
 _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 
 	if event is InputEventMouseButton \
@@ -39,19 +49,19 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 		if Global.player.inspecting:
 			return
 
-		if Global.player in area.get_overlapping_bodies():
+		if Global.player in detection_area.get_overlapping_bodies():
 			Global.player.inspecting = true
 			Global.player.input_dir = Vector2.ZERO
 			Global.main.change_camera(cam)
 			Global.player.freeroaming = false
 			return
 
-		Global.player.move_to_position(global_position)
+		Global.player.move_to_position(marker.global_position)
 		Global.player.moving_to_inspectable = true
 		Global.player.freeroaming = false
 
 
-func on_area_body_entered(body: Node3D) -> void:
+func on_detection_area_body_entered(body: Node3D) -> void:
 	if body is Player and Global.player.moving_to_inspectable:
 		Global.player.moving_to_inspectable = false
 		Global.player.inspecting = true
