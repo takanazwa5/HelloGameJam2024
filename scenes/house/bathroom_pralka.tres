@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://ctkl3ttepix1c"]
+
+[ext_resource type="Texture2D" uid="uid://obfx288f0bq1" path="res://scenes/house/textures/Bathroom/Washing Machine/WashingMachine_Base_color.png" id="1_5xq6s"]
+[ext_resource type="Texture2D" uid="uid://5pt4pfopuenx" path="res://scenes/house/textures/Bathroom/Washing Machine/WashingMachine_Mixed_AO.png" id="2_jx8h3"]
+[ext_resource type="Texture2D" uid="uid://x8p8b3nnagxh" path="res://scenes/house/textures/Bathroom/Washing Machine/WashingMachine_Normal.png" id="3_lc0tg"]
+[ext_resource type="Texture2D" uid="uid://cnnpyrnxp65d1" path="res://scenes/house/textures/Bathroom/Washing Machine/WashingMachine_Roughness.png" id="4_y3dpt"]
+
+[resource]
+albedo_texture = ExtResource("1_5xq6s")
+roughness_texture = ExtResource("4_y3dpt")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_lc0tg")
+ao_enabled = true
+ao_texture = ExtResource("2_jx8h3")
+ao_texture_channel = 4

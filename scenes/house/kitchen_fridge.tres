@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://djm72vjfnh4u"]
+
+[ext_resource type="Texture2D" uid="uid://joi0efa7kc24" path="res://scenes/house/textures/Kitchen/Fridge/Fridge_Base_color.png" id="1_q6prp"]
+[ext_resource type="Texture2D" uid="uid://c2nrb6udf4ctr" path="res://scenes/house/textures/Kitchen/Fridge/Fridge_Mixed_AO.png" id="2_3bfgd"]
+[ext_resource type="Texture2D" uid="uid://ccrr86bdwd0pr" path="res://scenes/house/textures/Kitchen/Fridge/Fridge_Metallic.png" id="3_qlvwl"]
+[ext_resource type="Texture2D" uid="uid://c6qxpoxjb1esk" path="res://scenes/house/textures/Kitchen/Fridge/Fridge_Roughness.png" id="5_q3x52"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_q6prp")
+metallic = 1.0
+metallic_texture = ExtResource("3_qlvwl")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_q3x52")
+roughness_texture_channel = 4
+ao_enabled = true
+ao_texture = ExtResource("2_3bfgd")
+ao_texture_channel = 4

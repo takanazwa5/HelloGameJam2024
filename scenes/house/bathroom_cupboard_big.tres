@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dhjjktc0o7otx"]
+
+[ext_resource type="Texture2D" uid="uid://d2w6h0h4240ug" path="res://scenes/house/textures/Bathroom/Cupboard_Big/Cupboard_Big_Base_Color.PNG" id="1_15wij"]
+[ext_resource type="Texture2D" uid="uid://crrmrri383gmo" path="res://scenes/house/textures/Bathroom/Cupboard_Big/Cupboard_Big_AmbientOcclusion.PNG" id="2_1asu3"]
+[ext_resource type="Texture2D" uid="uid://cn10e407d0d36" path="res://scenes/house/textures/Bathroom/Cupboard_Big/Cupboard_Big_Metallic.PNG" id="3_shflo"]
+[ext_resource type="Texture2D" uid="uid://babw1s6qepuaw" path="res://scenes/house/textures/Bathroom/Cupboard_Big/Cupboard_Big_Normal.PNG" id="4_pakw0"]
+[ext_resource type="Texture2D" uid="uid://dutvinxk88dj3" path="res://scenes/house/textures/Bathroom/Cupboard_Big/Cupboard_Big_Roughness.PNG" id="5_s5q15"]
+
+[resource]
+albedo_texture = ExtResource("1_15wij")
+metallic = 1.0
+metallic_texture = ExtResource("3_shflo")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_s5q15")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_pakw0")
+ao_enabled = true
+ao_texture = ExtResource("2_1asu3")
+ao_texture_channel = 4

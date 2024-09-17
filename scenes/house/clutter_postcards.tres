@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bwcjmgb0hgk3v"]
+
+[ext_resource type="Texture2D" uid="uid://xqpguse30tpr" path="res://scenes/house/textures/clutter/postcards/postcard_set_01_diff_1k.jpg" id="1_biea8"]
+[ext_resource type="Texture2D" uid="uid://c60ttaspl44e6" path="res://scenes/house/textures/clutter/postcards/postcard_set_01_nor_gl.png" id="2_6mfkp"]
+[ext_resource type="Texture2D" uid="uid://bnleeuo62rg4o" path="res://scenes/house/textures/clutter/postcards/postcard_set_01_rough_1k.jpg" id="3_culsb"]
+
+[resource]
+albedo_texture = ExtResource("1_biea8")
+roughness_texture = ExtResource("3_culsb")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_6mfkp")

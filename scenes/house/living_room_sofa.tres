@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://pclrmqqxpn"]
+
+[ext_resource type="Texture2D" uid="uid://bv4ytv2wdqchx" path="res://scenes/house/textures/Living Room/Sofa/Sofa_Base_Color.PNG" id="1_qmmpb"]
+[ext_resource type="Texture2D" uid="uid://bajiw8ui0emgu" path="res://scenes/house/textures/Living Room/Sofa/Sofa_AmbientOcclusion.PNG" id="2_2kek7"]
+[ext_resource type="Texture2D" uid="uid://c3dry7p5m5vvn" path="res://scenes/house/textures/Living Room/Sofa/Sofa_Normal.png" id="3_no0ip"]
+[ext_resource type="Texture2D" uid="uid://0ab5gsrswb2e" path="res://scenes/house/textures/Living Room/Sofa/Sofa_Roughness.PNG" id="4_bs74m"]
+
+[resource]
+albedo_texture = ExtResource("1_qmmpb")
+roughness_texture = ExtResource("4_bs74m")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_no0ip")
+ao_enabled = true
+ao_texture = ExtResource("2_2kek7")
+ao_texture_channel = 4

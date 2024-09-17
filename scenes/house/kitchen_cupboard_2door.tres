@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dmmgh0ol8h8we"]
+
+[ext_resource type="Texture2D" uid="uid://ba35k2k703j0q" path="res://scenes/house/textures/Kitchen/Cupboard_2Door/Cupboard1_Base_Color.PNG" id="1_kymgy"]
+[ext_resource type="Texture2D" uid="uid://ocbfs5ean5eu" path="res://scenes/house/textures/Kitchen/Cupboard_2Door/Cupboard1_AmbientOcclusion.PNG" id="2_2lp44"]
+[ext_resource type="Texture2D" uid="uid://cc0wjsl3rgc3c" path="res://scenes/house/textures/Kitchen/Cupboard_2Door/Cupboard1_Normal_OpenGL.png" id="4_x64rw"]
+[ext_resource type="Texture2D" uid="uid://cn1542bxjwoh" path="res://scenes/house/textures/Kitchen/Cupboard_2Door/Cupboard1_Roughness.PNG" id="5_og431"]
+
+[resource]
+albedo_texture = ExtResource("1_kymgy")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_og431")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_x64rw")
+ao_enabled = true
+ao_texture = ExtResource("2_2lp44")
+ao_texture_channel = 4

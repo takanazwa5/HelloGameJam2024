@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://baxvj8q6jlnrx"]
+
+[ext_resource type="Texture2D" uid="uid://ckekejts6mra0" path="res://scenes/house/textures/Bathroom/BathtubBattery/Battery_Base_Color.PNG" id="1_j2fsx"]
+[ext_resource type="Texture2D" uid="uid://bmwul8edc1qs4" path="res://scenes/house/textures/Bathroom/BathtubBattery/Battery_AmbientOcclusion.PNG" id="2_ohw5l"]
+[ext_resource type="Texture2D" uid="uid://bf5swtrhc2oju" path="res://scenes/house/textures/Bathroom/BathtubBattery/Battery_Metallic.PNG" id="3_cf7hx"]
+[ext_resource type="Texture2D" uid="uid://707f12gr4bbk" path="res://scenes/house/textures/Bathroom/BathtubBattery/Battery_Normal.PNG" id="4_vk8b6"]
+[ext_resource type="Texture2D" uid="uid://3nfw7kuprnep" path="res://scenes/house/textures/Bathroom/BathtubBattery/Battery_Roughness.PNG" id="5_p54go"]
+
+[resource]
+albedo_texture = ExtResource("1_j2fsx")
+metallic = 1.0
+metallic_texture = ExtResource("3_cf7hx")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_p54go")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_vk8b6")
+ao_enabled = true
+ao_texture = ExtResource("2_ohw5l")
+ao_texture_channel = 4
