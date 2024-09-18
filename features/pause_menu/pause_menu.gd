@@ -7,6 +7,7 @@ var previous_mouse_mode : int
 func _ready() -> void:
 	%ResumeButton.pressed.connect(toggle_pause)
 	%SettingsButton.pressed.connect(on_settings_button_pressed)
+	%UnstuckButton.pressed.connect(on_unstuck_button_pressed)
 	%DebugPanelButton.pressed.connect(on_debug_panel_button_pressed)
 	%QuitButton.pressed.connect(get_tree().quit)
 
@@ -44,6 +45,16 @@ func toggle_pause() -> void:
 func on_settings_button_pressed() -> void:
 	%MainPauseContainer.hide()
 	%SettingsMenu.show()
+
+
+func on_unstuck_button_pressed() -> void:
+	if Global.main_camera.is_current():
+		Global.player.global_position = Global.living_room_unstuck_spawn_point
+		Global.player.input_dir = Vector2.ZERO
+
+	elif Global.bathroom_camera.is_current():
+		Global.player.global_position = Global.bathroom_unstuck_spawn_point
+		Global.player.input_dir = Vector2.ZERO
 
 
 func on_debug_panel_button_pressed() -> void:

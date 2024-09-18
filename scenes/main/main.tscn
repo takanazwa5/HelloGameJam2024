@@ -113,8 +113,15 @@ unique_name_in_owner = true
 
 [node name="LivingRoomSpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.887579, 0.9, -1.14685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.888, 0, -1.147)
 
 [node name="BathroomSpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92673, 0.9, -1.14685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.927, 0, -1.147)
+
+[node name="LivingRoomUnstuckSpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="BathroomUnstuckSpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44241, 0, -1.30052)

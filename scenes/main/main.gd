@@ -5,6 +5,8 @@ func _ready() -> void:
 	Global.main = self
 	Global.main_camera = %MainCamera
 	Global.bathroom_camera = %BathroomCamera
+	Global.living_room_unstuck_spawn_point = %LivingRoomUnstuckSpawnPoint.global_position
+	Global.bathroom_unstuck_spawn_point = %BathroomUnstuckSpawnPoint.global_position
 
 	%BackButton.pressed.connect(on_back_button_pressed)
 

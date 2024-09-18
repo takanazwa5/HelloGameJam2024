@@ -223,4 +223,11 @@ func check_connections() -> void:
 
 
 func apply_default_values() -> void:
-	pass
+	%MouseSensitivity.value = 1.0
+	%WindowMode.value = 0
+	%FramerateLimit.value = 5
+	%VSync.value = true
+	%Brightness.value = 1.0
+	%MSAA.value = 3
+	%FSR.value = 0
+	%MasterVolume.value = 100

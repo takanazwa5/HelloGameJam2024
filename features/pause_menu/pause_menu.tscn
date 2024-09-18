@@ -32,7 +32,6 @@ grow_vertical = 2
 
 [node name="MainPauseContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,6 +60,12 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 text = "Settings"
+
+[node name="UnstuckButton" type="Button" parent="MainPauseContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Unstuck"
 
 [node name="DebugPanelButton" type="Button" parent="MainPauseContainer/VBoxContainer"]
 unique_name_in_owner = true

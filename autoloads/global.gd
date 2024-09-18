@@ -27,6 +27,9 @@ var last_camera : Camera3D
 var sink_door : SinkDoor
 var sink_camera : Camera3D
 
+var living_room_unstuck_spawn_point : Vector3
+var bathroom_unstuck_spawn_point : Vector3
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
