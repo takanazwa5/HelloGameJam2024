@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://binvwlw76wvuv"]
+[gd_scene load_steps=19 format=4 uid="uid://binvwlw76wvuv"]
 
 [ext_resource type="Material" uid="uid://dhh6pp3shf3fu" path="res://scenes/house/living_room_wardrobe.tres" id="1_r0nxd"]
 [ext_resource type="Shader" path="res://shared/shaders/glass.gdshader" id="2_7s3xv"]
+[ext_resource type="Texture2D" uid="uid://dls6vlnsh5l8n" path="res://scenes/house/textures/WaterStains_08.png" id="3_33d14"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="3_v2e6s"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bw1wb"]
@@ -145,6 +146,7 @@ render_priority = 0
 shader = ExtResource("2_7s3xv")
 shader_parameter/albedo = Color(1, 1, 1, 0.266667)
 shader_parameter/roughness = 0.15
+shader_parameter/roughness_texture = ExtResource("3_33d14")
 shader_parameter/normal_strength = 1.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
 
