@@ -11,10 +11,18 @@ var click_pos : Vector2 = Vector2.ZERO
 var inspecting : bool = false
 var moving_to_inspectable : bool = false
 var freeroaming : bool = false
+var movement_disabled : bool = true
+
+
+@onready var animations : AnimationPlayer = $Character.get_node("%Animations")
 
 
 func _ready() -> void:
 	Global.player = self
+
+	animations.animation_finished.connect(on_animation_finished)
+
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func _physics_process(delta: float) -> void:
@@ -50,6 +58,17 @@ func update_input(_delta: float) -> void:
 
 
 func move_to_position(pos: Vector3) -> void:
+	if movement_disabled:
+		return
+
 	click_pos = Vector2(pos.x, pos.z)
 	var direction : Vector3 = pos - global_position
 	input_dir = Vector2(direction.x, direction.z).normalized()
+
+
+func on_animation_finished(anim_name: StringName) -> void:
+	if not anim_name == &"Waking up":
+		return
+
+	movement_disabled = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
