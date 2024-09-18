@@ -44,10 +44,6 @@ folder_colors={
 "res://shared/": "pink"
 }
 
-[filesystem]
-
-import/blender/enabled=false
-
 [global_group]
 
 Reset=""
