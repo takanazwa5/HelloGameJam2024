@@ -5,7 +5,7 @@ class_name CupboardShelves extends Node3D
 @export var collision_object : CollisionObject3D
 
 
-var original_position : Vector3 = Vector3.ZERO
+var original_position : Vector3 = position
 var open : bool = false
 
 
@@ -13,13 +13,12 @@ func _ready() -> void:
 	assert(cam is Camera3D, "Camera not assigned to %s" % get_path())
 	assert(collision_object is CollisionObject3D, "Static body not assigned to %s" % get_path())
 
-	original_position = position
-
 	collision_object.mouse_entered.connect(on_drawer_mouse_entered)
 	collision_object.mouse_exited.connect(on_drawer_mouse_exited)
 	collision_object.input_event.connect(on_drawer_input_event)
 
 	Global.cupboard_shelves.append(self)
+	Global.cupboard_shelves_camera = cam
 
 
 func on_drawer_mouse_entered() -> void:
@@ -50,3 +49,8 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 		else:
 			open = false
 			tween.tween_property(self, "position", original_position, 0.5)
+
+
+func reset() -> void:
+	position = original_position
+	open = false

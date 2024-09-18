@@ -23,6 +23,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func _process(_delta: float) -> void:
+	DebugPanel.add_property("global_pos", global_position, 0)
+
+
 func update_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta

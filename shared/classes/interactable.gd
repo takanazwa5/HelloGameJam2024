@@ -8,6 +8,20 @@ class_name Interactable extends CollisionObject3D
 func _ready() -> void:
 	assert(cam is Camera3D, "Camera not assigned for %s" % get_path())
 
+	collision_layer = 0b10
+
+
+func _mouse_enter() -> void:
+	if cam.is_current() and Global.item_in_hand == null:
+		Input.set_custom_mouse_cursor(Item.CURSOR_HAND, Input.CURSOR_ARROW, Vector2(16, 16))
+
+
+func _mouse_exit() -> void:
+	if Global.item_in_hand is ItemRes:
+		return
+
+	Input.set_custom_mouse_cursor(null)
+
 
 func _input_event(camera: Node, event: InputEvent, \
 _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -22,15 +36,12 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 		if required_item is ItemRes and Global.item_in_hand == required_item:
 			Global.item_slot.queue_free()
 			Global.item_in_hand = null
+			Global.item_slot = null
 			Input.set_custom_mouse_cursor(null)
-			correct_item_used()
-
-		elif required_item == null:
 			interact()
 
-
-func correct_item_used() -> void:
-	print_debug("correct_item_used not overriden")
+		elif required_item == null and Global.item_in_hand == null:
+			interact()
 
 
 func interact() -> void:

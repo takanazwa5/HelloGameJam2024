@@ -24,8 +24,6 @@ func _ready() -> void:
 	interaction_area.mouse_entered.connect(on_interaction_area_mouse_entered)
 	interaction_area.mouse_exited.connect(on_interaction_area_mouse_exited)
 
-	Global.cupboard_shelves_camera = cam
-
 
 func on_interaction_area_mouse_entered() -> void:
 	if not Global.item_in_hand == null or Global.player.inspecting:

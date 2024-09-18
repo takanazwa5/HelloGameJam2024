@@ -12,6 +12,9 @@ func _ready() -> void:
 
 
 func on_texture_button_pressed() -> void:
+	if Global.main_camera.is_current() or Global.bathroom_camera.is_current():
+		return
+
 	Input.set_custom_mouse_cursor(item_res.icon, Input.CURSOR_ARROW, Vector2(16, 16))
 	$TextureButton.texture_normal = null
 	Global.item_in_hand = item_res

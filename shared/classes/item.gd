@@ -27,6 +27,7 @@ func _mouse_exit() -> void:
 
 	Input.set_custom_mouse_cursor(null)
 
+
 func _input_event(camera: Node, event: InputEvent, \
 _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 
@@ -35,6 +36,9 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	and event.pressed:
 
 		if not camera == cam:
+			return
+
+		if Global.item_in_hand is ItemRes:
 			return
 
 		Global.inventory.add_item(self)
