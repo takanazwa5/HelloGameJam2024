@@ -121,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41283, 1.46934, -2.31885)
 mesh = SubResource("ArrayMesh_xbw6p")
 skeleton = NodePath("")
 
-[node name="CupboardSmolL" type="Area3D" parent="." node_paths=PackedStringArray("cam")]
+[node name="CupboardSmolL" type="Area3D" parent="." node_paths=PackedStringArray("cam") groups=["Reset"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2121, 0.12203, 0.08517)
 script = ExtResource("2_w2qbj")
 cam = NodePath("../StaticBody3D/Camera3D")
@@ -133,7 +133,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CupboardSmolL"]
 shape = SubResource("ConvexPolygonShape3D_1duh7")
 
-[node name="CupboardSmolR" type="Area3D" parent="." node_paths=PackedStringArray("cam")]
+[node name="CupboardSmolR" type="Area3D" parent="." node_paths=PackedStringArray("cam") groups=["Reset"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2121, 0.12203, 0.08517)
 script = ExtResource("3_otbs6")
 cam = NodePath("../StaticBody3D/Camera3D")

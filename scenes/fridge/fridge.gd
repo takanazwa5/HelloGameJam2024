@@ -60,7 +60,7 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 			%DoorUpAnimations.play("DoorUpOpen")
 
 
-func reset_doors() -> void:
+func reset() -> void:
 	door_down_open = false
 	door_up_open = false
 	%DoorDownAnimations.play("RESET")

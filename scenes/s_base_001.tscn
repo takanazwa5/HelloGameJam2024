@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://cv43va8h6fbyj"]
+[gd_scene load_steps=16 format=4 uid="uid://cv43va8h6fbyj"]
 
 [ext_resource type="Material" uid="uid://so75btffvjxg" path="res://scenes/house/living_room_small_cabinet.tres" id="1_q2bb0"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_5y06u"]
 [ext_resource type="Material" uid="uid://c2ksacwd0kxnw" path="res://scenes/house/living_room_lamp.tres" id="3_dxfic"]
 [ext_resource type="Material" uid="uid://chks71ip7fjqc" path="res://scenes/house/living_room_lamp_SSS.tres" id="4_8omfy"]
 [ext_resource type="Script" path="res://scenes/lamp.gd" id="5_0ka2r"]
-[ext_resource type="Resource" uid="uid://ckcw7eo0gn7c" path="res://features/items/test_item/test_item.tres" id="6_ew67b"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1hs6i"]
 _surfaces = [{
@@ -166,7 +165,6 @@ skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="Lamp_A_tris" node_paths=PackedStringArray("cam")]
 script = ExtResource("5_0ka2r")
-required_item = ExtResource("6_ew67b")
 cam = NodePath("../../Nightstand/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp_A_tris/Area3D"]

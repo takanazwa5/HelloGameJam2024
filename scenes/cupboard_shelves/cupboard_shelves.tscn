@@ -164,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73683, 0.786134, 1.74627)
 mesh = SubResource("ArrayMesh_rljbv")
 skeleton = NodePath("")
 
-[node name="Drawer_1" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object")]
+[node name="Drawer_1" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object") groups=["Reset"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00543e-05, 0.056911, 0.0847801)
 mesh = SubResource("ArrayMesh_fgo5i")
 skeleton = NodePath("")
@@ -185,7 +185,7 @@ shape = SubResource("BoxShape3D_1awvk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0998535, -0.0811768)
 shape = SubResource("BoxShape3D_ls4vk")
 
-[node name="Drawer_2" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object")]
+[node name="Drawer_2" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object") groups=["Reset"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00543e-05, -0.191192, 0.0847801)
 mesh = SubResource("ArrayMesh_87xgj")
 skeleton = NodePath("")
@@ -206,7 +206,7 @@ shape = SubResource("BoxShape3D_fkvwd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0998535, -0.0811768)
 shape = SubResource("BoxShape3D_ls4vk")
 
-[node name="Drawer_3" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object")]
+[node name="Drawer_3" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object") groups=["Reset"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.439295, 0.0847801)
 mesh = SubResource("ArrayMesh_8x338")
 skeleton = NodePath("")

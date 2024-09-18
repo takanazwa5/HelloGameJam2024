@@ -44,6 +44,10 @@ folder_colors={
 "res://shared/": "pink"
 }
 
+[global_group]
+
+Reset=""
+
 [importer_defaults]
 
 scene={

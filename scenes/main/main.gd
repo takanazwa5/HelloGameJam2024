@@ -20,23 +20,14 @@ func change_camera(camera: Camera3D) -> void:
 	await %Animations.animation_finished
 	Input.set_custom_mouse_cursor(null)
 
-	print(Global.cupboard_shelves_camera)
 	if %MainCamera.is_current() and camera == %BathroomCamera:
 		Global.player.global_position = %BathroomSpawnPoint.global_position
 
 	elif %BathroomCamera.is_current() and camera == %MainCamera:
 		Global.player.global_position = %LivingRoomSpawnPoint.global_position
 
-	elif Global.fridge_camera.is_current():
-		Global.fridge.reset_doors()
-
-	elif Global.cupboard_smol_camera.is_current():
-		Global.cupboard_smol_l.reset()
-		Global.cupboard_smol_r.reset()
-
-	elif Global.cupboard_shelves_camera.is_current():
-		for shelf : CupboardShelves in Global.cupboard_shelves:
-			shelf.reset()
+	for node : Node in get_tree().get_nodes_in_group("Reset"):
+		node.reset()
 
 	camera.make_current()
 

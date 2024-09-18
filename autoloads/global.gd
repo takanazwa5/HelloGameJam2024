@@ -24,6 +24,9 @@ var cupboard_smol_camera : Camera3D
 
 var last_camera : Camera3D
 
+var sink_door : SinkDoor
+var sink_camera : Camera3D
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
