@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp4aiabpe5hpg"]
+
+[ext_resource type="PackedScene" uid="uid://byff1x8c7fk3" path="res://scenes/house/temp/Character.glb" id="1_kypqa"]
+
+[node name="Character" instance=ExtResource("1_kypqa")]
+
+[node name="tea_set_01_cup_small_01" parent="rig/Skeleton3D" index="0"]
+transform = Transform3D(-0.227549, -0.180644, 0.402351, 0.321492, 0.242004, 0.290472, -0.301929, 0.393826, 0.00606048, 0.381376, 0.514585, 0.073444)
+
+[node name="tea_set_01_cup_small_01_001" parent="rig/Skeleton3D" index="1"]
+transform = Transform3D(-0.227549, -0.180644, 0.402351, 0.321492, 0.242004, 0.290472, -0.301929, 0.393826, 0.00606048, 0.381376, 0.514585, 0.073444)
+
+[node name="Eyes" parent="rig/Skeleton3D" index="2"]
+transform = Transform3D(1, 9.42466e-11, -8.00355e-10, -9.39746e-11, 1, 1.10634e-08, 8.29459e-10, -1.10634e-08, 1, -1.80918e-09, 0.919734, 0.0503041)
+
+[node name="Eyes_Transparent" parent="rig/Skeleton3D" index="3"]
+transform = Transform3D(1, 9.42466e-11, -8.00355e-10, -9.39746e-11, 1, 1.10634e-08, 8.29459e-10, -1.10634e-08, 1, -0.0176887, 0.919734, 0.0507455)
+
+[node name="Hair_001" parent="rig/Skeleton3D" index="4"]
+transform = Transform3D(1, 9.42466e-11, -8.00355e-10, -9.39746e-11, 1, 1.10634e-08, 8.29459e-10, -1.10634e-08, 1, -4.2067e-10, 0.938232, 0.0127927)
