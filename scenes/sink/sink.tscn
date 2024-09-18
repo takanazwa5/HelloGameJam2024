@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c0gwbiyygmsto" path="res://scenes/house/kitchen_cupboard_sink.tres" id="1_bq62o"]
 [ext_resource type="Material" uid="uid://dmmgh0ol8h8we" path="res://scenes/house/kitchen_cupboard_2door.tres" id="2_2cb5g"]
-[ext_resource type="Script" path="res://scenes/sink_door.gd" id="2_dc5hb"]
+[ext_resource type="Script" path="res://scenes/sink/sink_door.gd" id="2_dc5hb"]
 [ext_resource type="Material" uid="uid://bik25jv2s863x" path="res://scenes/house/kitchen_bins_n_sink.tres" id="3_2lc8h"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="4_cskai"]
 [ext_resource type="Material" uid="uid://dja5m8ps30dti" path="res://scenes/house/kitchen_battery.tres" id="4_rmrtq"]

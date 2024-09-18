@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_5y06u"]
 [ext_resource type="Material" uid="uid://c2ksacwd0kxnw" path="res://scenes/house/living_room_lamp.tres" id="3_dxfic"]
 [ext_resource type="Material" uid="uid://chks71ip7fjqc" path="res://scenes/house/living_room_lamp_SSS.tres" id="4_8omfy"]
-[ext_resource type="Script" path="res://scenes/lamp.gd" id="5_0ka2r"]
+[ext_resource type="Script" path="res://scenes/nightstand/lamp.gd" id="5_0ka2r"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1hs6i"]
 _surfaces = [{

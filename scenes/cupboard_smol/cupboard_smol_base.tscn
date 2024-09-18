@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://pn7jvvqle4ie" path="res://scenes/house/bathroom_cupboard_small.tres" id="1_ukww4"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_5h0el"]
-[ext_resource type="Script" path="res://scenes/cupboard_smol_l.gd" id="2_w2qbj"]
-[ext_resource type="Script" path="res://scenes/cupboard_smol_r.gd" id="3_otbs6"]
+[ext_resource type="Script" path="res://scenes/cupboard_smol/cupboard_smol_l.gd" id="2_w2qbj"]
+[ext_resource type="Script" path="res://scenes/cupboard_smol/cupboard_smol_r.gd" id="3_otbs6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bmpts"]
 _surfaces = [{
