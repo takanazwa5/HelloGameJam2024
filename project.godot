@@ -47,6 +47,9 @@ folder_colors={
 [global_group]
 
 Reset=""
+[filesystem]
+
+import/blender/enabled=false
 
 [importer_defaults]
 
