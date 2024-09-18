@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://clwtkbfyqmpk2"]
+
+[ext_resource type="Texture2D" uid="uid://wtvfh24vgu7g" path="res://scenes/character/textures/skin/Body_Base_Color.PNG" id="1_8dfl5"]
+[ext_resource type="Texture2D" uid="uid://ca7dhtyesue5" path="res://scenes/character/textures/skin/Body_Normal.png" id="2_c2422"]
+[ext_resource type="Texture2D" uid="uid://ce3evnsj8f4dg" path="res://scenes/character/textures/skin/Body_Roughness.png" id="3_wn4nv"]
+[ext_resource type="Texture2D" uid="uid://bvp68374fufvk" path="res://scenes/character/textures/skin/Skin_Scattering.png" id="4_4dk3j"]
+
+[resource]
+albedo_texture = ExtResource("1_8dfl5")
+roughness_texture = ExtResource("3_wn4nv")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_c2422")
+subsurf_scatter_enabled = true
+subsurf_scatter_skin_mode = true
+subsurf_scatter_texture = ExtResource("4_4dk3j")
