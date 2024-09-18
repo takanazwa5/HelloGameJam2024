@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://binvwlw76wvuv"]
+[gd_scene load_steps=18 format=4 uid="uid://binvwlw76wvuv"]
 
 [ext_resource type="Material" uid="uid://dhh6pp3shf3fu" path="res://scenes/house/living_room_wardrobe.tres" id="1_r0nxd"]
-[ext_resource type="Material" uid="uid://bbm36e3ewwueh" path="res://scenes/house/glass.tres" id="2_q4kvv"]
+[ext_resource type="Shader" path="res://shared/shaders/glass.gdshader" id="2_7s3xv"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="3_v2e6s"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bw1wb"]
@@ -140,6 +140,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g86dw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmrcv"]
+render_priority = 0
+shader = ExtResource("2_7s3xv")
+shader_parameter/albedo = Color(1, 1, 1, 0.266667)
+shader_parameter/roughness = 0.15
+shader_parameter/normal_strength = 1.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_vyvwa"]
 _surfaces = [{
 "aabb": AABB(0.00627872, -0.450238, 0.0920129, 0.0112256, 0.94827, 0.281156),
@@ -164,7 +172,7 @@ _surfaces = [{
 "index_count": 312,
 "index_data": PackedByteArray("YQB2ABwAYgANAB8ABQAPAA0ABgATAA8ACABqABEABwARABMAaABpABIAZwBoABAAaQBgAA4AYABhAAwAJwB6AHkAdwB7ACYAdAAgABYAJQB4AG0AfAAiACEAcwAeACMAfwBBAFIASQAyAIAAMgA2AIEANgA9AIIAOQCIAIQAPQA5AIMAhgBDAEQAhQCMAEMAhwBEAEIAfgBCAEEAlwCYAFkAmQCVAFMAjwBOAJIAigCWAFUATwBeAJoAXwBIAJEAUQAaAAIANABjAAQAWwAuABsANQBkAGMAOABmAGUATQAoAHAANwBlAGQAXQAqACkAOwAJAAoAOgAKAG4APAALAAkAMAADAAsAbwBxAEcAVwAsAC8ASwAYACsAiwABAC0APgAVAGYAawBsAEAAMwAEABkAMQACAAMAYQAcAAwAYgAfAHIABQANAGIABgAPAAUACAARAAcABwATAAYAaAASABAAZwAQABQAaQAOABIAYAAMAA4AJwB5ACQAdwAmAB0AdAAWAAAAJQBtABcAfAAhAHUAcwAjAH0AfwBSAJQASQCAAJAAMgCBAIAANgCCAIEAOQCEAIMAPQCDAIIAhgBEAIcAhQBDAIYAhwBCAH4AfgBBAH8AlwBZAFQAmQBTAFgAjwCSAI0AigBVAIkATwCaAJMAXwCRAJsAUQACADEANAAEADMAWwAbAFAANQBjADQAOABlADcATQBwAI4ANwBkADUAXQApAEwAOwAKADoAOgBuAEUAPAAJADsAMAALADwAbwBHAEYAVwAvAFoASwArAFwAiwAtAFYAPgBmADgAawBAAD8AMwAZAEoAMQADADAA"),
 "lods": [0.0256948, PackedByteArray("YAB2ABwAYAAcAAwAYAAMAA4AYAAOABIAYAASABAAYAAQABQABQANAB8ABQAfAHIABQAPAA0ABQATAA8ABQARABMABQBqABEAJwB6AHkAJwB5ACQAdwB7ACYAdwAmAB0AdAAgABYAdAAWAAAAJQB4AG0AJQBtABcAfAAiACEAfAAhAHUAcwAeACMAcwAjAH0AfgBBAFIAfgBSAJQAfgBCAEEAfgBEAEIAfgBDAEQAfgCMAEMASQAyAIEASQCBAJAAMgA2AIEANgA9AIEAPQA5AIEAOQCIAIEAlwCYAFkAlwBZAFQAmQCVAFMAmQBTAFgAjwBOAJIAjwCSAI0AigCWAFUAigBVAIkATwBeAJoATwCaAJMAXwBIAJEAXwCRAJsAUQAaAAMAUQADADAAMAADAJwAMACcAEUAWwAuABsAWwAbAFAATQAoAHAATQBwAI4AXQAqACkAXQApAEwAbwBxAEcAbwBHAEYAVwAsAC8AVwAvAFoASwAYACsASwArAFwAiwABAC0AiwAtAFYAPgAVAGMAPgBjADQANABjABkANAAZAEoAawBsAEAAawBAAD8A")],
-"material": ExtResource("2_q4kvv"),
+"material": SubResource("ShaderMaterial_bmrcv"),
 "name": "Window Glass",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
