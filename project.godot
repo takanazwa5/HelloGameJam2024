@@ -44,12 +44,13 @@ folder_colors={
 "res://shared/": "pink"
 }
 
-[global_group]
-
-Reset=""
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+Reset=""
 
 [importer_defaults]
 
