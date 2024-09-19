@@ -82,7 +82,5 @@ func on_animation_finished(anim_name: StringName) -> void:
 	if not anim_name == &"Waking up":
 		return
 
-	movement_disabled = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	animation_tree.active = true
 	animations.active = false

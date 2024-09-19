@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8b44mm8i7vnk"]
+[gd_scene load_steps=10 format=3 uid="uid://b8b44mm8i7vnk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_8g3y5"]
 [ext_resource type="PackedScene" uid="uid://d1lf6yoxj60fr" path="res://features/pause_menu/pause_menu.tscn" id="2_g3ph6"]
@@ -43,6 +43,11 @@ _data = {
 "BlackFadeIn": SubResource("Animation_6b3go"),
 "RESET": SubResource("Animation_ehfau")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_ox7j1"]
+font_size = 22
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8g3y5")
@@ -125,3 +130,26 @@ unique_name_in_owner = true
 [node name="BathroomUnstuckSpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44241, 0, -1.30052)
+
+[node name="Dialog" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -123.0
+offset_right = 20.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sample text"
+label_settings = SubResource("LabelSettings_ox7j1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogTimer" type="Timer" parent="Dialog"]
+unique_name_in_owner = true
+one_shot = true

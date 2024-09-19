@@ -30,6 +30,13 @@ var sink_camera : Camera3D
 var living_room_unstuck_spawn_point : Vector3
 var bathroom_unstuck_spawn_point : Vector3
 
+var nightstand : Nightstand
+
+var dialog : Label
+var dialog_timer : Timer
+
+var dining_wardrobe : DiningWardrobe
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -63,9 +70,34 @@ func _input(_event: InputEvent) -> void:
 			item_slot = null
 			return
 
+		if result.collider is OldClock and Global.dining_wardrobe.first_inspection:
+			if not item_in_hand == result.collider.required_item:
+				return
+			Input.set_custom_mouse_cursor(null)
+			item_slot.get_node("TextureButton").texture_normal = item_slot.item_res.thumbnail
+			item_in_hand = null
+			item_slot = null
+			show_dialog("Still not working. I'll hang on to the bateries, they may come in handy.", 8.0)
+			result.collider.can_interact = false
+			await dialog_timer.timeout
+			Global.main.get_node("%BackButton").show()
+			Global.dining_wardrobe.first_inspection = false
+			return
+
 
 func _process(_delta: float) -> void:
 	DebugPanel.add_property("item_in_hand", item_in_hand, 1)
 	DebugPanel.add_property("item_slot", item_slot, 2)
 	DebugPanel.add_property("last_camera", last_camera, 3)
 	DebugPanel.add_property("current_camera", get_viewport().get_camera_3d(), 4)
+
+
+func show_dialog(text: String, time: float) -> void:
+	dialog_timer.wait_time = time
+	dialog.text = text
+	dialog.show()
+	dialog_timer.start()
+
+
+func on_dialog_timer_timeout() -> void:
+	dialog.hide()

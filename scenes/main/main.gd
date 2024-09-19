@@ -7,8 +7,11 @@ func _ready() -> void:
 	Global.bathroom_camera = %BathroomCamera
 	Global.living_room_unstuck_spawn_point = %LivingRoomUnstuckSpawnPoint.global_position
 	Global.bathroom_unstuck_spawn_point = %BathroomUnstuckSpawnPoint.global_position
+	Global.dialog = %Dialog
+	Global.dialog_timer = %DialogTimer
 
 	%BackButton.pressed.connect(on_back_button_pressed)
+	%DialogTimer.timeout.connect(Global.on_dialog_timer_timeout)
 
 
 func change_camera(camera: Camera3D) -> void:
@@ -37,8 +40,10 @@ func change_camera(camera: Camera3D) -> void:
 		Global.player.show()
 
 	else:
-		%BackButton.show()
 		Global.player.hide()
+
+		if not Global.nightstand.first_inspection and not Global.dining_wardrobe.first_inspection:
+			%BackButton.show()
 
 	%Animations.play_backwards("BlackFadeIn")
 	await %Animations.animation_finished
@@ -49,3 +54,11 @@ func on_back_button_pressed() -> void:
 	%BackButton.hide()
 	change_camera(Global.last_camera)
 	Global.player.inspecting = false
+
+	if Global.nightstand.first_inspection:
+		Global.nightstand.first_inspection = false
+		await %Animations.animation_finished
+		Global.show_dialog("I must have fallen asleep while working...", 5.0)
+		await %DialogTimer.timeout
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Global.player.movement_disabled = false
