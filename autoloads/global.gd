@@ -37,6 +37,13 @@ var dialog_timer : Timer
 
 var dining_wardrobe : DiningWardrobe
 
+var bathroom_door : Door
+
+var tv : TV
+var tv_cam : Camera3D
+
+var remote : Remote
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -77,7 +84,7 @@ func _input(_event: InputEvent) -> void:
 			item_slot.get_node("TextureButton").texture_normal = item_slot.item_res.thumbnail
 			item_in_hand = null
 			item_slot = null
-			show_dialog("Still not working. I'll hang on to the bateries, they may come in handy.", 8.0)
+			show_dialog("Still not working. I'll hang on to the bateries, they may come in handy.", 5.0)
 			result.collider.can_interact = false
 			await dialog_timer.timeout
 			Global.main.get_node("%BackButton").show()

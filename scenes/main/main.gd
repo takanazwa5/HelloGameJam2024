@@ -31,6 +31,9 @@ func change_camera(camera: Camera3D) -> void:
 	elif %BathroomCamera.is_current() and camera == %MainCamera:
 		Global.player.global_position = %LivingRoomSpawnPoint.global_position
 
+	elif Global.tv_cam.is_current():
+		Global.remote.global_transform = Global.remote.original_transform
+
 	for node : Node in get_tree().get_nodes_in_group("Reset"):
 		node.reset()
 
@@ -42,7 +45,8 @@ func change_camera(camera: Camera3D) -> void:
 	else:
 		Global.player.hide()
 
-		if not Global.nightstand.first_inspection and not Global.dining_wardrobe.first_inspection:
+		if (not Global.nightstand.first_inspection and not Global.dining_wardrobe.first_inspection) \
+		or get_viewport().get_camera_3d() not in [Global.nightstand.cam, Global.dining_wardrobe.cam]:
 			%BackButton.show()
 
 	%Animations.play_backwards("BlackFadeIn")
@@ -62,3 +66,5 @@ func on_back_button_pressed() -> void:
 		await %DialogTimer.timeout
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Global.player.movement_disabled = false
+		for node : Node in get_tree().get_nodes_in_group("Inspectables"):
+			node.interaction_area.input_ray_pickable = true
