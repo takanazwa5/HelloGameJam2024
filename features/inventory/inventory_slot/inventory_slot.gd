@@ -1,6 +1,9 @@
 class_name InventorySlot extends PanelContainer
 
 
+const REMOTE_ITEM : ItemRes = preload("res://features/items/remote_item/remote_item_res.tres")
+
+
 var item_res : ItemRes:
 	set(val):
 		item_res = val
@@ -24,6 +27,9 @@ func on_mouse_exited() -> void:
 
 func on_texture_button_pressed() -> void:
 	if Global.main_camera.is_current() or Global.bathroom_camera.is_current():
+		return
+
+	if item_res.type == ItemRes.Type.NON_CLICKABLE:
 		return
 
 	Input.set_custom_mouse_cursor(item_res.icon, Input.CURSOR_ARROW, Vector2(16, 16))

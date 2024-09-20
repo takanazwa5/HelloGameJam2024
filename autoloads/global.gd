@@ -46,6 +46,8 @@ var remote : Remote
 
 var item_name_label : Label
 
+var has_remote : bool = false
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://cls1vn5gspkr0"]
+[gd_scene load_steps=20 format=4 uid="uid://cls1vn5gspkr0"]
 
 [ext_resource type="Material" uid="uid://d1afwowex1q06" path="res://scenes/house/kitchen_cupboard_shelves.tres" id="1_j7bea"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_yfxrw"]
 [ext_resource type="Script" path="res://scenes/cupboard_shelves/cupboard_shelves.gd" id="3_awj6f"]
+[ext_resource type="PackedScene" uid="uid://dgx0gv4ocalru" path="res://features/items/remote_item/remote_item.tscn" id="3_fhcrv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_femca"]
 _surfaces = [{
@@ -184,6 +185,10 @@ shape = SubResource("BoxShape3D_1awvk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer_1/Blocker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0998535, -0.0811768)
 shape = SubResource("BoxShape3D_ls4vk")
+
+[node name="Remote" parent="Drawer_1" node_paths=PackedStringArray("cam") instance=ExtResource("3_fhcrv")]
+transform = Transform3D(0.860093, 0, -0.510138, 0, 1, 0, 0.510138, 0, 0.860093, 0, -0.0697461, -0.0381813)
+cam = NodePath("../../StaticBody3D/Camera3D")
 
 [node name="Drawer_2" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object") groups=["Reset"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00543e-05, -0.191192, 0.0847801)

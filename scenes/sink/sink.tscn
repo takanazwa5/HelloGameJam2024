@@ -275,6 +275,11 @@ shape = SubResource("ConvexPolygonShape3D_j2ndl")
 mesh = SubResource("ArrayMesh_cs65j")
 skeleton = NodePath("")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SinkDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121855, 0.280202, 0.135872)
+light_energy = 0.25
+omni_range = 2.0
+
 [node name="Door_1_1_LP_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3914, -0.45781, -0.22734)
 mesh = SubResource("ArrayMesh_lqw4k")

@@ -51,7 +51,7 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 				Input.set_custom_mouse_cursor(null)
 				interact()
 
-			else:
+			elif not Global.item_in_hand == null:
 				Global.show_dialog("I can't use it here.", 2.0)
 				Input.set_custom_mouse_cursor(null)
 				Global.item_slot.get_node("TextureButton").texture_normal = Global.item_slot.item_res.thumbnail

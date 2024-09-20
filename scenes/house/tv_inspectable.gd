@@ -10,5 +10,6 @@ func _ready() -> void:
 func inspect() -> void:
 	super()
 
-	%Remote.position = Vector3(8.918, 1.46, -1.295)
-	%Remote.rotation_degrees = Vector3(71.0, -29.6, 0.0)
+	if Global.has_remote:
+		%Remote.position = Vector3(8.918, 1.46, -1.295)
+		%Remote.rotation_degrees = Vector3(71.0, -29.6, 0.0)

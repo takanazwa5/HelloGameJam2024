@@ -22,12 +22,13 @@ func _ready() -> void:
 
 
 func on_drawer_mouse_entered() -> void:
-	if cam.is_current():
+	if cam.is_current() and Global.item_in_hand == null:
 		Input.set_custom_mouse_cursor(Item.CURSOR_HAND, Input.CURSOR_ARROW, Vector2(16, 16))
 
 
 func on_drawer_mouse_exited() -> void:
-	Input.set_custom_mouse_cursor(null)
+	if Global.item_in_hand == null:
+		Input.set_custom_mouse_cursor(null)
 
 
 func on_drawer_input_event(camera: Node, event: InputEvent, \

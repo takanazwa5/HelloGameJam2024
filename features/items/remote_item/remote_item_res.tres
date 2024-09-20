@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=4 format=3 uid="uid://db6grrjcp705p"]
+
+[ext_resource type="Script" path="res://shared/classes/item_res.gd" id="1_t0vm4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_erwe3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yb70r"]
+
+[resource]
+script = ExtResource("1_t0vm4")
+display_name = "Remote"
+thumbnail = SubResource("PlaceholderTexture2D_yb70r")
+icon = SubResource("PlaceholderTexture2D_erwe3")
+type = 1
