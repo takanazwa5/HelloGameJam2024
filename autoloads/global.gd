@@ -38,6 +38,7 @@ var dialog_timer : Timer
 var dining_wardrobe : DiningWardrobe
 
 var bathroom_door : Door
+var exit_door : Door
 
 var tv : TV
 var tv_cam : Camera3D
@@ -47,6 +48,17 @@ var remote : Remote
 var item_name_label : Label
 
 var has_remote : bool = false
+
+var current_note : Note = null
+
+var microwave : Microwave
+
+var key_pickup : AudioStreamPlayer
+
+
+func _ready() -> void:
+	DebugConsole.create_command("note_water", note_water_visibility)
+	DebugConsole.create_command("note_water_area", note_water_area_visibility)
 
 
 func _input(_event: InputEvent) -> void:
@@ -101,6 +113,7 @@ func _process(_delta: float) -> void:
 	DebugPanel.add_property("item_slot", item_slot, 2)
 	DebugPanel.add_property("last_camera", last_camera, 3)
 	DebugPanel.add_property("current_camera", get_viewport().get_camera_3d(), 4)
+	DebugPanel.add_property("FPS", Engine.get_frames_per_second(), 5)
 
 
 func show_dialog(text: String, time: float) -> void:
@@ -112,3 +125,13 @@ func show_dialog(text: String, time: float) -> void:
 
 func on_dialog_timer_timeout() -> void:
 	dialog.hide()
+
+
+func note_water_visibility(state: bool) -> String:
+	tv.get_node("%NoteWater").visible = state
+	return "NoteWater visible = %s" % state
+
+
+func note_water_area_visibility(state: bool) -> String:
+	tv.get_node("%NoteWaterArea").visible = state
+	return "NoteWaterArea visible = %s" % state

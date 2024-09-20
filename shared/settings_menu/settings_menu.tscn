@@ -207,6 +207,8 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 text = "Master Volume"
+max_value = 1.0
+step = 0.01
 
 [node name="Keyboard" type="MarginContainer" parent="SettingsContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true

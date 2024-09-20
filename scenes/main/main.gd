@@ -10,6 +10,7 @@ func _ready() -> void:
 	Global.dialog = %Dialog
 	Global.dialog_timer = %DialogTimer
 	Global.item_name_label = %ItemName
+	Global.key_pickup = %KeyPickup
 
 	%BackButton.pressed.connect(on_back_button_pressed)
 	%DialogTimer.timeout.connect(Global.on_dialog_timer_timeout)
@@ -56,6 +57,11 @@ func change_camera(camera: Camera3D) -> void:
 
 
 func on_back_button_pressed() -> void:
+	if not Global.current_note == null:
+		Global.current_note.transform = Global.current_note.original_transform
+		Global.current_note = null
+		return
+
 	%BackButton.hide()
 	change_camera(Global.last_camera)
 	Global.player.inspecting = false

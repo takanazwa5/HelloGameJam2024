@@ -19,8 +19,6 @@ func _ready() -> void:
 	detection_area.input_ray_pickable = false
 	detection_area.body_entered.connect(on_detection_area_body_entered)
 
-	Global.bathroom_door = self
-
 
 func _mouse_enter() -> void:
 	if Global.main_camera.is_current() or Global.bathroom_camera.is_current():

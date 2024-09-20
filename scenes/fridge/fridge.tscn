@@ -1,11 +1,9 @@
-[gd_scene load_steps=54 format=4 uid="uid://bsxnn3pmpilnc"]
+[gd_scene load_steps=52 format=4 uid="uid://bsxnn3pmpilnc"]
 
 [ext_resource type="Material" uid="uid://djm72vjfnh4u" path="res://scenes/house/kitchen_fridge.tres" id="1_7aadc"]
 [ext_resource type="Material" uid="uid://ck1sk3etiqgcb" path="res://scenes/house/glass_rough.tres" id="2_a02at"]
-[ext_resource type="Script" path="res://scenes/fridge/fridge.gd" id="2_cefbk"]
 [ext_resource type="Material" uid="uid://den1fxwcqhibe" path="res://scenes/house/magnets.tres" id="3_eiyrb"]
 [ext_resource type="Material" uid="uid://bwcjmgb0hgk3v" path="res://scenes/house/clutter_postcards.tres" id="4_c0hl1"]
-[ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="5_h8yuw"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_iagv4"]
 _surfaces = [{
@@ -700,12 +698,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_il30h")
 
-[node name="Fridge_Base" type="MeshInstance3D" node_paths=PackedStringArray("cam") groups=["Reset"]]
+[node name="Fridge_Base" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55248, 1.02319, 3.60055)
 mesh = SubResource("ArrayMesh_nwb8y")
 skeleton = NodePath("")
-script = ExtResource("2_cefbk")
-cam = NodePath("StaticBody3D/Camera3D")
 
 [node name="Fridge_Door_Down" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393869, 0.00702, -0.3)
@@ -783,12 +779,7 @@ unique_name_in_owner = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge_Door_Up/FridgeDoorUp"]
 shape = SubResource("ConvexPolygonShape3D_u4okt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("cam", "detection_area", "interaction_area", "marker")]
-script = ExtResource("5_h8yuw")
-cam = NodePath("Camera3D")
-detection_area = NodePath("../Detection")
-interaction_area = NodePath("../Interaction")
-marker = NodePath("Marker3D")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000610352, -0.0270996)

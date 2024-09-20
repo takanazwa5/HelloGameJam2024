@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=4 format=3 uid="uid://cx50wrf4swww7"]
+
+[ext_resource type="Texture2D" uid="uid://b83ep8bpbcaqs" path="res://features/items/bathroom_key/key32.png" id="1_tem8e"]
+[ext_resource type="Script" path="res://shared/classes/item_res.gd" id="2_manwt"]
+[ext_resource type="Texture2D" uid="uid://lh4tq4h0iegc" path="res://features/items/bathroom_key/key512.png" id="3_x45on"]
+
+[resource]
+script = ExtResource("2_manwt")
+display_name = "Bathroom Key"
+thumbnail = ExtResource("3_x45on")
+icon = ExtResource("1_tem8e")
+type = 1

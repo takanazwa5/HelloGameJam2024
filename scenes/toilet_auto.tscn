@@ -1,7 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://bbb3vy6xl85jw"]
+[gd_scene load_steps=17 format=4 uid="uid://bbb3vy6xl85jw"]
 
 [ext_resource type="Material" uid="uid://vmq3rnvdn6vb" path="res://scenes/house/bathroom_toilet.tres" id="1_8k4xj"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_bwpju"]
+[ext_resource type="PackedScene" uid="uid://ckn4lgxx0uwgm" path="res://features/items/shelf_key/key_shelf.tscn" id="3_12ki1"]
+[ext_resource type="Script" path="res://scenes/flush.gd" id="3_oqhvv"]
+[ext_resource type="AudioStream" uid="uid://dobwv63uuvjsx" path="res://scenes/key_drop.mp3" id="4_26f3y"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p5rra"]
 _surfaces = [{
@@ -45,6 +48,9 @@ size = Vector3(0.570557, 0.365234, 1.07715)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_to5n0"]
 size = Vector3(0.512695, 0.343506, 0.149536)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p72an"]
+size = Vector3(0.0256348, 0.641052, 0.0136719)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4nbd"]
 size = Vector3(0.499023, 0.318359, 0.141602)
@@ -120,6 +126,18 @@ shape = SubResource("BoxShape3D_w4eps")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0171509)
 shape = SubResource("BoxShape3D_to5n0")
 
+[node name="Flush" type="Area3D" parent="Flush" node_paths=PackedStringArray("cam")]
+script = ExtResource("3_oqhvv")
+cam = NodePath("../Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flush/Flush"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.213501, -0.299164, -0.105469)
+shape = SubResource("BoxShape3D_p72an")
+
+[node name="KeyDrop" type="AudioStreamPlayer" parent="Flush/Flush"]
+unique_name_in_owner = true
+stream = ExtResource("4_26f3y")
+
 [node name="Toilet" type="StaticBody3D" parent="." node_paths=PackedStringArray("cam", "detection_area", "interaction_area", "marker")]
 script = ExtResource("2_bwpju")
 cam = NodePath("Camera3D")
@@ -152,3 +170,9 @@ skeleton = NodePath("")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.22011, -0.5115)
+
+[node name="key_shelf" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("3_12ki1")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.840387, -0.541987, 0, 0.541987, 0.840387, -0.0151649, -1.11847, -0.182758)
+visible = false
+cam = NodePath("../Toilet/Camera3D")

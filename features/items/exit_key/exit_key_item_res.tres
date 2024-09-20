@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=4 format=3 uid="uid://dn08467uqbdrd"]
+
+[ext_resource type="Texture2D" uid="uid://ckl5y7m4tthlh" path="res://features/items/exit_key/key_exit_32.png" id="1_0t7h7"]
+[ext_resource type="Script" path="res://shared/classes/item_res.gd" id="1_ob5u3"]
+[ext_resource type="Texture2D" uid="uid://cf3jwiuiw5bdc" path="res://features/items/exit_key/key_exit_512.png" id="3_la3b3"]
+
+[resource]
+script = ExtResource("1_ob5u3")
+display_name = "Exit Key"
+thumbnail = ExtResource("3_la3b3")
+icon = ExtResource("1_0t7h7")
+type = 1

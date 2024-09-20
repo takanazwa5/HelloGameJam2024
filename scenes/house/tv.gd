@@ -20,6 +20,9 @@ func _ready() -> void:
 	Global.tv = self
 	DebugConsole.create_command("tv_button", button_pressed)
 
+	Global.bathroom_door = %BathroomDoor
+	Global.exit_door = %ExitDoor
+
 
 func button_pressed(digit: int) -> void:
 	match digit:
@@ -66,7 +69,9 @@ func button_pressed(digit: int) -> void:
 
 		9:
 			if digits_correct[4]:
-				print("CODE COMPLETED")
+				reset()
+				if Global.microwave.locked:
+					Global.microwave.unlock()
 
 			else:
 				reset()

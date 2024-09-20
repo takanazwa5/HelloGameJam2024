@@ -230,4 +230,4 @@ func apply_default_values() -> void:
 	%Brightness.value = 1.0
 	%MSAA.value = 3
 	%FSR.value = 0
-	%MasterVolume.value = 100
+	%MasterVolume.value = 1

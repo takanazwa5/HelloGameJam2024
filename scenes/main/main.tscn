@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8b44mm8i7vnk"]
+[gd_scene load_steps=12 format=3 uid="uid://b8b44mm8i7vnk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_8g3y5"]
 [ext_resource type="PackedScene" uid="uid://d1lf6yoxj60fr" path="res://features/pause_menu/pause_menu.tscn" id="2_g3ph6"]
 [ext_resource type="PackedScene" uid="uid://dinlvdvxepfsj" path="res://features/player/player.tscn" id="4_e8gcv"]
 [ext_resource type="PackedScene" uid="uid://b23yqi6ti706r" path="res://scenes/level.tscn" id="4_tyc3g"]
 [ext_resource type="PackedScene" uid="uid://cf42hl00jn6v1" path="res://features/inventory/inventory.tscn" id="5_bjakt"]
+[ext_resource type="AudioStream" uid="uid://dhdmnqd7ud17i" path="res://shared/sounds/key_pickup.wav" id="6_7mdba"]
 
 [sub_resource type="Animation" id="Animation_6b3go"]
 resource_name = "BlackFadeIn"
@@ -166,3 +167,7 @@ offset_top = 100.0
 offset_right = 40.0
 offset_bottom = 123.0
 label_settings = SubResource("LabelSettings_uar80")
+
+[node name="KeyPickup" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_7mdba")
