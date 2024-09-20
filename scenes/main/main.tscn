@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8b44mm8i7vnk"]
+[gd_scene load_steps=11 format=3 uid="uid://b8b44mm8i7vnk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_8g3y5"]
 [ext_resource type="PackedScene" uid="uid://d1lf6yoxj60fr" path="res://features/pause_menu/pause_menu.tscn" id="2_g3ph6"]
@@ -45,6 +45,11 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_ox7j1"]
+font_size = 22
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uar80"]
 font_size = 22
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
@@ -153,3 +158,11 @@ vertical_alignment = 1
 [node name="DialogTimer" type="Timer" parent="Dialog"]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="ItemName" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_uar80")

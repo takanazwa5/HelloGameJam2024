@@ -9,6 +9,7 @@ func _ready() -> void:
 	Global.bathroom_unstuck_spawn_point = %BathroomUnstuckSpawnPoint.global_position
 	Global.dialog = %Dialog
 	Global.dialog_timer = %DialogTimer
+	Global.item_name_label = %ItemName
 
 	%BackButton.pressed.connect(on_back_button_pressed)
 	%DialogTimer.timeout.connect(Global.on_dialog_timer_timeout)
@@ -46,7 +47,7 @@ func change_camera(camera: Camera3D) -> void:
 		Global.player.hide()
 
 		if (not Global.nightstand.first_inspection and not Global.dining_wardrobe.first_inspection) \
-		or get_viewport().get_camera_3d() not in [Global.nightstand.cam, Global.dining_wardrobe.cam]:
+		or  not get_viewport().get_camera_3d() == Global.dining_wardrobe.cam:
 			%BackButton.show()
 
 	%Animations.play_backwards("BlackFadeIn")

@@ -44,6 +44,8 @@ var tv_cam : Camera3D
 
 var remote : Remote
 
+var item_name_label : Label
+
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

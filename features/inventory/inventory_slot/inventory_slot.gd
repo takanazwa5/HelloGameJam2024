@@ -9,6 +9,17 @@ var item_res : ItemRes:
 
 func _ready() -> void:
 	$TextureButton.pressed.connect(on_texture_button_pressed)
+	$TextureButton.mouse_entered.connect(on_mouse_entered)
+	$TextureButton.mouse_exited.connect(on_mouse_exited)
+
+
+func on_mouse_entered() -> void:
+	Global.item_name_label.text = item_res.display_name
+	Global.item_name_label.show()
+
+
+func on_mouse_exited() -> void:
+	Global.item_name_label.hide()
 
 
 func on_texture_button_pressed() -> void:
