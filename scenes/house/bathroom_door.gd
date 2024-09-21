@@ -19,7 +19,6 @@ func interact() -> void:
 			if first_entry:
 				first_entry = false
 				%BathroomAnimations.play("FirstEntry")
-				print("XD")
 
 			Global.main.change_camera(Global.bathroom_camera)
 

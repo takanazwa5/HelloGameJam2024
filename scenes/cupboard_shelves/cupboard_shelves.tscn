@@ -1,10 +1,11 @@
-[gd_scene load_steps=59 format=4 uid="uid://cls1vn5gspkr0"]
+[gd_scene load_steps=61 format=4 uid="uid://cls1vn5gspkr0"]
 
 [ext_resource type="Material" uid="uid://d1afwowex1q06" path="res://scenes/house/kitchen_cupboard_shelves.tres" id="1_j7bea"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_yfxrw"]
 [ext_resource type="Script" path="res://scenes/cupboard_shelves/cupboard_shelves.gd" id="3_awj6f"]
 [ext_resource type="PackedScene" uid="uid://dgx0gv4ocalru" path="res://features/items/remote_item/remote_item.tscn" id="3_fhcrv"]
 [ext_resource type="Script" path="res://scenes/cupboard_shelves/drawer_2.gd" id="4_lji5k"]
+[ext_resource type="Script" path="res://scenes/cupboard_shelves/puzderko_inspectable.gd" id="5_ojj1y"]
 [ext_resource type="Material" uid="uid://edmptv885yvg" path="res://scenes/house/textures/items_2/puzderko.tres" id="5_wxu41"]
 [ext_resource type="Material" uid="uid://hukf0m6uxknl" path="res://scenes/house/textures/items_2/padlock.tres" id="6_258ym"]
 [ext_resource type="PackedScene" uid="uid://df8vpan2xua53" path="res://features/items/exit_key/exit_key.tscn" id="7_0fuxt"]
@@ -232,6 +233,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ku4rw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bd6v"]
+size = Vector3(0.22168, 0.0745605, 0.138672)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t0gky"]
 _surfaces = [{
@@ -587,7 +591,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00543e-05, 0.056911, 0.084
 mesh = SubResource("ArrayMesh_fgo5i")
 skeleton = NodePath("")
 script = ExtResource("3_awj6f")
-cam = NodePath("../StaticBody3D/Camera3D")
+cam = NodePath("../Drawerz/Camera3D")
 collision_object = NodePath("Drawer1")
 
 [node name="Drawer1" type="Area3D" parent="Drawer_1"]
@@ -611,7 +615,7 @@ shape = SubResource("BoxShape3D_h8qy5")
 
 [node name="Remote" parent="Drawer_1" node_paths=PackedStringArray("cam") instance=ExtResource("3_fhcrv")]
 transform = Transform3D(0.860093, 0, -0.510138, 0, 1, 0, 0.510138, 0, 0.860093, 0, -0.0697461, -0.0381813)
-cam = NodePath("../../StaticBody3D/Camera3D")
+cam = NodePath("../../Drawerz/Camera3D")
 
 [node name="Drawer_2" type="MeshInstance3D" parent="." node_paths=PackedStringArray("cam", "collision_object") groups=["Reset"]]
 unique_name_in_owner = true
@@ -619,7 +623,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00543e-05, -0.191192, 0.08
 mesh = SubResource("ArrayMesh_87xgj")
 skeleton = NodePath("")
 script = ExtResource("4_lji5k")
-cam = NodePath("../StaticBody3D/Camera3D")
+cam = NodePath("../Drawerz/Camera3D")
 collision_object = NodePath("Drawer2")
 
 [node name="Drawer2" type="Area3D" parent="Drawer_2"]
@@ -641,20 +645,129 @@ shape = SubResource("BoxShape3D_ls4vk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0113899, 0.17208)
 shape = SubResource("BoxShape3D_clif5")
 
-[node name="puzderko_base" type="MeshInstance3D" parent="Drawer_2"]
+[node name="Puzderko" type="Node3D" parent="Drawer_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027854, -0.0950432, -0.0810517)
+
+[node name="PuzderkoInspectable" type="Area3D" parent="Drawer_2/Puzderko"]
+script = ExtResource("5_ojj1y")
+
+[node name="puzderko_base" type="MeshInstance3D" parent="Drawer_2/Puzderko/PuzderkoInspectable"]
 mesh = SubResource("ArrayMesh_tlsx3")
 skeleton = NodePath("")
 
-[node name="puzderko_top" type="MeshInstance3D" parent="Drawer_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027854, -0.0416433, -0.150272)
+[node name="puzderko_top" type="MeshInstance3D" parent="Drawer_2/Puzderko/PuzderkoInspectable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0533999, -0.0692203)
 mesh = SubResource("ArrayMesh_rqyqi")
 skeleton = NodePath("")
 
-[node name="puzderko_klamra" type="MeshInstance3D" parent="Drawer_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0286741, -0.0297093, -0.0104517)
+[node name="puzderko_klamra" type="MeshInstance3D" parent="Drawer_2/Puzderko/PuzderkoInspectable/puzderko_top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00082016, 0.011934, 0.13982)
 mesh = SubResource("ArrayMesh_tfxe4")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer_2/Puzderko/PuzderkoInspectable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036792, 0)
+shape = SubResource("BoxShape3D_7bd6v")
+
+[node name="Camera3D" type="Camera3D" parent="Drawer_2/Puzderko/PuzderkoInspectable"]
+transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, 0, 0.045, 0.13)
+fov = 65.0
+
+[node name="PadlockUI" type="Control" parent="Drawer_2/Puzderko/PuzderkoInspectable"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = 251.0
+offset_right = 150.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Digit1Left" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<"
+
+[node name="Control" type="Control" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Digit1Right" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Digit2Left" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer2" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<"
+
+[node name="Control" type="Control" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Digit2Right" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer2" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Digit3Left" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer3" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<"
+
+[node name="Control" type="Control" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Digit3Right" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer3" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Digit4Left" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer4" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<"
+
+[node name="Control" type="Control" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Digit4Right" type="Button" parent="Drawer_2/Puzderko/PuzderkoInspectable/PadlockUI/VBoxContainer/HBoxContainer4" groups=["Digits"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">"
 
 [node name="padlock_ctrl" type="Node3D" parent="Drawer_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0289335, -0.0623823, -0.00590169)
@@ -665,32 +778,37 @@ mesh = SubResource("ArrayMesh_6unrj")
 skeleton = NodePath("")
 
 [node name="code_1" type="MeshInstance3D" parent="Drawer_2/padlock_ctrl/padlock"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00590324, 0.0081712, 3.98159e-05)
 mesh = SubResource("ArrayMesh_5l6i0")
 skeleton = NodePath("")
 
 [node name="code_2" type="MeshInstance3D" parent="Drawer_2/padlock_ctrl/padlock"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00590324, 0.0081712, 3.98159e-05)
 mesh = SubResource("ArrayMesh_pw8pu")
 skeleton = NodePath("")
 
 [node name="code_3" type="MeshInstance3D" parent="Drawer_2/padlock_ctrl/padlock"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00590324, 0.0081712, 3.98159e-05)
 mesh = SubResource("ArrayMesh_bu0h6")
 skeleton = NodePath("")
 
 [node name="code_4" type="MeshInstance3D" parent="Drawer_2/padlock_ctrl/padlock"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00590324, 0.0081712, 3.98159e-05)
 mesh = SubResource("ArrayMesh_0ngo6")
 skeleton = NodePath("")
 
 [node name="padlock_lock" type="MeshInstance3D" parent="Drawer_2/padlock_ctrl/padlock"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-06, 0.0179441, 0)
 mesh = SubResource("ArrayMesh_mc4yo")
 skeleton = NodePath("")
 
 [node name="exit_key" parent="Drawer_2" node_paths=PackedStringArray("cam") instance=ExtResource("7_0fuxt")]
-cam = NodePath("../../StaticBody3D/Camera3D")
+cam = NodePath("../../Drawerz/Camera3D")
 
 [node name="kehole" type="MeshInstance3D" parent="Drawer_2"]
 transform = Transform3D(2.45305, 0, 0, 0, 2.45305, 0, 0, 0, 2.45305, -0.0901937, 0.0148357, 0.182829)
@@ -700,7 +818,7 @@ skeleton = NodePath("")
 [node name="Keyhole" type="Area3D" parent="Drawer_2/kehole" node_paths=PackedStringArray("cam")]
 script = ExtResource("10_3lvfy")
 required_item = ExtResource("11_t7e7f")
-cam = NodePath("../../../StaticBody3D/Camera3D")
+cam = NodePath("../../../Drawerz/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer_2/kehole/Keyhole"]
 shape = SubResource("ConvexPolygonShape3D_njyyl")
@@ -710,7 +828,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.439295, 0.0847801)
 mesh = SubResource("ArrayMesh_8x338")
 skeleton = NodePath("")
 script = ExtResource("3_awj6f")
-cam = NodePath("../StaticBody3D/Camera3D")
+cam = NodePath("../Drawerz/Camera3D")
 collision_object = NodePath("Drawer3")
 
 [node name="Drawer3" type="Area3D" parent="Drawer_3"]
@@ -737,7 +855,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0023
 script = ExtResource("10_1unkn")
 target_pos = Vector3(-0.188, 0.749, 0.222)
 target_rot = Vector3(-37.5, -12.4, 0)
-cam = NodePath("../../StaticBody3D/Camera3D")
+cam = NodePath("../../Drawerz/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer_3/NoteMorse"]
 shape = SubResource("ConvexPolygonShape3D_1dk1n")
@@ -746,35 +864,36 @@ shape = SubResource("ConvexPolygonShape3D_1dk1n")
 mesh = SubResource("ArrayMesh_qwrtf")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("cam", "detection_area", "interaction_area", "marker")]
+[node name="Drawerz" type="StaticBody3D" parent="." node_paths=PackedStringArray("cam", "detection_area", "interaction_area", "marker")]
+unique_name_in_owner = true
 script = ExtResource("2_yfxrw")
 cam = NodePath("Camera3D")
 detection_area = NodePath("Detection")
 interaction_area = NodePath("Interaction")
 marker = NodePath("Marker3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawerz"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00171375, -0.210693, 0)
 shape = SubResource("BoxShape3D_702cn")
 
-[node name="Camera3D" type="Camera3D" parent="StaticBody3D"]
+[node name="Camera3D" type="Camera3D" parent="Drawerz"]
 transform = Transform3D(0.965926, 0.198267, -0.166366, 0, 0.642788, 0.766044, 0.258819, -0.739942, 0.620885, -0.209849, 0.7, 0.9)
 
-[node name="Detection" type="Area3D" parent="StaticBody3D"]
+[node name="Detection" type="Area3D" parent="Drawerz"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.80985, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Detection"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawerz/Detection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.803246, 0.0203552, 0.228918)
 shape = SubResource("BoxShape3D_wdhkd")
 
-[node name="Interaction" type="Area3D" parent="StaticBody3D"]
+[node name="Interaction" type="Area3D" parent="Drawerz"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.80985, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Interaction"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawerz/Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.839589, -0.152786, 0.173218)
 shape = SubResource("BoxShape3D_8lmsa")
 
-[node name="Marker3D" type="Marker3D" parent="StaticBody3D"]
+[node name="Marker3D" type="Marker3D" parent="Drawerz"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00268841, 0, 0.40953)
 
 [node name="Blocker" type="Area3D" parent="."]

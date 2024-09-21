@@ -57,6 +57,8 @@ var key_pickup : AudioStreamPlayer
 
 var moving_to : Inspectable
 
+var puzderko : Area3D
+
 
 func _ready() -> void:
 	DebugConsole.create_command("note_water", note_water_visibility)
@@ -120,7 +122,7 @@ func _process(_delta: float) -> void:
 
 func show_dialog(text: String, _time: float) -> void:
 	var char_num : int = text.length()
-	dialog_timer.wait_time = char_num / 10
+	dialog_timer.wait_time = float(char_num) / 10.0
 	dialog.text = text
 	dialog.show()
 	dialog_timer.start()

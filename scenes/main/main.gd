@@ -39,8 +39,9 @@ func change_camera(camera: Camera3D) -> void:
 	elif Global.tv_cam.is_current():
 		Global.remote.global_transform = Global.remote.original_transform
 
-	for node : Node in get_tree().get_nodes_in_group("Reset"):
-		node.reset()
+	if not camera == Global.puzderko.get_node("Camera3D"):
+		for node : Node in get_tree().get_nodes_in_group("Reset"):
+			node.reset()
 
 	camera.make_current()
 
@@ -63,6 +64,18 @@ func on_back_button_pressed() -> void:
 	if not Global.current_note == null:
 		Global.current_note.transform = Global.current_note.original_transform
 		Global.current_note = null
+		return
+
+	if Global.puzderko.inspecting:
+		Global.puzderko.get_node("%Drawerz").cam.make_current()
+		Global.last_camera = %MainCamera
+		Global.puzderko.inspecting = false
+		Global.puzderko.get_node("PadlockUI").hide()
+
+		if Global.puzderko.code_complete:
+			Global.puzderko.get_node("puzderko_top").rotate_x(deg_to_rad(-100))
+			Global.puzderko.input_ray_pickable = false
+
 		return
 
 	%BackButton.hide()
