@@ -55,6 +55,8 @@ var microwave : Microwave
 
 var key_pickup : AudioStreamPlayer
 
+var moving_to : Inspectable
+
 
 func _ready() -> void:
 	DebugConsole.create_command("note_water", note_water_visibility)

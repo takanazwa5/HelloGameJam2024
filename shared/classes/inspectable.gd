@@ -46,8 +46,13 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
 
+		if get_viewport().get_camera_3d() == cam:
+			return
+
 		if Global.player.inspecting:
 			return
+
+		Global.moving_to = self
 
 		if Global.player in detection_area.get_overlapping_bodies():
 			inspect()
@@ -59,7 +64,7 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 
 
 func on_detection_area_body_entered(body: Node3D) -> void:
-	if body is Player and Global.player.moving_to_inspectable:
+	if body is Player and Global.player.moving_to_inspectable and Global.moving_to == self:
 		inspect()
 
 

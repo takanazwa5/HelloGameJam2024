@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cls1vn5gspkr0"]
+[gd_scene load_steps=59 format=4 uid="uid://cls1vn5gspkr0"]
 
 [ext_resource type="Material" uid="uid://d1afwowex1q06" path="res://scenes/house/kitchen_cupboard_shelves.tres" id="1_j7bea"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_yfxrw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://shared/classes/note.gd" id="10_1unkn"]
 [ext_resource type="Script" path="res://scenes/cupboard_shelves/keyhole.gd" id="10_3lvfy"]
 [ext_resource type="Resource" uid="uid://c0vq216kaltj1" path="res://features/items/shelf_key/shelf_key_item_res.tres" id="11_t7e7f"]
+[ext_resource type="AudioStream" uid="uid://w31c6isva8ix" path="res://scenes/cupboard_shelves/drawer.wav" id="15_pi7al"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_femca"]
 _surfaces = [{
@@ -781,3 +782,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00268841, 0, 0.40953)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blocker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200168, 0.00482178)
 shape = SubResource("BoxShape3D_slkbl")
+
+[node name="DrawerSFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("15_pi7al")

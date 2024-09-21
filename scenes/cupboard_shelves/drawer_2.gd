@@ -18,6 +18,8 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 			Global.show_dialog("It's locked.", 1.0)
 			return
 
+		%DrawerSFX.play()
+
 		var tween : Tween = get_tree().create_tween()
 
 		if not open:

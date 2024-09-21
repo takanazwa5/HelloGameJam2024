@@ -41,6 +41,8 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 		if not camera == cam:
 			return
 
+		%DrawerSFX.play()
+
 		var tween : Tween = get_tree().create_tween()
 
 		if not open:

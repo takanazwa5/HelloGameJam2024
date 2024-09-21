@@ -17,6 +17,9 @@ func _ready() -> void:
 
 
 func change_camera(camera: Camera3D) -> void:
+	if camera == get_viewport().get_camera_3d():
+		return
+
 	Global.last_camera = get_viewport().get_camera_3d()
 
 	if Global.last_camera not in [%MainCamera, %BathroomCamera]:
