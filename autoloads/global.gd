@@ -118,8 +118,9 @@ func _process(_delta: float) -> void:
 	DebugPanel.add_property("FPS", Engine.get_frames_per_second(), 5)
 
 
-func show_dialog(text: String, time: float) -> void:
-	dialog_timer.wait_time = time
+func show_dialog(text: String, _time: float) -> void:
+	var char_num : int = text.length()
+	dialog_timer.wait_time = char_num / 10
 	dialog.text = text
 	dialog.show()
 	dialog_timer.start()

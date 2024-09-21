@@ -9,24 +9,6 @@
 
 [node name="walls_n_floors" parent="." instance=ExtResource("2_4cpqa")]
 
-[node name="LightKitchen" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61689, 2.26461, 2.60295)
-shadow_enabled = true
-
-[node name="LightBathroom" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8248, 2.26461, -1.24158)
-shadow_enabled = true
-
-[node name="LightLivingRoom" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36743, 3.41566, 0.643557)
-light_color = Color(1, 0.846667, 0.6, 1)
-shadow_enabled = true
-
-[node name="LightLivingRoom2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.08994, 3.41566, -2.07806)
-light_color = Color(1, 0.846667, 0.6, 1)
-shadow_enabled = true
-
 [node name="Ambient_Outside_Light" type="SpotLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.361836, 0.932242, 0, 0.932242, 0.361836, -1, 1.58164e-08, -4.07496e-08, 13.3498, 3.46022, -1.22636)
 light_color = Color(0.35, 0.469167, 1, 1)

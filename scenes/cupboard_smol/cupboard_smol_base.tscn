@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://dngnobeinx1ch"]
+[gd_scene load_steps=17 format=4 uid="uid://dngnobeinx1ch"]
 
 [ext_resource type="Material" uid="uid://pn7jvvqle4ie" path="res://scenes/house/bathroom_cupboard_small.tres" id="1_ukww4"]
 [ext_resource type="Script" path="res://shared/classes/inspectable.gd" id="2_5h0el"]
 [ext_resource type="Script" path="res://scenes/cupboard_smol/cupboard_smol_l.gd" id="2_w2qbj"]
 [ext_resource type="Script" path="res://scenes/cupboard_smol/cupboard_smol_r.gd" id="3_otbs6"]
+[ext_resource type="PackedScene" uid="uid://c2yixckhpd7ed" path="res://features/items/light_bulb/light_bulb.tscn" id="5_46em7"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bmpts"]
 _surfaces = [{
@@ -172,3 +173,7 @@ shape = SubResource("BoxShape3D_v00x1")
 
 [node name="Marker3D" type="Marker3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.34492)
+
+[node name="LightbulbItem" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("5_46em7")]
+transform = Transform3D(-0.0037671, -0.959287, -0.282408, 0.999992, -0.00392695, 0, -0.001109, -0.282406, 0.959294, -0.00100088, 0.0175154, 0.0237741)
+cam = NodePath("../StaticBody3D/Camera3D")

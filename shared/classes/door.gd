@@ -45,16 +45,13 @@ _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 		if Global.player in detection_area.get_overlapping_bodies():
 			Global.player.input_dir = Vector2.ZERO
 
-			if camera == Global.main_camera:
+			if camera in [Global.main_camera, Global.bathroom_camera]:
 
 				if has_key:
-					Global.main.change_camera(Global.bathroom_camera)
+					interact()
 
 				else:
 					Global.show_dialog(dialog_when_locked, 2.0)
-
-			elif camera == Global.bathroom_camera:
-				Global.main.change_camera(Global.main_camera)
 
 			return
 
@@ -67,13 +64,14 @@ func on_detection_area_body_entered(body: Node3D) -> void:
 		Global.player.moving_to_inspectable = false
 		Global.player.input_dir = Vector2.ZERO
 
-		if Global.main_camera.is_current():
+		if get_viewport().get_camera_3d() in [Global.main_camera, Global.bathroom_camera]:
 
 			if has_key:
-				Global.main.change_camera(Global.bathroom_camera)
+				interact()
 
 			else:
 				Global.show_dialog(dialog_when_locked, 2.0)
 
-		elif Global.bathroom_camera.is_current():
-			Global.main.change_camera(Global.main_camera)
+
+func interact() -> void:
+	push_warning("interact() not overriden for %s" % get_path())
