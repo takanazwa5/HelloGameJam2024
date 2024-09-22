@@ -11,6 +11,8 @@ func _ready() -> void:
 
 	%SettingsMenu.visibility_changed.connect(on_settings_menu_visibility_changed)
 
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:

@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://l46b8lh6qc46"]
+
+[ext_resource type="PackedScene" uid="uid://b23yqi6ti706r" path="res://scenes/level.tscn" id="1_lso40"]
+[ext_resource type="Script" path="res://scenes/end_game.gd" id="1_nggon"]
+[ext_resource type="PackedScene" uid="uid://dinlvdvxepfsj" path="res://features/player/player.tscn" id="2_bup2h"]
+
+[sub_resource type="Animation" id="Animation_s7u15"]
+resource_name = "BlackFadeOut"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rxq76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2d2wl"]
+_data = {
+"BlackFadeOut": SubResource("Animation_s7u15"),
+"RESET": SubResource("Animation_rxq76")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_38jq7"]
+font_size = 22
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[node name="EndGame" type="Node"]
+script = ExtResource("1_nggon")
+
+[node name="Level" parent="." instance=ExtResource("1_lso40")]
+
+[node name="Player" parent="." instance=ExtResource("2_bup2h")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.08391, 0.177807, 0.110171)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.14, 3.017, 0.675)
+current = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2d2wl")
+}
+
+[node name="Dialog" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -123.0
+offset_right = 20.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sample text"
+label_settings = SubResource("LabelSettings_38jq7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogTimer" type="Timer" parent="Dialog"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.864275, 0.0219414, -0.502541, 0, 0.999048, 0.0436194, 0.50302, -0.0376991, 0.863452, 2.759, 1.74, 0.215)

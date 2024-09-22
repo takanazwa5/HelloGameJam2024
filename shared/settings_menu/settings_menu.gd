@@ -34,6 +34,8 @@ func _ready() -> void:
 	check_connections()
 	apply_default_values()
 
+	%BackButton.pressed.connect(on_back_button_pressed)
+
 
 #-------------------------------------------------------------------------------
 #
@@ -231,3 +233,10 @@ func apply_default_values() -> void:
 	%MSAA.value = 3
 	%FSR.value = 0
 	%MasterVolume.value = 1
+
+
+func on_back_button_pressed() -> void:
+	var e : InputEventKey = InputEventKey.new()
+	e.physical_keycode = KEY_ESCAPE
+	e.pressed = true
+	Input.parse_input_event(e)
