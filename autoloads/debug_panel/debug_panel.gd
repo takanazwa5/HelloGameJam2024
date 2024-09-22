@@ -8,7 +8,7 @@ var label_settings : LabelSettings = LabelSettings.new()
 
 
 func _ready() -> void:
-	show()
+	hide()
 
 	label_settings.outline_color = Color.BLACK
 	label_settings.outline_size = 10

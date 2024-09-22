@@ -13,7 +13,6 @@ func _ready() -> void:
 
 	hide()
 	%MainPauseContainer.show()
-	DebugPanel.hide()
 
 
 func _input(event: InputEvent) -> void:
