@@ -13,6 +13,7 @@ func _ready() -> void:
 	Global.microwave = self
 
 	DebugConsole.create_command("unlock_microwave", unlock)
+	DebugConsole.create_command("play_ding", func() -> void: %MicrowaveDing.play())
 
 
 func _input_event(camera: Node, event: InputEvent, \
