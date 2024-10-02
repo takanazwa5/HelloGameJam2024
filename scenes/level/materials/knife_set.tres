@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dybstxutujunt"]
+
+[ext_resource type="Texture2D" uid="uid://bgp6vedpte6py" path="res://scenes/level/textures/Kitchen/knives/Knife_Set_Base_Color.png" id="1_su21u"]
+[ext_resource type="Texture2D" uid="uid://nbgrd61gicws" path="res://scenes/level/textures/Kitchen/knives/Knife_Set_Metallic.png" id="2_eqmtb"]
+[ext_resource type="Texture2D" uid="uid://1rs8voh6ymu2" path="res://scenes/level/textures/Kitchen/knives/Knife_Set_Normal.png" id="3_xx5ov"]
+[ext_resource type="Texture2D" uid="uid://cub1pfdf24axs" path="res://scenes/level/textures/Kitchen/knives/Knife_Set_Roughness.png" id="4_u55l1"]
+
+[resource]
+albedo_texture = ExtResource("1_su21u")
+metallic = 1.0
+metallic_texture = ExtResource("2_eqmtb")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_u55l1")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_xx5ov")

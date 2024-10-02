@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://wha4hb7cxd2e"]
+
+[ext_resource type="Texture2D" uid="uid://byr3ti7dex5n8" path="res://scenes/level/textures/Bathroom/Basket/Basket_Base_color.png" id="1_c8jeb"]
+[ext_resource type="Texture2D" uid="uid://df4r0ppjh2nml" path="res://scenes/level/textures/Bathroom/Basket/Basket_Ambient_Occlusion.png" id="2_ye2g0"]
+[ext_resource type="Texture2D" uid="uid://dhrrfvv5dx85i" path="res://scenes/level/textures/Bathroom/Basket/Basket_Normal.png" id="3_2h1b1"]
+[ext_resource type="Texture2D" uid="uid://dhn7yyl62a7n6" path="res://scenes/level/textures/Bathroom/Basket/Basket_Roughness.png" id="4_ehtuc"]
+
+[resource]
+albedo_texture = ExtResource("1_c8jeb")
+roughness_texture = ExtResource("4_ehtuc")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_2h1b1")
+ao_enabled = true
+ao_texture = ExtResource("2_ye2g0")
+ao_texture_channel = 4

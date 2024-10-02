@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://d33k35kp1ulkg"]
+
+[ext_resource type="Texture2D" uid="uid://6e05v8dq458r" path="res://scenes/level/textures/Bathroom/Radiator/Radiator_Base_Color.PNG" id="1_nrscv"]
+[ext_resource type="Texture2D" uid="uid://d2offx1hfjq4j" path="res://scenes/level/textures/Bathroom/Radiator/Radiator_AmbientOcclusion.PNG" id="2_ol880"]
+[ext_resource type="Texture2D" uid="uid://c0q8fwb5n458t" path="res://scenes/level/textures/Bathroom/Radiator/Radiator_Metallic.PNG" id="3_kpssf"]
+[ext_resource type="Texture2D" uid="uid://2hvyduvhmwqd" path="res://scenes/level/textures/Bathroom/Radiator/Radiator_Normal.PNG" id="4_yunav"]
+[ext_resource type="Texture2D" uid="uid://djjfawdnkxx2p" path="res://scenes/level/textures/Bathroom/Radiator/Radiator_Roughness.PNG" id="5_xw2oi"]
+
+[resource]
+albedo_texture = ExtResource("1_nrscv")
+metallic = 1.0
+metallic_texture = ExtResource("3_kpssf")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_xw2oi")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_yunav")
+ao_enabled = true
+ao_texture = ExtResource("2_ol880")
+ao_texture_channel = 4

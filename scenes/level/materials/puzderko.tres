@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://edmptv885yvg"]
+
+[ext_resource type="Texture2D" uid="uid://dvg61mhdderey" path="res://scenes/level/textures/items_2/puzderko/puzderko_Base_Color.PNG" id="1_hgch4"]
+[ext_resource type="Texture2D" uid="uid://cgtb1l0ic05ad" path="res://scenes/level/textures/items_2/puzderko/puzderko_Metallic.PNG" id="2_h1wh4"]
+[ext_resource type="Texture2D" uid="uid://03xxnqngdq01" path="res://scenes/level/textures/items_2/puzderko/puzderko_Normal.png" id="3_awkq6"]
+[ext_resource type="Texture2D" uid="uid://c2n1xdcm8sxik" path="res://scenes/level/textures/items_2/puzderko/puzderko_Roughness.PNG" id="4_jyjyi"]
+
+[resource]
+albedo_texture = ExtResource("1_hgch4")
+metallic = 1.0
+metallic_texture = ExtResource("2_h1wh4")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_jyjyi")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_awkq6")

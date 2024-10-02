@@ -1,93 +1,100 @@
 class_name Main extends Node
 
 
+var last_camera : Camera3D
+
+
 func _ready() -> void:
-	Global.main = self
-	Global.main_camera = %MainCamera
-	Global.bathroom_camera = %BathroomCamera
-	Global.living_room_unstuck_spawn_point = %LivingRoomUnstuckSpawnPoint.global_position
-	Global.bathroom_unstuck_spawn_point = %BathroomUnstuckSpawnPoint.global_position
-	Global.dialog = %Dialog
-	Global.dialog_timer = %DialogTimer
-	Global.item_name_label = %ItemName
-	Global.key_pickup = %KeyPickup
+	DebugConsole.create_command("tp_broom", player_tp_broom, "Teleport player to bathroom")
+	DebugConsole.create_command("tp_lroom", player_tp_lroom, "Teleport player to living room")
 
-	%BackButton.pressed.connect(on_back_button_pressed)
-	%DialogTimer.timeout.connect(Global.on_dialog_timer_timeout)
+	%BackButton.pressed.connect(_on_back_button_pressed)
+	%DialogTimer.timeout.connect(_on_dialog_timer_timeout)
+	SignalBus.change_camera.connect(_change_camera)
+	SignalBus.navigation_to_inspectable_finished.connect(_on_navigation_to_inspectable_finished)
+	SignalBus.unstuck_button_pressed.connect(_on_unstuck_button_pressed)
+	SignalBus.create_dialog.connect(_on_create_dialog)
 
 
-func change_camera(camera: Camera3D) -> void:
-	if camera == get_viewport().get_camera_3d():
-		return
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
 
-	Global.last_camera = get_viewport().get_camera_3d()
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			#print(_shoot_ray())
+			pass
 
-	if Global.last_camera not in [%MainCamera, %BathroomCamera]:
-		Global.current_interaction_area.input_ray_pickable = true
 
-	%Black.show()
-	%Animations.play("BlackFadeIn")
-	await %Animations.animation_finished
-	Input.set_custom_mouse_cursor(null)
+func _process(_delta: float) -> void:
+	DebugPanel.add_property("FPS", Engine.get_frames_per_second(), 1)
 
-	if %MainCamera.is_current() and camera == %BathroomCamera:
-		Global.player.global_position = %BathroomSpawnPoint.global_position
 
-	elif %BathroomCamera.is_current() and camera == %MainCamera:
-		Global.player.global_position = %LivingRoomSpawnPoint.global_position
-
-	elif Global.tv_cam.is_current():
-		Global.remote.global_transform = Global.remote.original_transform
-
-	if not camera == Global.puzderko.get_node("Camera3D"):
-		for node : Node in get_tree().get_nodes_in_group("Reset"):
-			node.reset()
-
-	camera.make_current()
-
-	if camera in [%MainCamera, %BathroomCamera]:
-		Global.player.show()
-
+func _shoot_ray() -> CollisionObject3D:
+	var viewport : Viewport = get_viewport()
+	var camera : Camera3D = viewport.get_camera_3d()
+	var mouse_pos : Vector2 = viewport.get_mouse_position()
+	var world : World3D = camera.get_world_3d()
+	var space_state : PhysicsDirectSpaceState3D = world.get_direct_space_state()
+	var query : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
+	query.from = camera.global_position
+	query.to = camera.project_ray_normal(mouse_pos) * 100
+	var result : Dictionary = space_state.intersect_ray(query)
+	if result.is_empty():
+		return null
 	else:
-		Global.player.hide()
+		return result.collider
 
-		if (not Global.nightstand.first_inspection and not Global.dining_wardrobe.first_inspection) \
-		or  not get_viewport().get_camera_3d() == Global.dining_wardrobe.cam:
-			%BackButton.show()
 
-	%Animations.play_backwards("BlackFadeIn")
-	await %Animations.animation_finished
+func player_tp_broom() -> String:
+	%Player.position = %BathroomSpawnPoint.position
+	%BathroomCamera.make_current()
+	return "Player teleported to bathroom"
+
+
+func player_tp_lroom() -> String:
+	%Player.position = %LivingRoomSpawnPoint.position
+	%LivingRoomCamera.make_current()
+	return "Player teleported to living room"
+
+
+func _on_navigation_to_inspectable_finished() -> void:
+	await SignalBus.camera_changed
+	%BackButton.show()
+
+
+func _on_back_button_pressed() -> void:
+	SignalBus.back_button_pressed.emit()
+	%BackButton.hide()
+	_change_camera(last_camera)
+
+
+func _change_camera(p_camera: Camera3D) -> void:
+	%Black.show()
+	%Black/Animations.play("BlackFadeIn")
+	await %Black/Animations.animation_finished
+
+	last_camera = get_viewport().get_camera_3d()
+	p_camera.make_current()
+	SignalBus.camera_changed.emit(last_camera, p_camera)
+
+	%Black/Animations.play_backwards("BlackFadeIn")
+	await %Black/Animations.animation_finished
 	%Black.hide()
 
 
-func on_back_button_pressed() -> void:
-	if not Global.current_note == null:
-		Global.current_note.transform = Global.current_note.original_transform
-		Global.current_note = null
-		return
+func _on_unstuck_button_pressed() -> void:
+	if %LivingRoomCamera.current:
+		%Player.position = %LivingRoomUnstuckSpawnPoint.position
+	elif %BathroomCamera.current:
+		%Player.position = %LivingRoomUnstuckSpawnPoint.position
+	%Player.stop_navigating()
 
-	if Global.puzderko.inspecting:
-		Global.puzderko.get_node("%Drawerz").cam.make_current()
-		Global.last_camera = %MainCamera
-		Global.puzderko.inspecting = false
-		Global.puzderko.get_node("PadlockUI").hide()
 
-		if Global.puzderko.code_complete:
-			Global.puzderko.get_node("puzderko_top").rotate_x(deg_to_rad(-100))
-			Global.puzderko.input_ray_pickable = false
+func _on_create_dialog(p_text: String) -> void:
+	%Dialog.text = p_text
+	%Dialog.show()
+	%DialogTimer.wait_time = p_text.length() / 10.0
+	%DialogTimer.start()
 
-		return
 
-	%BackButton.hide()
-	change_camera(Global.last_camera)
-	Global.player.inspecting = false
-
-	if Global.nightstand.first_inspection:
-		Global.nightstand.first_inspection = false
-		await %Animations.animation_finished
-		Global.show_dialog("I must have fallen asleep while working...", 5.0)
-		await %DialogTimer.timeout
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		Global.player.movement_disabled = false
-		for node : Node in get_tree().get_nodes_in_group("Inspectables"):
-			node.interaction_area.input_ray_pickable = true
+func _on_dialog_timer_timeout() -> void:
+	%Dialog.hide()

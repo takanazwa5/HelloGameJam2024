@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://8xj8c0xb1oav"]
+
+[ext_resource type="Texture2D" uid="uid://df2jmj2f4agb" path="res://scenes/level/textures/Bathroom/Rugs n Towels/Rugs n Towels_Base_Color.PNG" id="1_bcmxl"]
+[ext_resource type="Texture2D" uid="uid://dsn2wgdsebh1o" path="res://scenes/level/textures/Bathroom/Rugs n Towels/Rugs n Towels_AmbientOcclusion.PNG" id="2_w2tc1"]
+[ext_resource type="Texture2D" uid="uid://b3sv65daqe2ev" path="res://scenes/level/textures/Bathroom/Rugs n Towels/Rugs n Towels_Metallic.PNG" id="3_nuqum"]
+[ext_resource type="Texture2D" uid="uid://toxgf13rmm51" path="res://scenes/level/textures/Bathroom/Rugs n Towels/Rugs n Towels_Normal.png" id="4_to5ri"]
+[ext_resource type="Texture2D" uid="uid://do7p0f7gdikt" path="res://scenes/level/textures/Bathroom/Rugs n Towels/Rugs n Towels_Roughness.PNG" id="5_vxe6b"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_bcmxl")
+metallic = 1.0
+metallic_texture = ExtResource("3_nuqum")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_vxe6b")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_to5ri")
+ao_enabled = true
+ao_texture = ExtResource("2_w2tc1")
+ao_texture_channel = 4

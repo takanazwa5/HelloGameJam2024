@@ -6,13 +6,8 @@ const ACCELERATION : float = 0.5
 const DECELERATION : float = 0.1
 
 
-var input_dir : Vector2 = Vector2.ZERO
-var click_pos : Vector2 = Vector2.ZERO
-var inspecting : bool = false
-var moving_to_inspectable : bool = false
-var freeroaming : bool = false
-var movement_disabled : bool = true
-var blend_pos_remapped : float = 0.0
+var navigating : bool = false
+var freeroaming : bool = true
 
 
 @onready var animations : AnimationPlayer = $Character.get_node("%Animations")
@@ -20,67 +15,94 @@ var blend_pos_remapped : float = 0.0
 
 
 func _ready() -> void:
-	Global.player = self
-
-	animations.animation_finished.connect(on_animation_finished)
+	animations.animation_finished.connect(_on_animation_finished)
+	%NavAgent.navigation_finished.connect(_on_navigation_finished)
+	SignalBus.floor_click.connect(_on_floor_click)
+	SignalBus.inspectable_clicked.connect(_on_inspectable_clicked)
+	SignalBus.back_button_pressed.connect(_on_back_button_pressed)
 
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	_on_animation_finished(&"Waking up") # NOTE: TEMP
 
 
 func _physics_process(delta: float) -> void:
-	update_gravity(delta)
-	update_input(delta)
-	move_and_slide()
-
-
-func _process(_delta: float) -> void:
-	DebugPanel.add_property("global_pos", global_position, 0)
-
-	animation_tree.set("parameters/blend_position", velocity.length())
-
-
-func update_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	var direction : Vector3 = Vector3.ZERO
 
-func update_input(delta: float) -> void:
-	if input_dir:
-		velocity.x = lerpf(velocity.x, input_dir.x * SPEED, ACCELERATION)
-		velocity.z = lerpf(velocity.z, input_dir.y * SPEED, ACCELERATION)
+	if navigating:
+		var new_direction : Vector3 = %NavAgent.get_next_path_position() - global_position
+		direction = Vector3(new_direction.x, 0, new_direction.z).normalized()
 
-		if freeroaming:
-			var pos : Vector2 = Vector2(global_position.x, global_position.z)
-			var distance_to_click : float = pos.distance_to(click_pos)
-			if distance_to_click < 0.01:
-				input_dir = Vector2.ZERO
-				freeroaming = false
+	if direction:
+		velocity.x = lerpf(velocity.x, direction.x * SPEED, ACCELERATION)
+		velocity.z = lerpf(velocity.z, direction.z * SPEED, ACCELERATION)
 
-		var left_axis : Vector3 = Vector3.UP.cross(Vector3(input_dir.x, 0.0, input_dir.y))
-		var rotation_basis : Quaternion = Basis(left_axis, Vector3.DOWN, \
-		Vector3(input_dir.x, 0.0, input_dir.y)).get_rotation_quaternion()
+		var left_axis : Vector3 = Vector3.UP.cross(direction)
+		var rotation_basis : Quaternion = Basis(left_axis, Vector3.UP, \
+		direction).get_rotation_quaternion()
 		var model_scale : Vector3 = $Character.basis.get_scale()
 		$Character.basis = Basis($Character.basis.get_rotation_quaternion().slerp( \
 		rotation_basis, delta * 10.0)).scaled(model_scale)
-
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
 
-
-func move_to_position(pos: Vector3) -> void:
-	if movement_disabled:
-		return
-
-	click_pos = Vector2(pos.x, pos.z)
-	var direction : Vector3 = pos - global_position
-	input_dir = Vector2(direction.x, direction.z).normalized()
+	move_and_slide()
 
 
-func on_animation_finished(anim_name: StringName) -> void:
-	if not anim_name == &"Waking up":
-		return
+func _process(_delta: float) -> void:
+	animation_tree.set("parameters/blend_position", velocity.length())
 
-	animation_tree.active = true
-	animations.active = false
+	DebugPanel.add_property("Navigating", navigating, 2)
+	DebugPanel.add_property("Freeroaming", freeroaming, 3)
+
+
+func stop_navigating() -> void:
+	DebugConsole.print_line("navigation finished")
+	navigating = false
+
+
+func _on_animation_finished(p_anim_name: StringName) -> void:
+	match p_anim_name:
+
+		&"Waking up":
+			animation_tree.active = true
+			animations.active = false
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _navigate_to(p_pos: Vector3) -> void:
+	%NavAgent.target_position = p_pos
+	if not navigating:
+		DebugConsole.print_line("navigation started with target %s" % p_pos)
+	else:
+		DebugConsole.print_line("navigation target changed to %s" % p_pos)
+	navigating = true
+
+
+func _on_floor_click(p_pos: Vector3) -> void:
+	_navigate_to(p_pos)
+	freeroaming = true
+	SignalBus.freeroaming_started.emit()
+
+
+func _on_navigation_finished() -> void:
+	stop_navigating()
+
+	if not freeroaming:
+		SignalBus.navigation_to_inspectable_finished.emit()
+		await SignalBus.camera_changed
+		hide()
+
+
+func _on_inspectable_clicked(p_pos: Vector3) -> void:
+	_navigate_to(p_pos)
+	freeroaming = false
+
+
+func _on_back_button_pressed() -> void:
+	await SignalBus.camera_changed
+	show()

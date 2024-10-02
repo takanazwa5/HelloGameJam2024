@@ -14,6 +14,8 @@ func _ready() -> void:
 	hide()
 	%MainPauseContainer.show()
 
+	%DebugPanelButton.text += "ON" if DebugPanel.visible else "OFF"
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -47,13 +49,7 @@ func on_settings_button_pressed() -> void:
 
 
 func on_unstuck_button_pressed() -> void:
-	if Global.main_camera.is_current():
-		Global.player.global_position = Global.living_room_unstuck_spawn_point
-		Global.player.input_dir = Vector2.ZERO
-
-	elif Global.bathroom_camera.is_current():
-		Global.player.global_position = Global.bathroom_unstuck_spawn_point
-		Global.player.input_dir = Vector2.ZERO
+	SignalBus.unstuck_button_pressed.emit()
 
 
 func on_debug_panel_button_pressed() -> void:

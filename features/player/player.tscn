@@ -5,7 +5,6 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtgrg"]
 radius = 0.3
-height = 1.8
 radial_segments = 16
 rings = 4
 
@@ -17,6 +16,7 @@ input_ray_pickable = false
 script = ExtResource("1_t26w5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_mtgrg")
 
@@ -25,3 +25,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_gwh3g")
 
 [node name="Character" parent="." instance=ExtResource("2_haf74")]
+
+[node name="NavAgent" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+path_desired_distance = 0.1
+target_desired_distance = 0.1
+debug_enabled = true
+debug_path_custom_point_size = 8.0

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bby8qs7vroe0a"]
+
+[ext_resource type="Texture2D" uid="uid://dxy8p6d8qfc3t" path="res://scenes/level/textures/Bathroom/Bathroom/BathroomTileFloor/Floor_Tiles_Base_color.png" id="1_47ix1"]
+[ext_resource type="Texture2D" uid="uid://bi80j5fip8edy" path="res://scenes/level/textures/Bathroom/Bathroom/BathroomTileFloor/Floor_Tiles_Normal_OpenGL.png" id="2_0wc12"]
+[ext_resource type="Texture2D" uid="uid://dwe0705ic554j" path="res://scenes/level/textures/Bathroom/Bathroom/BathroomTileFloor/Floor_Tiles_Roughness.png" id="3_s0esq"]
+
+[resource]
+albedo_texture = ExtResource("1_47ix1")
+roughness_texture = ExtResource("3_s0esq")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_0wc12")

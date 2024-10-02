@@ -5,8 +5,7 @@ const INVENTORY_SLOT : PackedScene = preload("res://features/inventory/inventory
 
 
 func _ready() -> void:
-	Global.inventory = self
-
+	pass
 
 func add_item(item: Item) -> void:
 	var new_slot : InventorySlot = INVENTORY_SLOT.instantiate()

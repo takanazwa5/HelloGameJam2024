@@ -1,0 +1,355 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ucxb03k4kace"
+path="res://.godot/imported/level.glb-09515e09f0fb2ed974188a6332c09707.scn"
+
+[deps]
+
+source_file="res://scenes/level/level.glb"
+dest_files=["res://.godot/imported/level.glb-09515e09f0fb2ed974188a6332c09707.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Level"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=false
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Basket": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_basket.tres"
+},
+"Bathtub": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathtub.tres"
+},
+"Bathtub.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathtub.tres"
+},
+"Battery": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathtub_battery.tres"
+},
+"Battery_K": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_battery.tres"
+},
+"Bins_Sink": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_bins_n_sink.tres"
+},
+"Blackest Black": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/blackest_black.tres"
+},
+"BoningKnifeMaterial": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/knife_set.tres"
+},
+"Books_A.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/books_a.tres"
+},
+"Books_A.002": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/books_a.tres"
+},
+"Books_B.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/books_b.tres"
+},
+"Cabinet_Small": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_small_cabinet.tres"
+},
+"Cables": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/cables.tres"
+},
+"Carpet": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_carpet.tres"
+},
+"Cupboard3": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_cupboard_shelves.tres"
+},
+"Cupboard_2Door": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_cupboard_2door.tres"
+},
+"Cupboard_Big": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_cupboard_big.tres"
+},
+"Cupboard_Sink": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_cupboard_sink.tres"
+},
+"Cupboard_Small": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_cupboard_small.tres"
+},
+"Dining_Chair": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_chair.tres"
+},
+"Dining_Table": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_table.tres"
+},
+"Dining_Wood": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_wardrobe.tres"
+},
+"Dining_Wood.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_wardrobe.tres"
+},
+"Dishes": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_pots_n_dishes.tres"
+},
+"Door": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/door.tres"
+},
+"Floor_Tiles": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_floor_tiles.tres"
+},
+"Fridge": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_fridge.tres"
+},
+"Karnisz": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_karnisz.tres"
+},
+"Label": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/battery.tres"
+},
+"Lace.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/lace.tres"
+},
+"Lamp_A": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_lamp.tres"
+},
+"Lamp_A.SSS": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_lamp_SSS.tres"
+},
+"Marble_Counter": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_marble_counter.tres"
+},
+"Metal.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/battery.tres"
+},
+"None": {
+"use_external/enabled": false,
+"use_external/path": "res://scenes/level/None.tres"
+},
+"Radiator": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_radiator.tres"
+},
+"Radio1": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_radio.tres"
+},
+"Raw Wood": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/raw_wood.tres"
+},
+"Remote": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/remote.tres"
+},
+"Sink": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_sink.tres"
+},
+"Sofa": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_sofa.tres"
+},
+"Stove": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_stove.tres"
+},
+"Stove.Transparency": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/kitchen_stove_transparency.tres"
+},
+"TV": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_tv.tres"
+},
+"TV.Screen": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/living_room_tv.tres"
+},
+"Toilet": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_toilet.tres"
+},
+"Walls_Tiles": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_walls_tiles.tres"
+},
+"Walls_White": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/white_wall.tres"
+},
+"WashingMachine": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_pralka.tres"
+},
+"Window Glass": {
+"use_external/enabled": true,
+"use_external/path": "res://shared/shaders/glass_material.tres"
+},
+"Window Glass.Rough": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/glass_rough.tres"
+},
+"Wooden parquets": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/parquet.tres"
+},
+"alarm_clock_01": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/alarm_clock.tres"
+},
+"book_encyclopedia_set_01_cover": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/encyclopedia_cover.tres"
+},
+"book_encyclopedia_set_01_paper": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/encyclopedia_paper.tres"
+},
+"break": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/note_break.tres"
+},
+"buttons": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/laptop_buttons.tres"
+},
+"glass": {
+"use_external/enabled": true,
+"use_external/path": "res://shared/shaders/glass_material.tres"
+},
+"hanging_picture_frame_02": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/picture_frame.tres"
+},
+"hanging_picture_frame_02_artwork": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/picture_frame_art.tres"
+},
+"key": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/key.tres"
+},
+"key_shelf": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/key_shelf.tres"
+},
+"magnet": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/magnets.tres"
+},
+"mantel_clock_01.001": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/clutter_mantel_clock.tres"
+},
+"metal body": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/laptop_base.tres"
+},
+"microwave": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/microwave_closed_1.tres"
+},
+"morse": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/note_morse.tres"
+},
+"napkin_boxBody": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/napkins.tres"
+},
+"napkin_napkins": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/white_contact.tres"
+},
+"overworking": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/note_overworking.tres"
+},
+"padlock": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/padlock.tres"
+},
+"plunger": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/plunger.tres"
+},
+"postcard_set_01": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/clutter_postcards.tres"
+},
+"puzderko": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/puzderko.tres"
+},
+"rugs n towels": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/bathroom_rugs_n_towels.tres"
+},
+"screen_microwave": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/laptop_screen.tres"
+},
+"tea_set_01": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/clutter_tea_set.tres"
+},
+"water": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/note_water.tres"
+},
+"white plastic": {
+"use_external/enabled": true,
+"use_external/path": "res://scenes/level/materials/white_contact.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=0

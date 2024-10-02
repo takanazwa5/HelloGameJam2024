@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bjodc4l8h30w0"]
+
+[ext_resource type="Texture2D" uid="uid://cqpa1jepjdmuw" path="res://scenes/level/textures/Kitchen/Dishes/Dishes_Base_color.png" id="1_xabth"]
+[ext_resource type="Texture2D" uid="uid://bp4rl8urydgdg" path="res://scenes/level/textures/Kitchen/Dishes/Dishes_Metallic.png" id="2_wfnyj"]
+[ext_resource type="Texture2D" uid="uid://dxud8tylrwoyj" path="res://scenes/level/textures/Kitchen/Dishes/Dishes_Normal_OpenGL.png" id="3_x45xi"]
+[ext_resource type="Texture2D" uid="uid://c703wgu6u0uus" path="res://scenes/level/textures/Kitchen/Dishes/Dishes_Roughness.png" id="4_pdvx0"]
+
+[resource]
+albedo_texture = ExtResource("1_xabth")
+metallic = 1.0
+metallic_texture = ExtResource("2_wfnyj")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_pdvx0")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_x45xi")

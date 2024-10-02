@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cjsrscdkj7m6l"]
+
+[ext_resource type="Texture2D" uid="uid://bkqcdqyl7ppcs" path="res://scenes/level/textures/Kitchen/Stove/Stove_Base_color.png" id="1_vpeqi"]
+[ext_resource type="Texture2D" uid="uid://bro2abkuv1aqw" path="res://scenes/level/textures/Kitchen/Stove/Stove_Ambient_Occlusion.png" id="2_p7p4c"]
+[ext_resource type="Texture2D" uid="uid://f00q8a7w1mo3" path="res://scenes/level/textures/Kitchen/Stove/Stove_Metallic.png" id="3_cglm5"]
+[ext_resource type="Texture2D" uid="uid://cbgbdq23b0tk4" path="res://scenes/level/textures/Kitchen/Stove/Stove_Normal.png" id="4_nvhu3"]
+[ext_resource type="Texture2D" uid="uid://eyhma7ekjbeu" path="res://scenes/level/textures/Kitchen/Stove/Stove_Roughness.png" id="5_egrxi"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.541176)
+albedo_texture = ExtResource("1_vpeqi")
+metallic = 1.0
+metallic_texture = ExtResource("3_cglm5")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_egrxi")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_nvhu3")
+ao_enabled = true
+ao_texture = ExtResource("2_p7p4c")
+ao_texture_channel = 4

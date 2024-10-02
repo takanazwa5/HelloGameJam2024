@@ -1,9 +1,6 @@
 class_name InventorySlot extends PanelContainer
 
 
-const REMOTE_ITEM : ItemRes = preload("res://features/items/remote_item/remote_item_res.tres")
-
-
 var item_res : ItemRes:
 	set(val):
 		item_res = val
@@ -11,28 +8,18 @@ var item_res : ItemRes:
 
 
 func _ready() -> void:
-	$TextureButton.pressed.connect(on_texture_button_pressed)
-	$TextureButton.mouse_entered.connect(on_mouse_entered)
-	$TextureButton.mouse_exited.connect(on_mouse_exited)
+	$TextureButton.pressed.connect(_on_texture_button_pressed)
+	$TextureButton.mouse_entered.connect(_on_mouse_entered)
+	$TextureButton.mouse_exited.connect(_on_mouse_exited)
 
 
-func on_mouse_entered() -> void:
-	Global.item_name_label.text = item_res.display_name
-	Global.item_name_label.show()
+func _on_mouse_entered() -> void:
+	pass
 
 
-func on_mouse_exited() -> void:
-	Global.item_name_label.hide()
+func _on_mouse_exited() -> void:
+	pass
 
 
-func on_texture_button_pressed() -> void:
-	if Global.main_camera.is_current() or Global.bathroom_camera.is_current():
-		return
-
-	if item_res.type == ItemRes.Type.NON_CLICKABLE:
-		return
-
-	Input.set_custom_mouse_cursor(item_res.icon, Input.CURSOR_ARROW, Vector2(16, 16))
-	$TextureButton.texture_normal = null
-	Global.item_in_hand = item_res
-	Global.item_slot = self
+func _on_texture_button_pressed() -> void:
+	pass

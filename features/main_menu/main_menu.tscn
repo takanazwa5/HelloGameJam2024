@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6g0si5ay7kuw"]
+[gd_scene load_steps=6 format=3 uid="uid://c6g0si5ay7kuw"]
 
 [ext_resource type="Script" path="res://features/main_menu/main_menu.gd" id="1_rd7dl"]
 [ext_resource type="Texture2D" uid="uid://bmeirh1j471kb" path="res://features/main_menu/main_menu_background.png" id="2_bhpb5"]
-[ext_resource type="PackedScene" uid="uid://chb8t2a27ragh" path="res://shared/settings_menu/settings_menu.tscn" id="2_hvhod"]
+[ext_resource type="PackedScene" uid="uid://chb8t2a27ragh" path="res://features/settings_menu/settings_menu.tscn" id="2_hvhod"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_85tvc"]
 
 [sub_resource type="Theme" id="Theme_kvp4m"]
 Button/constants/outline_size = 16
@@ -17,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rd7dl")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,19 +28,42 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bhpb5")
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="TextureRect"]
+[node name="Panel" type="Panel" parent="Background"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -201.0
-offset_right = 229.0
+offset_left = 300.0
+offset_right = 600.0
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Background/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 100.0
+offset_right = 123.0
+offset_bottom = 243.0
+grow_horizontal = 2
+texture = SubResource("PlaceholderTexture2D_85tvc")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Background/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -267.0
+offset_right = 91.0
 offset_bottom = -100.0
+grow_horizontal = 2
 grow_vertical = 0
 
-[node name="StartGameButton" type="Button" parent="TextureRect/ButtonsContainer"]
+[node name="StartGameButton" type="Button" parent="Background/Panel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -47,7 +72,7 @@ text = "Start Game"
 flat = true
 alignment = 0
 
-[node name="SettingsButton" type="Button" parent="TextureRect/ButtonsContainer"]
+[node name="SettingsButton" type="Button" parent="Background/Panel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -56,7 +81,7 @@ text = "Settings"
 flat = true
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="TextureRect/ButtonsContainer"]
+[node name="QuitButton" type="Button" parent="Background/Panel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -70,7 +95,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="CreditsLabel" type="Label" parent="."]
+[node name="Credits" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

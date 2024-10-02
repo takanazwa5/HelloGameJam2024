@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csr4ac7csba70"]
+
+[ext_resource type="Texture2D" uid="uid://gbrf4nboektn" path="res://scenes/level/textures/clutter/battery/battery.png" id="1_1tktd"]
+
+[resource]
+albedo_texture = ExtResource("1_1tktd")
+roughness = 0.5

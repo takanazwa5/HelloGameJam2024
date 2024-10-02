@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b23yqi6ti706r"]
-
-[ext_resource type="PackedScene" uid="uid://bn6qs6kuvyrgt" path="res://scenes/house/house.tscn" id="1_ejbjs"]
-
-[node name="Level" type="Node3D"]
-
-[node name="house" parent="." instance=ExtResource("1_ejbjs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51071, 0, 0)

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="ItemRes" load_steps=4 format=3 uid="uid://dhb8k5cutq52r"]
+[gd_resource type="Resource" script_class="ItemRes" load_steps=5 format=3 uid="uid://dhb8k5cutq52r"]
 
-[ext_resource type="Texture2D" uid="uid://t1q0plgdwqxh" path="res://features/items/light_bulb/light_bulb_32.png" id="1_nx13e"]
+[ext_resource type="Texture2D" uid="uid://t1q0plgdwqxh" path="res://features/items/light_bulb/light_bulb32.png" id="1_nx13e"]
 [ext_resource type="Script" path="res://shared/classes/item_res.gd" id="2_7piim"]
-[ext_resource type="Texture2D" uid="uid://ikwg07xlwp53" path="res://features/items/light_bulb/light_bulb_512.png" id="3_5phqc"]
+[ext_resource type="PackedScene" uid="uid://dt3sjki472086" path="res://features/items/light_bulb/light_bulb.tscn" id="2_o46ct"]
+[ext_resource type="Texture2D" uid="uid://ikwg07xlwp53" path="res://features/items/light_bulb/light_bulb512.png" id="3_5phqc"]
 
 [resource]
 script = ExtResource("2_7piim")
+scene = ExtResource("2_o46ct")
 display_name = "Lightbulb"
 thumbnail = ExtResource("3_5phqc")
 icon = ExtResource("1_nx13e")

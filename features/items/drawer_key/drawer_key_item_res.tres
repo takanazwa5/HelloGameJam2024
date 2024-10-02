@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=5 format=3 uid="uid://c0vq216kaltj1"]
+
+[ext_resource type="Script" path="res://shared/classes/item_res.gd" id="1_4g4m4"]
+[ext_resource type="Texture2D" uid="uid://dvhmae2ax60xw" path="res://features/items/drawer_key/drawer_key32.png" id="1_mctec"]
+[ext_resource type="PackedScene" uid="uid://rky0h204w8gb" path="res://features/items/drawer_key/drawer_key.tscn" id="2_cc8w4"]
+[ext_resource type="Texture2D" uid="uid://bvhwjuryp7qab" path="res://features/items/drawer_key/drawer_key512.png" id="3_ivgpp"]
+
+[resource]
+script = ExtResource("1_4g4m4")
+scene = ExtResource("2_cc8w4")
+display_name = "Drawer Key"
+thumbnail = ExtResource("3_ivgpp")
+icon = ExtResource("1_mctec")
+type = 0

@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cmcet2snt265u"]
+
+[ext_resource type="Texture2D" uid="uid://bc1tyicyt761i" path="res://scenes/level/textures/clutter/Alarm clock/alarm_clock_01_diff_2k.jpg" id="1_qo0q3"]
+[ext_resource type="Texture2D" uid="uid://wg4g2iu03fih" path="res://scenes/level/textures/clutter/Alarm clock/alarm_clock_01_metal_2k.png" id="2_w3elg"]
+[ext_resource type="Texture2D" uid="uid://bfi0kxlse3acf" path="res://scenes/level/textures/clutter/Alarm clock/alarm_clock_01_nor_gl_2k.png" id="3_c083x"]
+[ext_resource type="Texture2D" uid="uid://r78mavfc8xrk" path="res://scenes/level/textures/clutter/Alarm clock/alarm_clock_01_rough_2k.png" id="4_8xtaw"]
+
+[resource]
+albedo_texture = ExtResource("1_qo0q3")
+metallic = 1.0
+metallic_texture = ExtResource("2_w3elg")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_8xtaw")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_c083x")

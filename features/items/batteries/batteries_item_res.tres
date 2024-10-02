@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="ItemRes" load_steps=4 format=3 uid="uid://clupmhdn7g6hl"]
+[gd_resource type="Resource" script_class="ItemRes" load_steps=5 format=3 uid="uid://clupmhdn7g6hl"]
 
 [ext_resource type="Script" path="res://shared/classes/item_res.gd" id="1_jktgd"]
-[ext_resource type="Texture2D" uid="uid://bok414syyb7sy" path="res://features/items/batteries/battery32.png" id="1_l8pod"]
-[ext_resource type="Texture2D" uid="uid://yq567vxbvgw3" path="res://features/items/batteries/battery512.png" id="3_3x4iq"]
+[ext_resource type="Texture2D" uid="uid://bok414syyb7sy" path="res://features/items/batteries/batteries32.png" id="1_l8pod"]
+[ext_resource type="PackedScene" uid="uid://cy0qtwlvks28l" path="res://features/items/batteries/batteries.tscn" id="2_q72o3"]
+[ext_resource type="Texture2D" uid="uid://yq567vxbvgw3" path="res://features/items/batteries/batteries512.png" id="3_3x4iq"]
 
 [resource]
 script = ExtResource("1_jktgd")
+scene = ExtResource("2_q72o3")
 display_name = "Batteries"
 thumbnail = ExtResource("3_3x4iq")
 icon = ExtResource("1_l8pod")
+type = 1

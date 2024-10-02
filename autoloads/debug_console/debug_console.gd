@@ -16,13 +16,13 @@ var previous_autocomplete_matches : PackedStringArray = []
 func _ready() -> void:
 	hide()
 
-	visibility_changed.connect(on_visibility_changed)
-	%Input.text_submitted.connect(on_input_text_submitted)
+	visibility_changed.connect(_on_visibility_changed)
+	%Input.text_submitted.connect(_on_input_text_submitted)
 
-	create_command("help", help, "Displays available commands commands")
-	create_command("clear", clear, "Clears console output")
-	create_command("exit", exit, "Exits the console")
-	create_command("quit", quit, "Quits the game")
+	create_command("help", _help, "Displays available commands commands")
+	create_command("clear", _clear, "Clears console output")
+	create_command("exit", _exit, "Exits the console")
+	create_command("quit", _quit, "Quits the game")
 
 
 func _input(event: InputEvent) -> void:
@@ -65,7 +65,7 @@ func _input(event: InputEvent) -> void:
 			if not %Input.has_focus():
 				return
 
-			autocomplete()
+			_autocomplete()
 			accept_event()
 
 		last_input_was_autocomplete = (
@@ -74,7 +74,17 @@ func _input(event: InputEvent) -> void:
 		)
 
 
-func on_visibility_changed() -> void:
+func create_command(p_command: StringName, p_callable: Callable, p_description: String = "") -> void:
+	commands.append(ConsoleCommand.new(p_command, p_callable, p_description))
+
+
+func print_line(p_text: String, p_color: Color = Color.WHITE) -> void:
+	%Output.push_color(p_color)
+	%Output.append_text(p_text + "\n")
+	%Output.pop()
+
+
+func _on_visibility_changed() -> void:
 	if visible:
 		previous_mouse_mode = Input.get_mouse_mode()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -82,25 +92,25 @@ func on_visibility_changed() -> void:
 		Input.set_mouse_mode(previous_mouse_mode)
 
 
-func on_input_text_submitted(text: String) -> void:
-	print_line("[b]> " + text + "[/b]")
+func _on_input_text_submitted(p_text: String) -> void:
+	print_line("[b]> " + p_text + "[/b]")
 
-	if text.is_empty():
+	if p_text.is_empty():
 		return
 
 	%Input.text = ""
-	history.push_front(text)
+	history.push_front(p_text)
 	if history.size() > 100:
 		history.pop_back()
 	history_index = -1
 
-	var args : PackedStringArray = text.split(" ", false)
+	var args : PackedStringArray = p_text.split(" ", false)
 
-	if not has_command(args[0]):
+	if not _has_command(args[0]):
 		print_line("Command %s was not recognized" %args[0], Color.RED)
 		return
 
-	var command : ConsoleCommand = get_command(args[0])
+	var command : ConsoleCommand = _get_command(args[0])
 	args.remove_at(0)
 
 	var result : String = command.execute(args)
@@ -109,31 +119,21 @@ func on_input_text_submitted(text: String) -> void:
 		print_line(result)
 
 
-func print_line(text: String, color: Color = Color.WHITE) -> void:
-	%Output.push_color(color)
-	%Output.append_text(text + "\n")
-	%Output.pop()
-
-
-func has_command(command: StringName) -> bool:
+func _has_command(p_command: StringName) -> bool:
 	for cmd : ConsoleCommand in commands:
-		if cmd._command == command:
+		if cmd.command == p_command:
 			return true
 	return false
 
 
-func get_command(command: StringName) -> ConsoleCommand:
+func _get_command(p_command: StringName) -> ConsoleCommand:
 	for cmd : ConsoleCommand in commands:
-		if cmd._command == command:
+		if cmd.command == p_command:
 			return cmd
 	return null
 
 
-func create_command(command: StringName, callable: Callable, description: String = "") -> void:
-	commands.append(ConsoleCommand.new(command, callable, description))
-
-
-func autocomplete() -> void:
+func _autocomplete() -> void:
 	var matches : PackedStringArray = []
 
 	if last_input_was_autocomplete:
@@ -141,12 +141,12 @@ func autocomplete() -> void:
 
 	elif %Input.text.length() == 0:
 		for command : ConsoleCommand in commands:
-			matches.append(command._command)
+			matches.append(command.command)
 
 	else:
 		for command : ConsoleCommand in commands:
-			if command._command.begins_with(%Input.text):
-				matches.append(command._command)
+			if command.command.begins_with(%Input.text):
+				matches.append(command.command)
 
 	previous_autocomplete_matches = matches
 
@@ -163,31 +163,31 @@ func autocomplete() -> void:
 	%Input.caret_column = %Input.text.length()
 
 
-func help(command: StringName = "") -> void:
-	if command == "":
+func _help(p_command: StringName = "") -> void:
+	if p_command == "":
 		print_line("List of available commands:")
 		for cmd : ConsoleCommand in commands:
-			print_line("- " + cmd._command)
+			print_line("- " + cmd.command)
 		return
 
 	else:
 		for cmd : ConsoleCommand in commands:
 
-			if cmd._command == command:
+			if cmd.command == p_command:
 
-				if cmd._description.is_empty():
-					print_line("%s - No description" % cmd._command)
+				if cmd.description.is_empty():
+					print_line("%s - No description" % cmd.command)
 
 				else:
-					print_line("%s - %s" % [cmd._command, cmd._description])
+					print_line("%s - %s" % [cmd.command, cmd.description])
 
 				var i : int = 0
-				var required_args_count : int = cmd._args.size() - cmd._default_args.size()
+				var required_args_count : int = cmd.args.size() - cmd.default_args.size()
 
-				for arg : Dictionary in cmd._args:
+				for arg : Dictionary in cmd.args:
 					if i >= required_args_count:
 						print_line("%s: %s (default = %s)" % [arg.name, type_string(arg.type),\
-						cmd._default_args[-required_args_count + i]])
+						cmd.default_args[-required_args_count + i]])
 
 					else:
 						print_line("%s: %s" % [arg.name, type_string(arg.type)])
@@ -195,16 +195,16 @@ func help(command: StringName = "") -> void:
 
 				return
 
-	print_line("Command %s was not recognized" % command)
+	print_line("Command %s was not recognized" % p_command)
 
 
-func clear() -> void:
+func _clear() -> void:
 	%Output.clear()
 
 
-func exit() -> void:
+func _exit() -> void:
 	visible = false
 
 
-func quit() -> void:
-	get_tree().quit()
+func _quit() -> void:
+	get_tree()._quit()

@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c2ksacwd0kxnw"]
+
+[ext_resource type="Texture2D" uid="uid://cxrsnpfpjfxug" path="res://scenes/level/textures/Living Room/Lamp/Flower_Lamp_Base_Color.PNG" id="1_er53j"]
+[ext_resource type="Texture2D" uid="uid://dpmbgw5jwdjrs" path="res://scenes/level/textures/Living Room/Lamp/Flower_Lamp_Metallic.PNG" id="2_eyfvu"]
+[ext_resource type="Texture2D" uid="uid://ds063421ej548" path="res://scenes/level/textures/Living Room/Lamp/Flower_Lamp_Normal.PNG" id="3_17nkw"]
+[ext_resource type="Texture2D" uid="uid://ca31y2spluhtv" path="res://scenes/level/textures/Living Room/Lamp/Flower_Lamp_Roughness.PNG" id="4_svo3m"]
+
+[resource]
+albedo_texture = ExtResource("1_er53j")
+metallic = 1.0
+metallic_texture = ExtResource("2_eyfvu")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_svo3m")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_17nkw")

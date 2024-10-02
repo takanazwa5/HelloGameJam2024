@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1c2is4xc31j"]
+[gd_scene load_steps=8 format=3 uid="uid://c1c2is4xc31j"]
 
 [ext_resource type="Script" path="res://autoloads/debug_console/debug_console.gd" id="1_dyfxf"]
+[ext_resource type="FontFile" uid="uid://cbssf8sbkpjnd" path="res://autoloads/debug_console/UbuntuMono/UbuntuMono-Regular.ttf" id="2_51ieo"]
+[ext_resource type="FontFile" uid="uid://m0j5ff4wkcff" path="res://autoloads/debug_console/UbuntuMono/UbuntuMono-Italic.ttf" id="3_hq868"]
+[ext_resource type="FontFile" uid="uid://b7xcbowdwl4gy" path="res://autoloads/debug_console/UbuntuMono/UbuntuMono-BoldItalic.ttf" id="4_nvltd"]
+[ext_resource type="FontFile" uid="uid://ckno2s7eos86j" path="res://autoloads/debug_console/UbuntuMono/UbuntuMono-Bold.ttf" id="5_v488m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4i1r"]
 bg_color = Color(0, 0, 0, 0.784314)
@@ -29,10 +33,17 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/bold_italics_font_size = 22
-theme_override_font_sizes/italics_font_size = 22
-theme_override_font_sizes/normal_font_size = 22
-theme_override_font_sizes/bold_font_size = 22
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_51ieo")
+theme_override_fonts/mono_font = ExtResource("2_51ieo")
+theme_override_fonts/italics_font = ExtResource("3_hq868")
+theme_override_fonts/bold_italics_font = ExtResource("4_nvltd")
+theme_override_fonts/bold_font = ExtResource("5_v488m")
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_h4i1r")
 bbcode_enabled = true
 text = "Hello, World!
@@ -45,7 +56,8 @@ selection_enabled = true
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/caret_width = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("2_51ieo")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxFlat_jhsl8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jhsl8")
 placeholder_text = "Type here..."
