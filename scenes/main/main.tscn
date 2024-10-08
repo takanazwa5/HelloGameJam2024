@@ -5,7 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://dinlvdvxepfsj" path="res://features/player/player.tscn" id="4_e8gcv"]
 [ext_resource type="PackedScene" uid="uid://cf42hl00jn6v1" path="res://features/inventory/inventory.tscn" id="5_bjakt"]
 [ext_resource type="PackedScene" uid="uid://dw3e5km8mmfmt" path="res://scenes/level/level.tscn" id="6_tb6rl"]
-[ext_resource type="AudioStream" uid="uid://vfuv2shabgqr" path="res://shared/sounds/cloc_tick.wav" id="7_yq3pg"]
+[ext_resource type="AudioStream" uid="uid://vfuv2shabgqr" path="res://scenes/main/cloc_tick.wav" id="7_yq3pg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ox7j1"]
+font_size = 22
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uar80"]
+font_size = 22
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6b3go"]
 resource_name = "BlackFadeIn"
@@ -45,16 +55,6 @@ _data = {
 "RESET": SubResource("Animation_ehfau")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_ox7j1"]
-font_size = 22
-outline_size = 11
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_uar80"]
-font_size = 22
-outline_size = 11
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Main" type="Node"]
 script = ExtResource("1_8g3y5")
 
@@ -70,26 +70,6 @@ mouse_filter = 2
 [node name="PauseMenu" parent="UI" instance=ExtResource("2_g3ph6")]
 visible = false
 layout_mode = 1
-
-[node name="Black" type="ColorRect" parent="UI"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Animations" type="AnimationPlayer" parent="UI/Black"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_mf0ti")
-}
 
 [node name="BackButton" type="Button" parent="UI"]
 unique_name_in_owner = true
@@ -131,14 +111,35 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="ItemName" type="Label" parent="UI"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
+offset_left = 10.0
 offset_top = 100.0
-offset_right = 40.0
+offset_right = 50.0
 offset_bottom = 131.0
 label_settings = SubResource("LabelSettings_uar80")
 
 [node name="Inventory" parent="UI" instance=ExtResource("5_bjakt")]
+
+[node name="Black" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Animations" type="AnimationPlayer" parent="UI/Black"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_mf0ti")
+}
 
 [node name="Player" parent="." instance=ExtResource("4_e8gcv")]
 unique_name_in_owner = true

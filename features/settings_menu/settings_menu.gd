@@ -176,7 +176,7 @@ func on_fsr_value_changed(value: int) -> void:
 
 
 func on_master_volume_value_changed(value: float) -> void:
-	var master_audio_bus_volume_db : float = linear_to_db(value)
+	var master_audio_bus_volume_db : float = linear_to_db(value / 100.0)
 	AudioServer.set_bus_volume_db(master_audio_bus_index, master_audio_bus_volume_db)
 
 
@@ -233,14 +233,19 @@ func check_connections() -> void:
 
 
 func apply_default_values() -> void:
-	%MouseSensitivity.value = 1.0
-	%WindowMode.value = 0
-	%FramerateLimit.value = 5
-	%VSync.value = true
-	%Brightness.value = 1.0
-	%MSAA.value = 3
-	%FSR.value = 0
-	%MasterVolume.value = 1
+	var settings : Array[Control] = [
+		%MouseSensitivity,
+		%WindowMode,
+		%FramerateLimit,
+		%VSync,
+		%Brightness,
+		%MSAA,
+		%FSR,
+		%MasterVolume,
+	]
+
+	for setting : Control in settings:
+		setting.value = setting.default
 
 
 func on_back_button_pressed() -> void:

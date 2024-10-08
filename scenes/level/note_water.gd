@@ -1,0 +1,14 @@
+extends Note
+
+
+const BATHROOM_KEY_ITEM_RES = preload("res://features/items/bathroom_key/bathroom_key_item_res.tres")
+
+
+func _ready() -> void:
+	SignalBus.item_clicked.connect(_on_item_picked_up)
+
+
+func _on_item_picked_up(p_item: Item) -> void:
+	if p_item.item_res == BATHROOM_KEY_ITEM_RES:
+		%NoteWater.show()
+		%DoorKnocking.play()

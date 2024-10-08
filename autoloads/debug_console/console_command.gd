@@ -27,9 +27,11 @@ func _init_args(p_object: Object) -> void:
 
 
 func execute(p_args: PackedStringArray) -> String:
+	p_args.resize(args.size())
+
 	var required_args_count : int = args.size() - default_args.size()
 
-	if p_args.size() < required_args_count or p_args.size() > args.size():
+	if p_args.size() < required_args_count:
 
 		if default_args.size() == 0:
 			var s : String = "[color=red]Expected %s arguments, received %s[/color]"

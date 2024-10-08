@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#fc7f7f"
+   width="16"
+   height="16"
+   viewBox="0 0 7.9999999 8"
+   version="1.1"
+   stroke="#fc7f7f"
+   id="svg1"
+   sodipodi:docname="door.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="18.421292"
+     inkscape:cx="10.287009"
+     inkscape:cy="9.7984442"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     id="SVGRepo_iconCarrier"
+     transform="matrix(0.25396019,0,0,0.25396019,-0.06323609,-0.05985077)">
+    <title
+       id="title1">door-open</title>
+    <path
+       d="M 30,28.75 H 29.25 V 4 C 29.25,3.31 28.69,2.75 28,2.75 h -6 c -0.69,0 -1.25,0.56 -1.25,1.25 0,0.69 0.56,1.25 1.25,1.25 v 0 h 4.75 V 30 c 0.001,0.69 0.56,1.249 1.25,1.25 h 2 c 0.69,0 1.25,-0.56 1.25,-1.25 0,-0.69 -0.56,-1.25 -1.25,-1.25 z M 17.77,0.767 5.793,2.767 C 5.197,2.87 4.749,3.383 4.749,4 v 0 24.75 h -2.75 c -0.69,0 -1.25,0.56 -1.25,1.25 0,0.69 0.56,1.25 1.25,1.25 v 0 h 15.977 c 0.69,-0.001 1.249,-0.56 1.25,-1.25 V 2 c 0,0 0,-10e-4 0,-10e-4 0,-0.69 -0.559,-1.25 -1.25,-1.25 -0.073,0 -0.144,0.006 -0.214,0.018 L 17.769,0.766 Z M 7.25,28.75 V 5.059 L 16.727,3.476 V 28.75 Z M 14.58,15.12 C 14.464,15.013 14.332,14.919 14.19,14.845 L 14.18,14.84 c -0.142,-0.057 -0.307,-0.09 -0.48,-0.09 -0.173,0 -0.338,0.033 -0.489,0.093 L 13.22,14.84 c -0.157,0.068 -0.29,0.163 -0.4,0.28 l -10e-4,0.001 c -0.115,0.112 -0.209,0.244 -0.276,0.391 L 12.54,15.52 c -0.064,0.141 -0.101,0.306 -0.101,0.48 0,0.174 0.037,0.339 0.104,0.488 L 12.54,16.48 c 0.071,0.156 0.165,0.288 0.279,0.4 v 0 c 0.11,0.117 0.244,0.212 0.393,0.276 l 0.008,0.003 c 0.143,0.051 0.308,0.08 0.48,0.08 0.172,0 0.337,-0.029 0.49,-0.083 l -0.01,0.003 c 0.153,-0.079 0.284,-0.172 0.401,-0.28 L 14.58,16.88 c 0.108,-0.112 0.196,-0.245 0.257,-0.392 L 14.84,16.48 c 0.063,-0.141 0.1,-0.306 0.1,-0.48 0,-0.174 -0.037,-0.339 -0.103,-0.488 l 0.003,0.008 c -0.064,-0.155 -0.152,-0.287 -0.26,-0.4 z"
+       id="path1" />
+  </g>
+</svg>

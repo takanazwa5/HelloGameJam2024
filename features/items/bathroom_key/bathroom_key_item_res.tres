@@ -11,4 +11,4 @@ scene = ExtResource("2_vlref")
 display_name = "Bathroom Key"
 thumbnail = ExtResource("3_x45on")
 icon = ExtResource("1_tem8e")
-type = 1
+type = 0

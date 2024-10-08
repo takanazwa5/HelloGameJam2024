@@ -11,4 +11,4 @@ scene = ExtResource("2_o46ct")
 display_name = "Lightbulb"
 thumbnail = ExtResource("3_5phqc")
 icon = ExtResource("1_nx13e")
-type = 0
+type = 1

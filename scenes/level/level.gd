@@ -1,14 +1,24 @@
 class_name Level extends Node3D
 
 
+enum Room {LIVING_ROOM, BATHROOM}
+
+
 const FOOTSTEPS_ICON : Texture2D = preload("res://shared/icons/footsteps_icon.png")
 
 
+@onready var floors : Array[StaticBody3D] = [%LivingRoomFloor, %BathroomFloor]
+
+
 func _ready() -> void:
-	for _floor : StaticBody3D in [%LivingRoomFloor, %BathroomFloor]:
+	for _floor : StaticBody3D in floors:
 		_floor.input_event.connect(_on_floor_input_event)
 		_floor.mouse_entered.connect(_on_floor_mouse_entered)
 		_floor.mouse_exited.connect(_on_floor_mouse_exited)
+
+	SignalBus.navigation_to_inspectable_finished.connect(_on_navigation_to_inspectable_finished)
+	SignalBus.back_button_pressed.connect(_on_back_button_pressed)
+	SignalBus.bathroom_door_interaction.connect(_on_bathroom_door_interaction)
 
 
 func _on_floor_input_event(_camera: Camera3D, event: InputEvent, \
@@ -22,8 +32,33 @@ event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 
 
 func _on_floor_mouse_entered() -> void:
-	Input.set_custom_mouse_cursor(FOOTSTEPS_ICON, Input.CURSOR_ARROW, Vector2(16, 16))
+	SignalBus.change_cursor.emit(FOOTSTEPS_ICON)
 
 
 func _on_floor_mouse_exited() -> void:
-	Input.set_custom_mouse_cursor(null)
+	SignalBus.change_cursor.emit(null)
+
+
+func _on_navigation_to_inspectable_finished() -> void:
+	_disable()
+
+
+func _on_back_button_pressed() -> void:
+	await SignalBus.camera_changed
+	_enable()
+
+
+func _on_bathroom_door_interaction() -> void:
+	_disable()
+	await SignalBus.camera_changed
+	_enable()
+
+
+func _disable() -> void:
+	for _floor : StaticBody3D in floors:
+			_floor.input_ray_pickable = false
+
+
+func _enable() -> void:
+	for _floor : StaticBody3D in floors:
+			_floor.input_ray_pickable = true

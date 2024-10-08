@@ -6,6 +6,7 @@ const HAND_ICON : Texture2D = preload("res://shared/icons/hand_icon.png")
 
 @export var required_item : ItemRes
 @export var camera : Camera3D
+@export_multiline var no_item_dialog : String = ""
 
 
 func _ready() -> void:
@@ -17,11 +18,11 @@ func _ready() -> void:
 
 
 func _mouse_enter() -> void:
-	Input.set_custom_mouse_cursor(HAND_ICON, Input.CURSOR_ARROW, Vector2(16, 16))
+	SignalBus.change_cursor.emit(HAND_ICON)
 
 
 func _mouse_exit() -> void:
-	Input.set_custom_mouse_cursor(null)
+	SignalBus.change_cursor.emit(null)
 
 
 func _input_event(_p_camera: Node, p_event: InputEvent, \
@@ -32,10 +33,14 @@ _p_event_position: Vector3, _p_normal: Vector3, _p_shape_idx: int) -> void:
 	and p_event.pressed:
 
 		if required_item is not ItemRes:
-			_interact()
+			interact()
 			return
 
-		SignalBus.create_dialog.emit("ITEM REQUIRED")
+		SignalBus.interactable_clicked.emit(self)
+
+
+func interact() -> void:
+	print_debug("interact not overriden")
 
 
 func _on_camera_changed(_p_from: Camera3D, p_to: Camera3D) -> void:
@@ -43,7 +48,3 @@ func _on_camera_changed(_p_from: Camera3D, p_to: Camera3D) -> void:
 		input_ray_pickable = true
 	else:
 		input_ray_pickable = false
-
-
-func _interact() -> void:
-	print_debug("interact not overriden")

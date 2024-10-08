@@ -19,7 +19,7 @@ func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
 	%Input.text_submitted.connect(_on_input_text_submitted)
 
-	create_command("help", _help, "Displays available commands commands")
+	create_command("help", _help, "Displays available commands")
 	create_command("clear", _clear, "Clears console output")
 	create_command("exit", _exit, "Exits the console")
 	create_command("quit", _quit, "Quits the game")
@@ -93,21 +93,22 @@ func _on_visibility_changed() -> void:
 
 
 func _on_input_text_submitted(p_text: String) -> void:
+	%Input.text = ""
+
+	var args : PackedStringArray = p_text.split(" ", false)
+
 	print_line("[b]> " + p_text + "[/b]")
 
-	if p_text.is_empty():
+	if args.is_empty():
 		return
 
-	%Input.text = ""
 	history.push_front(p_text)
 	if history.size() > 100:
 		history.pop_back()
 	history_index = -1
 
-	var args : PackedStringArray = p_text.split(" ", false)
-
 	if not _has_command(args[0]):
-		print_line("Command %s was not recognized" %args[0], Color.RED)
+		print_line("'%s' is not recognized as a command" %args[0], Color.RED)
 		return
 
 	var command : ConsoleCommand = _get_command(args[0])
@@ -167,7 +168,9 @@ func _help(p_command: StringName = "") -> void:
 	if p_command == "":
 		print_line("List of available commands:")
 		for cmd : ConsoleCommand in commands:
-			print_line("- " + cmd.command)
+			var description : String \
+			= cmd.description if not cmd.description.is_empty() else "No description"
+			print_line(cmd.command + "\t" + description)
 		return
 
 	else:
@@ -175,11 +178,8 @@ func _help(p_command: StringName = "") -> void:
 
 			if cmd.command == p_command:
 
-				if cmd.description.is_empty():
-					print_line("%s - No description" % cmd.command)
-
-				else:
-					print_line("%s - %s" % [cmd.command, cmd.description])
+				print_line("%s - %s" % [cmd.command, \
+				cmd.description if not cmd.description.is_empty() else "No description"])
 
 				var i : int = 0
 				var required_args_count : int = cmd.args.size() - cmd.default_args.size()

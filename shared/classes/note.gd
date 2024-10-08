@@ -17,16 +17,13 @@ func _ready() -> void:
 	original_transform = transform
 
 
-func _mouse_enter() -> void:
-	if not can_interact:
-		return
-
-	if cam.is_current() and Global.item_in_hand == null and Global.current_note == null:
-		Input.set_custom_mouse_cursor(Inspectable.CURSOR_MAGNIFYING_GLASS, Input.CURSOR_ARROW, Vector2(16, 16))
-
-
 func interact() -> void:
-	Global.current_note = self
-
+	SignalBus.note_inspection.emit(self)
 	position = target_pos
 	rotation_degrees = target_rot
+	input_ray_pickable = false
+
+
+func reset() -> void:
+	transform = original_transform
+	input_ray_pickable = true

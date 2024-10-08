@@ -11,4 +11,4 @@ scene = ExtResource("2_cetd0")
 display_name = "Exit Key"
 thumbnail = ExtResource("3_la3b3")
 icon = ExtResource("1_0t7h7")
-type = 1
+type = 0

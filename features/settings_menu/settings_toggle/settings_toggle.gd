@@ -10,6 +10,11 @@ signal value_changed(value: bool)
 		text = val
 		%LeftLabel.text = val
 
+@export var default : bool:
+	set(val):
+		default = val
+		value = val
+
 
 var value : bool = false:
 	set(val):
@@ -31,6 +36,7 @@ func _ready() -> void:
 
 func on_on_button_pressed() -> void:
 	value = true
+
 
 func on_off_button_pressed() -> void:
 	value = false

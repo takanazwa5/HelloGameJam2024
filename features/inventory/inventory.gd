@@ -5,11 +5,16 @@ const INVENTORY_SLOT : PackedScene = preload("res://features/inventory/inventory
 
 
 func _ready() -> void:
-	pass
+	SignalBus.item_clicked.connect(_on_item_picked_up)
 
-func add_item(item: Item) -> void:
+
+func _add_item(p_item: Item) -> void:
 	var new_slot : InventorySlot = INVENTORY_SLOT.instantiate()
-	new_slot.item_res = item.item_res
+	new_slot.item_res = p_item.item_res
 	%Slots.add_child(new_slot)
-	item.queue_free()
-	Input.set_custom_mouse_cursor(null)
+	SignalBus.change_cursor.emit(null)
+
+
+func _on_item_picked_up(p_item: Item) -> void:
+	_add_item(p_item)
+	p_item.queue_free()

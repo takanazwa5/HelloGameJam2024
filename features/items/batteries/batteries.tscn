@@ -117,24 +117,23 @@ shadow_mesh = SubResource("ArrayMesh_yrc7k")
 points = PackedVector3Array(0.00558169, 0.0821468, 0.00299439, -0.00864518, -0.000646822, -0.00347058, -0.00864518, -0.000646822, 0.00299439, 0.00816899, -0.000646822, 0.00428804, 0.00428804, 0.0782649, -0.00864518, -0.00735153, 0.0782649, 0.00558169, 0.00428804, 0.000649866, -0.00864518, -0.00605788, 0.0782649, -0.00735153, 0.00428804, -0.000646822, 0.00816899, 0.00687534, 0.0782649, 0.00687534, 0.00816899, 0.0782649, -0.00476423, -0.00476423, -0.000646822, 0.00816899, -0.00347058, -0.000646822, -0.00864518, -0.00476423, 0.0782649, 0.00816899, -0.00864518, 0.0782649, -0.00347058, 0.00816899, -0.000646822, -0.00476423, 0.00428804, 0.0782649, 0.00816899, 0.00816899, 0.0782649, 0.00428804, -0.00476423, 0.0821468, -0.00347058, -0.00347058, 0.0782649, -0.00864518, -0.00864518, 0.0782649, 0.00299439, -0.00735153, -0.000646822, -0.00605788, -0.00217692, 0.0821468, 0.00558169, 0.00428804, 0.0821468, -0.00476423, 0.00687534, 0.000649866, 0.00687534, -0.00735153, -0.000646822, 0.00558169, -0.00735153, 0.0782649, -0.00605788, -0.00605788, -0.000646822, -0.00735153, -0.00476423, 0.0821468, 0.00428804, 0.00299439, 0.0821468, 0.00558169, -0.00347058, 0.0821468, -0.00476423, 0.00299439, -0.000646822, -0.00864518)
 
 [node name="Batteries" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(-0.412465, -5.29396e-23, -0.910973, -0.910973, -4.37114e-08, 0.412465, -5.21123e-08, 1, -9.11969e-09, -0.00974775, 0.00894156, -0.0477123)
 
-[node name="AAAA Battery Body" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="AAAA Battery Body" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(1, 0, -2.98023e-08, 3.55271e-15, 1, 2.66454e-15, 2.98023e-08, -3.55271e-15, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ovm2p")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_hoh5k")
 
-[node name="AAAA Battery Body_001" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="AAAA Battery Body_001" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(-0.412465, 3.55271e-15, 0.910974, -2.98023e-08, 1, 7.10543e-15, -0.910974, -5.32907e-15, -0.412465, -0.00782863, 0.0179811, -0.0172904)
 mesh = SubResource("ArrayMesh_1clb7")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(-0.412465, 3.55271e-15, 0.910974, -2.98023e-08, 1, 7.10543e-15, -0.910974, -3.55271e-15, -0.412465, -0.00782863, 0.0179811, -0.0172904)
 shape = SubResource("ConvexPolygonShape3D_loehk")

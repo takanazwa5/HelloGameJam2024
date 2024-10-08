@@ -1,5 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-export.exe
-dream_escape.exe
+*.exe

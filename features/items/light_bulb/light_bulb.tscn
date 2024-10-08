@@ -39,12 +39,12 @@ points = PackedVector3Array(0.0211483, 0.0398834, 0.00724307, -0.0243498, 0.0538
 
 [node name="LightBulb" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0263893, 0.053595)
 
-[node name="lamp_a_lightbulb" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="lamp_a_lightbulb" type="MeshInstance3D" parent="Area3D"]
 mesh = SubResource("ArrayMesh_dh1lc")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_wirf5")

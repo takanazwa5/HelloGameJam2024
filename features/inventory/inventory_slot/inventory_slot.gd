@@ -14,12 +14,12 @@ func _ready() -> void:
 
 
 func _on_mouse_entered() -> void:
-	pass
+	SignalBus.inventory_slot_mouse_entered.emit(self)
 
 
 func _on_mouse_exited() -> void:
-	pass
+	SignalBus.inventory_slot_mouse_exited.emit()
 
 
 func _on_texture_button_pressed() -> void:
-	pass
+	SignalBus.inventory_slot_pressed.emit(self)

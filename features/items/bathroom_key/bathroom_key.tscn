@@ -39,12 +39,12 @@ points = PackedVector3Array(-0.00951103, -0.00140794, -0.0158714, 0.0179286, 0.0
 
 [node name="BathroomKey" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014, 0, -0.015)
 
-[node name="key_LOW" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="key_LOW" type="MeshInstance3D" parent="Area3D"]
 mesh = SubResource("ArrayMesh_vdhw2")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_i2h78")

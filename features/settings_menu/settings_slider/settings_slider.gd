@@ -5,19 +5,6 @@ class_name SettingsSlider extends PanelContainer
 signal value_changed(value: float)
 
 
-var value : float = 0.0:
-	set(val):
-		value = val
-		%Slider.set_value_no_signal(val)
-		%RightLabel.text = str(value)
-		value_changed.emit(val)
-
-
-func _ready() -> void:
-	%Slider.value_changed.connect(on_slider_value_changed)
-	%RightLabel.text = str(snappedf(%Slider.value, step))
-
-
 @export var text : String = "Label":
 	set(val):
 		text = val
@@ -37,6 +24,25 @@ func _ready() -> void:
 	set(val):
 		step = val
 		%Slider.step = val
+
+@export var default : float:
+	set(val):
+		val = clampf(snappedf(val, 0.01), min_value, max_value)
+		default = val
+		value = val
+
+
+var value : float = 0.0:
+	set(val):
+		value = val
+		%Slider.set_value_no_signal(val)
+		%RightLabel.text = str(value)
+		value_changed.emit(val)
+
+
+func _ready() -> void:
+	%Slider.value_changed.connect(on_slider_value_changed)
+	%RightLabel.text = str(snappedf(%Slider.value, step))
 
 
 func on_slider_value_changed(val: float) -> void:

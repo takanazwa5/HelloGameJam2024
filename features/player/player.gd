@@ -8,6 +8,9 @@ const DECELERATION : float = 0.1
 
 var navigating : bool = false
 var freeroaming : bool = true
+var navigating_to_inspectable : bool = false
+var navigating_to_door : bool = false
+var room : Level.Room = Level.Room.LIVING_ROOM
 
 
 @onready var animations : AnimationPlayer = $Character.get_node("%Animations")
@@ -19,7 +22,7 @@ func _ready() -> void:
 	%NavAgent.navigation_finished.connect(_on_navigation_finished)
 	SignalBus.floor_click.connect(_on_floor_click)
 	SignalBus.inspectable_clicked.connect(_on_inspectable_clicked)
-	SignalBus.back_button_pressed.connect(_on_back_button_pressed)
+	SignalBus.door_clicked.connect(_on_door_clicked)
 
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	_on_animation_finished(&"Waking up") # NOTE: TEMP
@@ -86,23 +89,35 @@ func _navigate_to(p_pos: Vector3) -> void:
 func _on_floor_click(p_pos: Vector3) -> void:
 	_navigate_to(p_pos)
 	freeroaming = true
+	navigating_to_inspectable = false
+	navigating_to_door = false
 	SignalBus.freeroaming_started.emit()
 
 
 func _on_navigation_finished() -> void:
 	stop_navigating()
 
-	if not freeroaming:
+	if freeroaming:
+		return
+
+	if navigating_to_inspectable:
 		SignalBus.navigation_to_inspectable_finished.emit()
-		await SignalBus.camera_changed
-		hide()
+		navigating_to_inspectable = false
+
+	elif navigating_to_door:
+		SignalBus.navigation_to_door_finished.emit()
+		navigating_to_door = false
 
 
-func _on_inspectable_clicked(p_pos: Vector3) -> void:
-	_navigate_to(p_pos)
+func _on_inspectable_clicked(p_inspectable: Inspectable) -> void:
+	_navigate_to(p_inspectable.global_position)
+	navigating_to_inspectable = true
+	navigating_to_door = false
 	freeroaming = false
 
 
-func _on_back_button_pressed() -> void:
-	await SignalBus.camera_changed
-	show()
+func _on_door_clicked(p_door: Door) -> void:
+	_navigate_to(p_door.global_position)
+	navigating_to_door = true
+	navigating_to_inspectable = false
+	freeroaming = false

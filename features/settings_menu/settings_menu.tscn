@@ -142,6 +142,7 @@ text = "Mouse Sensitivity"
 min_value = 0.5
 max_value = 2.5
 step = 0.01
+default = 1.0
 
 [node name="Video" type="MarginContainer" parent="SettingsContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
@@ -158,7 +159,6 @@ unique_name_in_owner = true
 layout_mode = 2
 left_text = "Window Mode"
 options = Array[String](["Fullscreen", "Borderless", "Windowed"])
-default = 2
 
 [node name="FramerateLimit" parent="SettingsContainer/VBoxContainer/HBoxContainer2/Video/VBoxContainer" instance=ExtResource("2_agsgd")]
 unique_name_in_owner = true
@@ -171,6 +171,7 @@ default = 5
 unique_name_in_owner = true
 layout_mode = 2
 text = "VSync"
+default = true
 
 [node name="Brightness" parent="SettingsContainer/VBoxContainer/HBoxContainer2/Video/VBoxContainer" instance=ExtResource("1_i2i64")]
 unique_name_in_owner = true
@@ -179,6 +180,7 @@ text = "Brightness"
 min_value = 0.5
 max_value = 2.0
 step = 0.01
+default = 1.0
 
 [node name="MSAA" parent="SettingsContainer/VBoxContainer/HBoxContainer2/Video/VBoxContainer" instance=ExtResource("2_agsgd")]
 unique_name_in_owner = true
@@ -207,8 +209,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 text = "Master Volume"
-max_value = 1.0
-step = 0.01
+default = 100.0
 
 [node name="Keyboard" type="MarginContainer" parent="SettingsContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true

@@ -11,4 +11,4 @@ scene = ExtResource("2_cc8w4")
 display_name = "Drawer Key"
 thumbnail = ExtResource("3_ivgpp")
 icon = ExtResource("1_mctec")
-type = 0
+type = 1
