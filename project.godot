@@ -17,9 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://autoloads/signal_bus.gd"
-DebugConsole="*res://autoloads/debug_console/debug_console.tscn"
-DebugPanel="*res://autoloads/debug_panel/debug_panel.tscn"
+SignalBus="*res://features/signal_bus/signal_bus.gd"
+DebugPanel="*res://features/debug_panel/debug_panel.tscn"
 
 [debug]
 
@@ -39,7 +38,6 @@ window/stretch/aspect="keep_height"
 [file_customization]
 
 folder_colors={
-"res://autoloads/": "red",
 "res://features/": "blue",
 "res://scenes/": "yellow",
 "res://shared/": "pink"

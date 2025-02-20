@@ -9,9 +9,6 @@ func _ready() -> void:
 
 	SignalBus.tv_code_complete.connect(_on_tv_code_complete)
 
-	DebugConsole.create_command("microwave_unlock", _unlock)
-
-
 func interact() -> void:
 	if locked:
 		SignalBus.create_dialog.emit("It's not doing anything.")

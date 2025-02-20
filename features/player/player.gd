@@ -64,7 +64,6 @@ func _process(_delta: float) -> void:
 
 
 func stop_navigating() -> void:
-	DebugConsole.print_line("navigation finished")
 	navigating = false
 
 
@@ -79,10 +78,6 @@ func _on_animation_finished(p_anim_name: StringName) -> void:
 
 func _navigate_to(p_pos: Vector3) -> void:
 	%NavAgent.target_position = p_pos
-	if not navigating:
-		DebugConsole.print_line("navigation started with target %s" % p_pos)
-	else:
-		DebugConsole.print_line("navigation target changed to %s" % p_pos)
 	navigating = true
 
 

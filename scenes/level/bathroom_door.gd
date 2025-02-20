@@ -7,8 +7,6 @@ const BATHROOM_KEY_ITEM_RES = preload("res://features/items/bathroom_key/bathroo
 func _ready() -> void:
 	super()
 
-	DebugConsole.create_command("bathroom_get_key", func() -> void: has_key = true)
-
 	SignalBus.item_clicked.connect(_on_item_picked_up)
 
 
