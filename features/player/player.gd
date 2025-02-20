@@ -59,8 +59,8 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	animation_tree.set("parameters/blend_position", velocity.length())
 
-	DebugPanel.add_property("Navigating", navigating, 2)
-	DebugPanel.add_property("Freeroaming", freeroaming, 3)
+	DebugPanel.add_property(navigating, "navigating", 2)
+	DebugPanel.add_property(freeroaming, "freeroaming", 3)
 
 
 func stop_navigating() -> void:

@@ -35,8 +35,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	DebugPanel.add_property("FPS", Engine.get_frames_per_second(), 1)
-	DebugPanel.add_property("item in hand", item_in_hand, 4)
+	DebugPanel.add_property(Engine.get_frames_per_second(), "FPS", 1)
+	DebugPanel.add_property(item_in_hand, "item_in_hand", 4)
 
 
 func _shoot_ray() -> CollisionObject3D:
