@@ -1,19 +1,19 @@
-class_name MainMenu extends Control
+class_name MainMenu extends CanvasLayer
 
 
-@onready var _buttons_container : VBoxContainer = %ButtonsContainer
-@onready var _start_game_button : Button = %StartGameButton
-@onready var _settings_button : Button = %SettingsButton
-@onready var _quit_button : Button = %QuitButton
-@onready var _settings_menu : SettingsMenu = %SettingsMenu
+@onready var buttons_container : VBoxContainer = %ButtonsContainer
+@onready var start_game_button : Button = %StartGameButton
+@onready var settings_button : Button = %SettingsButton
+@onready var quit_button : Button = %QuitButton
+@onready var settings_menu : SettingsMenu = %SettingsMenu
 
 
 func _ready() -> void:
 
-	_start_game_button.pressed.connect(_on_start_game_button_pressed)
-	_settings_button.pressed.connect(_on_settings_button_pressed)
-	_quit_button.pressed.connect(_on_quit_button_pressed)
-	_settings_menu.visibility_changed.connect(_on_settings_menu_visibility_changed)
+	start_game_button.pressed.connect(_on_start_game_button_pressed)
+	settings_button.pressed.connect(_on_settings_button_pressed)
+	quit_button.pressed.connect(_on_quit_button_pressed)
+	settings_menu.visibility_changed.connect(_on_settings_menu_visibility_changed)
 
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -26,7 +26,7 @@ func _on_start_game_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 
-	_settings_menu.show()
+	settings_menu.show()
 
 
 func _on_quit_button_pressed() -> void:
@@ -36,4 +36,4 @@ func _on_quit_button_pressed() -> void:
 
 func _on_settings_menu_visibility_changed() -> void:
 
-	_buttons_container.visible = not _settings_menu.visible
+	buttons_container.visible = not settings_menu.visible
