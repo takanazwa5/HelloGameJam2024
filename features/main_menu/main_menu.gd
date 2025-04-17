@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _on_start_game_button_pressed() -> void:
 
-	var main_scene : PackedScene = load("res://scenes/main/main.tscn")
+	var main_scene : PackedScene = load("uid://b8b44mm8i7vnk")
 	get_tree().change_scene_to_packed(main_scene)
 
 
