@@ -2471,10 +2471,10 @@ tracks/71/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kkmbo"]
 _data = {
-"Idle": SubResource("Animation_m66nm"),
-"Waking up": SubResource("Animation_ha0vo"),
-"Walking": SubResource("Animation_23xcs"),
-"ending_scene": SubResource("Animation_miwet")
+&"Idle": SubResource("Animation_m66nm"),
+&"Waking up": SubResource("Animation_ha0vo"),
+&"Walking": SubResource("Animation_23xcs"),
+&"ending_scene": SubResource("Animation_miwet")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vwlgk"]

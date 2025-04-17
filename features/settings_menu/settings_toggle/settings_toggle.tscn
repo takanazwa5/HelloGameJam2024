@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjfyyvlm1s5e5"]
 
-[ext_resource type="Script" path="res://features/settings_menu/settings_toggle/settings_toggle.gd" id="1_jpg2i"]
+[ext_resource type="Script" uid="uid://bpwhqufjybe55" path="res://features/settings_menu/settings_toggle/settings_toggle.gd" id="1_jpg2i"]
 
 [node name="SettingsToggle" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 32)

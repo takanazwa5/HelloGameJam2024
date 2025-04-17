@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://extdqw1hd74l"]
 
-[ext_resource type="Script" path="res://features/settings_menu/settings_keybind/settings_keybind.gd" id="1_tr80u"]
+[ext_resource type="Script" uid="uid://bfiqnfrg867o8" path="res://features/settings_menu/settings_keybind/settings_keybind.gd" id="1_tr80u"]
 
 [node name="SettingsKeybind" type="PanelContainer"]
 script = ExtResource("1_tr80u")

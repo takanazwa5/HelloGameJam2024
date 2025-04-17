@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8b44mm8i7vnk"]
 
-[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_8g3y5"]
+[ext_resource type="Script" uid="uid://dml353pege0gb" path="res://scenes/main/main.gd" id="1_8g3y5"]
 [ext_resource type="PackedScene" uid="uid://d1lf6yoxj60fr" path="res://features/pause_menu/pause_menu.tscn" id="2_g3ph6"]
 [ext_resource type="PackedScene" uid="uid://dinlvdvxepfsj" path="res://features/player/player.tscn" id="4_e8gcv"]
 [ext_resource type="PackedScene" uid="uid://cf42hl00jn6v1" path="res://features/inventory/inventory.tscn" id="5_bjakt"]
@@ -51,8 +51,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mf0ti"]
 _data = {
-"BlackFadeIn": SubResource("Animation_6b3go"),
-"RESET": SubResource("Animation_ehfau")
+&"BlackFadeIn": SubResource("Animation_6b3go"),
+&"RESET": SubResource("Animation_ehfau")
 }
 
 [node name="Main" type="Node"]

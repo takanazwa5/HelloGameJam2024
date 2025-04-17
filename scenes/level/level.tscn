@@ -1,7 +1,7 @@
 [gd_scene load_steps=711 format=4 uid="uid://dw3e5km8mmfmt"]
 
 [ext_resource type="Material" uid="uid://edmptv885yvg" path="res://scenes/level/materials/puzderko.tres" id="1_1h8xx"]
-[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_xtd4w"]
+[ext_resource type="Script" uid="uid://kwv1eaoboe4x" path="res://scenes/level/level.gd" id="1_xtd4w"]
 [ext_resource type="Material" uid="uid://hukf0m6uxknl" path="res://scenes/level/materials/padlock.tres" id="2_adbyi"]
 [ext_resource type="Material" uid="uid://dqg5dkuwnh6mg" path="res://scenes/level/materials/key_shelf.tres" id="3_15clm"]
 [ext_resource type="Material" uid="uid://63qcae5377in" path="res://scenes/level/materials/blackest_black.tres" id="4_fhs4i"]
@@ -9,16 +9,16 @@
 [ext_resource type="Material" uid="uid://dhh6pp3shf3fu" path="res://scenes/level/materials/living_room_wardrobe.tres" id="6_02nif"]
 [ext_resource type="Material" uid="uid://pclrmqqxpn" path="res://scenes/level/materials/living_room_sofa.tres" id="7_0hid4"]
 [ext_resource type="Material" uid="uid://bpum86r0bqoj4" path="res://scenes/level/materials/living_room_table.tres" id="8_863io"]
-[ext_resource type="Script" path="res://scenes/level/tv.gd" id="8_nqbei"]
+[ext_resource type="Script" uid="uid://4awgiu68nbpi" path="res://scenes/level/tv.gd" id="8_nqbei"]
 [ext_resource type="Material" uid="uid://dhrwtlnxxdv0p" path="res://scenes/level/materials/living_room_chair.tres" id="9_elg6t"]
 [ext_resource type="Material" uid="uid://2ghtxyfw60rh" path="res://shared/shaders/glass_material.tres" id="10_foy2r"]
 [ext_resource type="Material" uid="uid://dft3msxs5xxqu" path="res://scenes/level/materials/remote.tres" id="11_3nbco"]
 [ext_resource type="Material" uid="uid://dvaywv81063xd" path="res://scenes/level/materials/living_room_radio.tres" id="11_hw86e"]
 [ext_resource type="Material" uid="uid://y7i7ehqo61fp" path="res://features/inspectable/outline_material.tres" id="11_sfjtm"]
 [ext_resource type="Material" uid="uid://so75btffvjxg" path="res://scenes/level/materials/living_room_small_cabinet.tres" id="12_6g6qn"]
-[ext_resource type="Script" path="res://scenes/level/remote_button.gd" id="12_65hql"]
+[ext_resource type="Script" uid="uid://bcnsyeomwvp82" path="res://scenes/level/remote_button.gd" id="12_65hql"]
 [ext_resource type="Material" uid="uid://rjnvflkbnnai" path="res://scenes/level/materials/living_room_tv.tres" id="13_r8muf"]
-[ext_resource type="Script" path="res://scenes/level/remote.gd" id="14_eq3bs"]
+[ext_resource type="Script" uid="uid://uwl1merv8dyn" path="res://scenes/level/remote.gd" id="14_eq3bs"]
 [ext_resource type="Material" uid="uid://dybstxutujunt" path="res://scenes/level/materials/knife_set.tres" id="14_r373j"]
 [ext_resource type="Material" uid="uid://eki6u4rl274o" path="res://scenes/level/materials/raw_wood.tres" id="15_ysfxu"]
 [ext_resource type="Material" uid="uid://bjodc4l8h30w0" path="res://scenes/level/materials/kitchen_pots_n_dishes.tres" id="16_kk803"]
@@ -36,7 +36,7 @@
 [ext_resource type="Material" uid="uid://d1afwowex1q06" path="res://scenes/level/materials/kitchen_cupboard_shelves.tres" id="26_oji3p"]
 [ext_resource type="Material" uid="uid://cdjlytt8faipo" path="res://scenes/level/materials/kitchen_marble_counter.tres" id="27_v0syj"]
 [ext_resource type="Material" uid="uid://cp4cv28tqa12f" path="res://scenes/level/materials/microwave_closed_1.tres" id="28_ax2ru"]
-[ext_resource type="Script" path="res://scenes/level/lamp.gd" id="28_p16ct"]
+[ext_resource type="Script" uid="uid://dl8blfkgo3won" path="res://scenes/level/lamp.gd" id="28_p16ct"]
 [ext_resource type="Material" uid="uid://bvx23th4tumd0" path="res://scenes/level/materials/kitchen_stove.tres" id="29_jhip2"]
 [ext_resource type="Material" uid="uid://cjsrscdkj7m6l" path="res://scenes/level/materials/kitchen_stove_transparency.tres" id="30_msaya"]
 [ext_resource type="Material" uid="uid://c62tchcxoh5a6" path="res://scenes/level/materials/door.tres" id="31_lv44x"]
@@ -47,14 +47,14 @@
 [ext_resource type="Material" uid="uid://8xj8c0xb1oav" path="res://scenes/level/materials/bathroom_rugs_n_towels.tres" id="36_03se7"]
 [ext_resource type="PackedScene" uid="uid://ctmqe430byl2s" path="res://features/items/item.tscn" id="36_pa7pt"]
 [ext_resource type="Material" uid="uid://bt5oufyasid0v" path="res://scenes/level/materials/bathroom_sink.tres" id="37_d4rea"]
-[ext_resource type="Script" path="res://shared/classes/openable.gd" id="37_fj7qn"]
+[ext_resource type="Script" uid="uid://bhgnl3y3stoqw" path="res://shared/classes/openable.gd" id="37_fj7qn"]
 [ext_resource type="Resource" uid="uid://db6grrjcp705p" path="res://features/items/remote/remote_item_res.tres" id="37_ucmad"]
 [ext_resource type="Material" uid="uid://ctkl3ttepix1c" path="res://scenes/level/materials/bathroom_pralka.tres" id="38_hpean"]
 [ext_resource type="Material" uid="uid://vmq3rnvdn6vb" path="res://scenes/level/materials/bathroom_toilet.tres" id="39_cu3ac"]
 [ext_resource type="Resource" uid="uid://c0vq216kaltj1" path="res://features/items/drawer_key/drawer_key_item_res.tres" id="39_mbr0n"]
 [ext_resource type="Material" uid="uid://d33k35kp1ulkg" path="res://scenes/level/materials/bathroom_radiator.tres" id="40_t316r"]
 [ext_resource type="Material" uid="uid://wha4hb7cxd2e" path="res://scenes/level/materials/bathroom_basket.tres" id="41_k1bqv"]
-[ext_resource type="Script" path="res://scenes/level/keyhole.gd" id="42_6ejjc"]
+[ext_resource type="Script" uid="uid://cfa61b8x8f7kn" path="res://scenes/level/keyhole.gd" id="42_6ejjc"]
 [ext_resource type="Material" uid="uid://dhjjktc0o7otx" path="res://scenes/level/materials/bathroom_cupboard_big.tres" id="42_31m18"]
 [ext_resource type="Material" uid="uid://pn7jvvqle4ie" path="res://scenes/level/materials/bathroom_cupboard_small.tres" id="43_a76tu"]
 [ext_resource type="Material" uid="uid://baxvj8q6jlnrx" path="res://scenes/level/materials/bathtub_battery.tres" id="44_thbrx"]
@@ -65,7 +65,7 @@
 [ext_resource type="Material" uid="uid://c64jb7p3qq8b1" path="res://scenes/level/materials/parquet.tres" id="48_8ebtw"]
 [ext_resource type="Material" uid="uid://cvpt38jsomelp" path="res://scenes/level/materials/laptop_base.tres" id="49_it0ka"]
 [ext_resource type="Material" uid="uid://doexm5c6n3ian" path="res://scenes/level/materials/laptop_screen.tres" id="50_08qqd"]
-[ext_resource type="Script" path="res://features/microwave/microwave.gd" id="50_jggsi"]
+[ext_resource type="Script" uid="uid://i4mwe754ouvv" path="res://features/microwave/microwave.gd" id="50_jggsi"]
 [ext_resource type="Material" uid="uid://cm17v5fs6ybfw" path="res://scenes/level/materials/laptop_buttons.tres" id="51_nssm7"]
 [ext_resource type="AudioStream" uid="uid://c18atassue0dm" path="res://features/microwave/microwave_ding.wav" id="51_nwa7d"]
 [ext_resource type="AudioStream" uid="uid://cqr8v2twq8ylg" path="res://features/microwave/microwave_door.wav" id="52_23bat"]
@@ -75,26 +75,26 @@
 [ext_resource type="Material" uid="uid://byhe5q4v367dx" path="res://scenes/level/materials/napkins.tres" id="57_x7dfj"]
 [ext_resource type="Material" uid="uid://bum442q1bil6t" path="res://scenes/level/materials/encyclopedia_cover.tres" id="58_xkicq"]
 [ext_resource type="Material" uid="uid://b62lh3de70ns2" path="res://scenes/level/materials/encyclopedia_paper.tres" id="59_7oxhm"]
-[ext_resource type="Script" path="res://scenes/level/bathroom_door.gd" id="59_86ir0"]
-[ext_resource type="Script" path="res://shared/classes/door.gd" id="59_mhm1k"]
+[ext_resource type="Script" uid="uid://ckrvhnswvklu3" path="res://scenes/level/bathroom_door.gd" id="59_86ir0"]
+[ext_resource type="Script" uid="uid://5ben0yrmc1av" path="res://shared/classes/door.gd" id="59_mhm1k"]
 [ext_resource type="Material" uid="uid://cqt33l64wih6n" path="res://scenes/level/materials/plunger.tres" id="60_17bau"]
-[ext_resource type="Script" path="res://scenes/level/exit_door.gd" id="61_5nief"]
+[ext_resource type="Script" uid="uid://cv2ouy7koqn43" path="res://scenes/level/exit_door.gd" id="61_5nief"]
 [ext_resource type="Material" uid="uid://cqxdutpug5ac3" path="res://scenes/level/materials/picture_frame_art.tres" id="61_qpewx"]
 [ext_resource type="Material" uid="uid://bsa5ics2in4mx" path="res://scenes/level/materials/picture_frame.tres" id="62_vyn5o"]
 [ext_resource type="Material" uid="uid://dqgflel37ooxl" path="res://scenes/level/materials/clutter_tea_set.tres" id="63_bbfjx"]
 [ext_resource type="Resource" uid="uid://dhb8k5cutq52r" path="res://features/items/light_bulb/light_bulb_item_res.tres" id="64_dpij5"]
 [ext_resource type="Material" uid="uid://1u8jnnsvj0up" path="res://scenes/level/materials/clutter_mantel_clock.tres" id="64_mgtmq"]
-[ext_resource type="Shader" path="res://shared/shaders/glass.gdshader" id="65_hlsys"]
+[ext_resource type="Shader" uid="uid://c4m0drmrkyp5p" path="res://shared/shaders/glass.gdshader" id="65_hlsys"]
 [ext_resource type="AudioStream" uid="uid://bcsms55kb27ch" path="res://features/toilet/key_drop.mp3" id="65_hvdpe"]
 [ext_resource type="Material" uid="uid://b5lbedko6a4io" path="res://scenes/level/materials/note_break.tres" id="66_858bf"]
-[ext_resource type="Script" path="res://features/toilet/toilet.gd" id="66_t2un6"]
+[ext_resource type="Script" uid="uid://bf808nmykyg8s" path="res://features/toilet/toilet.gd" id="66_t2un6"]
 [ext_resource type="Material" uid="uid://dsrtijc6pevi4" path="res://scenes/level/materials/note_water.tres" id="67_s55cx"]
 [ext_resource type="Material" uid="uid://y1vy1yjy55j4" path="res://scenes/level/materials/note_overworking.tres" id="68_u615u"]
 [ext_resource type="Material" uid="uid://bctaxka3b04wi" path="res://scenes/level/materials/note_morse.tres" id="69_awxxk"]
 [ext_resource type="Material" uid="uid://c2ksacwd0kxnw" path="res://scenes/level/materials/living_room_lamp.tres" id="70_3moy5"]
 [ext_resource type="Material" uid="uid://chks71ip7fjqc" path="res://scenes/level/materials/living_room_lamp_SSS.tres" id="71_0s2ln"]
 [ext_resource type="Texture2D" uid="uid://d4a7bmxxyopp5" path="res://scenes/level/DayEnvironmentHDRI052_1K-HDR.exr" id="72_6qnsx"]
-[ext_resource type="Script" path="res://scenes/level/note_water.gd" id="93_ywrut"]
+[ext_resource type="Script" uid="uid://c8lfnudbwynfb" path="res://scenes/level/note_water.gd" id="93_ywrut"]
 [ext_resource type="AudioStream" uid="uid://ciyx51waby27i" path="res://scenes/level/door_knocking.wav" id="95_g1i6y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_fs3ik"]
@@ -2306,8 +2306,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hp1go"]
 _data = {
-"MorseCode": SubResource("Animation_5yg2c"),
-"RESET": SubResource("Animation_ow2g0")
+&"MorseCode": SubResource("Animation_5yg2c"),
+&"RESET": SubResource("Animation_ow2g0")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n8a7m"]
@@ -2462,8 +2462,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_18gey"]
 _data = {
-"ClockTicking": SubResource("Animation_rjgk3"),
-"RESET": SubResource("Animation_2tnam")
+&"ClockTicking": SubResource("Animation_rjgk3"),
+&"RESET": SubResource("Animation_2tnam")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sc7qy"]
@@ -3629,8 +3629,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iromq"]
 _data = {
-"Open": SubResource("Animation_tds7g"),
-"RESET": SubResource("Animation_3j0s2")
+&"Open": SubResource("Animation_tds7g"),
+&"RESET": SubResource("Animation_3j0s2")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jco2q"]
@@ -3740,8 +3740,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1drlw"]
 _data = {
-"Open": SubResource("Animation_mmdma"),
-"RESET": SubResource("Animation_srpbm")
+&"Open": SubResource("Animation_mmdma"),
+&"RESET": SubResource("Animation_srpbm")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cuyis"]
@@ -3966,8 +3966,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hhdyk"]
 _data = {
-"Open": SubResource("Animation_nivvp"),
-"RESET": SubResource("Animation_tnfen")
+&"Open": SubResource("Animation_nivvp"),
+&"RESET": SubResource("Animation_tnfen")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nmu04"]
@@ -4071,8 +4071,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j416f"]
 _data = {
-"Open": SubResource("Animation_7hnd7"),
-"RESET": SubResource("Animation_xvqtb")
+&"Open": SubResource("Animation_7hnd7"),
+&"RESET": SubResource("Animation_xvqtb")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_foljm"]
@@ -4817,8 +4817,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sm2vy"]
 _data = {
-"Open": SubResource("Animation_t7co6"),
-"RESET": SubResource("Animation_a60hi")
+&"Open": SubResource("Animation_t7co6"),
+&"RESET": SubResource("Animation_a60hi")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qn21t"]
@@ -6365,8 +6365,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nep41"]
 _data = {
-"Drop": SubResource("Animation_v1cru"),
-"RESET": SubResource("Animation_bmxhx")
+&"Drop": SubResource("Animation_v1cru"),
+&"RESET": SubResource("Animation_bmxhx")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tge6y"]
@@ -6674,8 +6674,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ucd0w"]
 _data = {
-"Open": SubResource("Animation_331ab"),
-"RESET": SubResource("Animation_v4kt2")
+&"Open": SubResource("Animation_331ab"),
+&"RESET": SubResource("Animation_v4kt2")
 }
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hnmvn"]
@@ -6747,8 +6747,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s4p5r"]
 _data = {
-"Open": SubResource("Animation_nxiu2"),
-"RESET": SubResource("Animation_0kqdv")
+&"Open": SubResource("Animation_nxiu2"),
+&"RESET": SubResource("Animation_0kqdv")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mqj2e"]
