@@ -38,9 +38,8 @@ window/stretch/aspect="keep_height"
 [file_customization]
 
 folder_colors={
-"res://features/": "blue",
-"res://scenes/": "yellow",
-"res://shared/": "pink"
+"res://features/": "yellow",
+"res://shared/": "purple"
 }
 
 [filesystem]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw3e5km8mmfmt"]
+
+[ext_resource type="Script" uid="uid://kwv1eaoboe4x" path="res://features/level/level.gd" id="1_xtd4w"]
+[ext_resource type="Texture2D" path="res://scenes/level/DayEnvironmentHDRI052_1K-HDR.exr" id="72_6qnsx"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3dmon"]
+panorama = ExtResource("72_6qnsx")
+
+[sub_resource type="Sky" id="Sky_jskur"]
+sky_material = SubResource("PanoramaSkyMaterial_3dmon")
+
+[sub_resource type="Environment" id="Environment_bn6md"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_jskur")
+tonemap_mode = 3
+tonemap_white = 7.0
+ssr_enabled = true
+ssao_enabled = true
+glow_enabled = true
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_xtd4w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bn6md")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5, -0.433013, 0.75, -2.18557e-08, 0.866025, 0.5, -0.866025, 0.25, -0.433013, 0, 0, 0)
+light_color = Color(0.847059, 1, 1, 1)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+use_edge_connections = false
