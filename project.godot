@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://features/signal_bus/signal_bus.gd"
 DebugPanel="*res://features/debug_panel/debug_panel.tscn"
 
 [debug]
